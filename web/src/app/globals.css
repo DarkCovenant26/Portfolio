@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #f8fafc;
+
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #0a0a0a;
+  --color-primary-glow: rgba(59, 130, 246, 0.5);
+
+  --color-secondary: #10b981;
+  --color-secondary-foreground: #0a0a0a;
+
+  --color-accent: #38bdf8;
+  --color-accent-foreground: #0a0a0a;
+
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+
+  --color-card: rgba(10, 10, 10, 0.6);
+  --color-card-foreground: #f8fafc;
+  --color-card-border: rgba(148, 163, 184, 0.1);
+  --color-cyber-grid: #1e293b;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Animations */
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-typewriter: typewriter 2s steps(20) forwards;
+  --animate-pulse-network: pulse-network 2s infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes glitch {
+
+    2%,
+    64% {
+      transform: translate(2px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+      transform: translate(-2px, 0) skew(0deg);
+    }
+
+    62% {
+      transform: translate(0, 0) skew(5deg);
+    }
+  }
+
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes pulse-network {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    /* Fallback / Reference variables if needed by ShadCN or others */
+    --background: 10 10 10;
+    --foreground: 248 250 252;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 0px;
+  border: 1px solid var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+  border-color: #60a5fa;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+}
