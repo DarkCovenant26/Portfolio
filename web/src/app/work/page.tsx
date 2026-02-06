@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function WorkPage() {
     return (
-        <div className="container px-4 md:px-6 py-24 space-y-16">
+        <div className="container mx-auto px-4 md:px-6 py-24 space-y-16">
             <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight">Systems Architected</h1>
                 <p className="text-xl text-muted-foreground max-w-2xl">
@@ -27,10 +27,10 @@ export default function WorkPage() {
                             Architected a multi-module SaaS platform designed to ingest, normalize, and analyze disparate security data streams in near real-time. Designed a cross-module communication fabric allowing independent domains (SIEM, Risk, Audit) to share context.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <Badge variant="secondary">Rust</Badge>
+                            <Badge variant="secondary">Python</Badge>
                             <Badge variant="secondary">FastAPI</Badge>
-                            <Badge variant="secondary">Kafka</Badge>
-                            <Badge variant="secondary">Module Federation</Badge>
+                            <Badge variant="secondary">PostgreSQL</Badge>
+                            <Badge variant="secondary">Redis</Badge>
                         </div>
                         <ul className="space-y-2 text-sm text-neutral-300 font-mono">
                             <li className="flex items-center gap-2">
@@ -68,7 +68,7 @@ export default function WorkPage() {
                             <Badge variant="secondary">Redis</Badge>
                             <Badge variant="secondary">Celery</Badge>
                             <Badge variant="secondary">Python</Badge>
-                            <Badge variant="secondary">Auto-scaling</Badge>
+                            <Badge variant="secondary">Docker</Badge>
                         </div>
                         <ul className="space-y-2 text-sm text-neutral-300 font-mono">
                             <li className="flex items-center gap-2">
@@ -94,7 +94,7 @@ export default function WorkPage() {
                         <div className="flex flex-wrap gap-2">
                             <Badge variant="secondary">Docker</Badge>
                             <Badge variant="secondary">GitLab CI</Badge>
-                            <Badge variant="secondary">Terraform</Badge>
+                            <Badge variant="secondary">Jenkins</Badge>
                         </div>
                         <ul className="space-y-2 text-sm text-neutral-300 font-mono">
                             <li className="flex items-center gap-2">

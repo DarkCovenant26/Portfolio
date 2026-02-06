@@ -12,8 +12,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Principal Architect | Cybersecurity Platforms",
-    description: "Executive technical portfolio for a Principal Architect & Engineering Director.",
+    title: "Portfolio | Director of Cyber R&D",
+    description: "High-frequency security architect and platform engineering leader specializing in zero-trust ecosystems and autonomous defense grids.",
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: "https://portfolio.example.com",
+        title: "Director of Cyber R&D | Portfolio",
+        description: "Architecting high-frequency security ecosystems and intelligent defense grids.",
+        siteName: "Cyber R&D Portfolio",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Director of Cyber R&D | Portfolio",
+        description: "Zero-trust architectures and autonomous GRC systems.",
+    },
 };
 
 export default function RootLayout({

@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function PhilosophyPage() {
     return (
-        <div className="container px-4 md:px-6 py-24 space-y-24">
+        <div className="container mx-auto px-4 md:px-6 py-24 space-y-24">
             {/* Header */}
             <div className="space-y-4 max-w-3xl">
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -22,10 +22,14 @@ export default function PhilosophyPage() {
                         <CardTitle className="text-primary mb-2">01</CardTitle>
                         <h3 className="text-xl font-semibold">Force Multiplier</h3>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="space-y-4">
                         <p className="text-muted-foreground">
                             I believe that the role of leadership is to remove friction. By building robust internal platforms and paved-path architectures, I enable product teams to ship faster and more safely.
                         </p>
+                        <div className="pt-2 border-t border-primary/10">
+                            <span className="text-xs font-mono text-primary/70 uppercase tracking-widest">Applied In:</span>
+                            <p className="text-sm text-foreground mt-1">DevSecOps Pipeline Orchestration</p>
+                        </div>
                     </CardContent>
                 </Card>
 
@@ -34,10 +38,14 @@ export default function PhilosophyPage() {
                         <CardTitle className="text-secondary mb-2">02</CardTitle>
                         <h3 className="text-xl font-semibold">Architecture is Political</h3>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="space-y-4">
                         <p className="text-muted-foreground">
                             Great systems survive because they align with organizational incentives. I focus on interoperability strategies that allow teams to decouple their roadmap while maintaining a cohesive system contract.
                         </p>
+                        <div className="pt-2 border-t border-secondary/10">
+                            <span className="text-xs font-mono text-secondary/70 uppercase tracking-widest">Applied In:</span>
+                            <p className="text-sm text-foreground mt-1">Hybrid Cloud & Mesh Interface</p>
+                        </div>
                     </CardContent>
                 </Card>
 
@@ -46,10 +54,14 @@ export default function PhilosophyPage() {
                         <CardTitle className="text-accent mb-2">03</CardTitle>
                         <h3 className="text-xl font-semibold">Reliability is a Feature</h3>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="space-y-4">
                         <p className="text-muted-foreground">
                             In cybersecurity, trust is the currency. I advocate for "resilience by design"—immutable audit logs, strict data lineage, and failure-oblivious architectures.
                         </p>
+                        <div className="pt-2 border-t border-accent/10">
+                            <span className="text-xs font-mono text-accent/70 uppercase tracking-widest">Applied In:</span>
+                            <p className="text-sm text-foreground mt-1">Threat Data Aggregator</p>
+                        </div>
                     </CardContent>
                 </Card>
             </div>

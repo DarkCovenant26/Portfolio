@@ -52,7 +52,7 @@ export function Navbar() {
                         </Link>
                     ))}
                     <Button variant="cyber" size="sm" asChild>
-                        <Link href="mailto:contact@example.com">Contact</Link>
+                        <Link href="mailto:zandro.narvaza@gmail.com">Contact</Link>
                     </Button>
                 </nav>
 
@@ -90,7 +90,7 @@ export function Navbar() {
                             </Link>
                         ))}
                         <Button variant="cyber" className="w-full" asChild>
-                            <Link href="mailto:contact@example.com">Contact</Link>
+                            <Link href="mailto:zandro.narvaza@gmail.com">Contact</Link>
                         </Button>
                     </nav>
                 </motion.div>

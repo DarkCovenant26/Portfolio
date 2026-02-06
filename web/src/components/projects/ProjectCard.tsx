@@ -11,6 +11,7 @@ interface ProjectCardProps {
     tags: string[];
     link?: string;
     className?: string;
+    image?: string;
 }
 
 export const ProjectCard = ({
@@ -19,6 +20,7 @@ export const ProjectCard = ({
     tags,
     link = "#",
     className,
+    image,
 }: ProjectCardProps) => {
     return (
         <motion.div
@@ -30,17 +32,23 @@ export const ProjectCard = ({
             whileHover={{ scale: 1.02, y: -2 }}
             transition={{ duration: 0.2 }}
         >
-            {/* Grid background effect on hover */}
-            <div
-                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                style={{
-                    backgroundImage:
-                        "linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)",
-                    backgroundSize: "20px 20px",
-                }}
-            />
+            {/* Visual Header / Fallback */}
+            <div className="absolute inset-x-0 top-0 h-32 w-full overflow-hidden mask-gradient-to-b from-black to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500">
+                {image ? (
+                    // Placeholder for real image implementation
+                    <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} />
+                ) : (
+                    <div
+                        className="w-full h-full"
+                        style={{
+                            backgroundImage: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 50%), linear-gradient(0deg, transparent 49%, rgba(59,130,246,0.05) 50%, transparent 51%)",
+                            backgroundSize: "100% 100%, 20px 20px"
+                        }}
+                    />
+                )}
+            </div>
 
-            <div className="relative z-10 flex flex-col h-full">
+            <div className="relative z-10 flex flex-col h-full mt-20">
                 <div className="flex justify-between items-start mb-4">
                     <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
                         {title}

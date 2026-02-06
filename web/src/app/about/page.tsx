@@ -4,7 +4,7 @@ import { Terminal } from "lucide-react";
 
 export default function AboutPage() {
     return (
-        <div className="container px-4 md:px-6 py-24 space-y-16">
+        <div className="container mx-auto px-4 md:px-6 py-24 space-y-16">
             <div className="grid lg:grid-cols-[1fr_300px] gap-12">
                 {/* Main Bio Content */}
                 <div className="space-y-12">
@@ -18,7 +18,7 @@ export default function AboutPage() {
                                 I am a Principal Architect and Engineering Leader specializing in the design of large-scale cybersecurity platforms. With a deep background in distributed systems, I have led the technical evolution of SaaS ecosystems that power risk management, compliance, and threat detection for global enterprises.
                             </p>
                             <p>
-                                At the intersection of Operations, Security, and Engineering, I build more than just software—I build internal platforms that multiply developer velocity. From architecting Rust-based ingestion engines to designing micro-frontend interoperability standards, I possess the ability to zoom out to the 10,000-foot strategic view and zoom in to the kernel-level debugger.
+                                At the intersection of Operations, Security, and Engineering, I build more than just software—I build internal platforms that multiply developer velocity. From architecting high-throughput ingestion engines to designing secure API interoperability standards, I possess the ability to zoom out to the 10,000-foot strategic view and zoom in to the kernel-level debugger.
                             </p>
                         </div>
                     </div>
@@ -48,28 +48,30 @@ export default function AboutPage() {
                                 <span className="text-xs font-mono text-muted-foreground block">CORE ARCHITECTURE</span>
                                 <div className="flex flex-wrap gap-2">
                                     <Badge variant="secondary">Python (Django/FastAPI)</Badge>
-                                    <Badge variant="secondary">Rust</Badge>
                                     <Badge variant="secondary">TypeScript</Badge>
                                     <Badge variant="secondary">PostgreSQL</Badge>
+                                    <Badge variant="secondary">Redis</Badge>
                                 </div>
                             </div>
 
                             <div className="space-y-3">
                                 <span className="text-xs font-mono text-muted-foreground block">INFRASTRUCTURE</span>
                                 <div className="flex flex-wrap gap-2">
+                                    <Badge variant="outline">AWS (EC2/S3)</Badge>
                                     <Badge variant="outline">Docker</Badge>
-                                    <Badge variant="outline">K8s</Badge>
-                                    <Badge variant="outline">Redis</Badge>
-                                    <Badge variant="outline">Terraform</Badge>
+                                    <Badge variant="outline">Nginx</Badge>
+                                    <Badge variant="outline">Proxmox</Badge>
+                                    <Badge variant="outline">MinIO</Badge>
                                 </div>
                             </div>
 
                             <div className="space-y-3">
-                                <span className="text-xs font-mono text-muted-foreground block">OBSERVABILITY</span>
+                                <span className="text-xs font-mono text-muted-foreground block">DEVSECOPS</span>
                                 <div className="flex flex-wrap gap-2">
-                                    <Badge variant="outline">Promtail</Badge>
-                                    <Badge variant="outline">Loki</Badge>
-                                    <Badge variant="outline">Grafana</Badge>
+                                    <Badge variant="outline">Jenkins</Badge>
+                                    <Badge variant="outline">GitLab CI</Badge>
+                                    <Badge variant="outline">Infisical</Badge>
+                                    <Badge variant="outline">Linux</Badge>
                                 </div>
                             </div>
                         </CardContent>
