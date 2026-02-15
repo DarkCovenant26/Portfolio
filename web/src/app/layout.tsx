@@ -12,20 +12,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Portfolio | Director of Cyber R&D",
-    description: "High-frequency security architect and platform engineering leader specializing in zero-trust ecosystems and autonomous defense grids.",
+    title: "Portfolio | Senior Backend & Systems Architect",
+    description: "Specializing in Django, FastAPI, DevOps automation, and security-driven architectures for scalable web systems.",
     openGraph: {
         type: "website",
         locale: "en_US",
         url: "https://portfolio.example.com",
-        title: "Director of Cyber R&D | Portfolio",
-        description: "Architecting high-frequency security ecosystems and intelligent defense grids.",
-        siteName: "Cyber R&D Portfolio",
+        title: "Senior Backend & Systems Architect | Portfolio",
+        description: "Helping teams build secure, scalable backend systems and intelligent defense grids.",
+        siteName: "Zandro | Systems Architect",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Director of Cyber R&D | Portfolio",
-        description: "Zero-trust architectures and autonomous GRC systems.",
+        title: "Senior Backend & Systems Architect | Portfolio",
+        description: "Building secure, scalable backend architectures.",
     },
 };
 

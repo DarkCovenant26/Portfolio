@@ -182,12 +182,29 @@ export const TechPipeline = () => {
                 </div>
             </div>
 
-            <p className="text-center text-muted-foreground mt-6 font-mono text-xs max-w-2xl mx-auto leading-relaxed">
+            <p className="text-center text-muted-foreground mt-6 font-mono text-xs max-w-2xl mx-auto leading-relaxed mb-12">
                 <span className="text-primary font-bold">Request Flow:</span> Next.js → Nginx → Identity Service → Backend Services<br />
                 <span className="text-yellow-500">↳ Cache Check (Redis)</span> | <span className="text-blue-500">↳ Get Credentials (Secrets Mgr)</span> → <span className="text-purple-500">Query Database</span>
                 <br />
                 <span className="text-xs opacity-60 mt-1 block">Dotted lines = optional cache path | Solid lines = primary flow</span>
             </p>
+
+            <div className="max-w-4xl mx-auto border-t border-white/10 pt-12">
+                <h3 className="text-xl font-bold mb-8 text-center text-white">Selected Technical Stack</h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                    {[
+                        "Django", "FastAPI", "PostgreSQL", "Redis", "Celery",
+                        "Docker", "GitLab CI", "Jenkins", "AWS", "Next.js", "React"
+                    ].map((tech) => (
+                        <span
+                            key={tech}
+                            className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 font-mono text-sm hover:border-primary/50 hover:text-primary transition-colors cursor-default"
+                        >
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+            </div>
         </section>
     );
 };

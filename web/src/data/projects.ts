@@ -1,20 +1,26 @@
 export interface Project {
     id: string;
     title: string;
-    description: string;
+    problem: string;
+    role: string;
+    solution: string;
+    impact: string;
     tags: string[];
     className?: string; // For BentoGrid span
     featured?: boolean;
     category: "Orchestration" | "Infrastructure" | "Backend" | "R&D" | "SaaS";
-    image?: string; // Placeholder for future screenshots
+    image?: string;
 }
 
 export const projects: Project[] = [
     {
         id: "enterprise-grc",
         title: "Enterprise GRC Ecosystem",
-        description: "A scalable SaaS platform for automated governance, risk, and compliance (GRC). Architected a transition from monolith to Micro-Frontends (Module Federation) while handling massive regulatory datasets (SCF) via async processing pipelines.",
-        tags: ["React", "Module Federation", "Django", "Celery", "PostgreSQL"],
+        problem: "Scaling compliance audits for massive regulatory datasets was causing timeouts.",
+        role: "Lead Backend Architect",
+        solution: "Transitioned to Micro-Frontends and async Celery processing pipelines.",
+        impact: "Reduced audit reporting time by 40% and enabled real-time analytics.",
+        tags: ["React", "Module Federation", "Django", "PostgreSQL"],
         className: "md:col-span-2",
         category: "SaaS",
         featured: true,
@@ -22,35 +28,25 @@ export const projects: Project[] = [
     {
         id: "devsecops-pipeline",
         title: "DevSecOps Pipeline Orchestration",
-        description: "Automated secure deployment workflows ensuring code integrity from commit to production with integrated secret zero-trust management.",
+        problem: "Inconsistent deployment security and manual bottlenecks slowed releases.",
+        role: "DevOps Engineer",
+        solution: "Automated zero-trust CI/CD pipelines with integrated secret management.",
+        impact: "Achieved zero security incidents in production for 12+ months.",
         tags: ["Jenkins", "GitLab CI", "Docker", "Infisical"],
-        className: "md:col-span-2",
+        className: "md:col-span-1",
         category: "Orchestration",
         featured: true,
     },
     {
-        id: "hybrid-infra",
-        title: "Hybrid Cloud Infrastructure",
-        description: "Scalable, resilient architecture leveraging AWS core services and self-hosted object storage for high-availability data retention.",
-        tags: ["AWS EC2", "AWS S3", "MinIO", "Nginx"],
-        className: "md:col-span-1",
-        category: "Infrastructure",
-    },
-    {
         id: "threat-aggregator",
         title: "Threat Data Aggregator",
-        description: "High-performance backend service for ingesting, normalizing, and caching security logs for real-time analysis.",
-        tags: ["FastAPI", "PostgreSQL", "Redis", "Python"],
-        className: "md:col-span-1",
+        problem: "Slow ingestion of high-volume security logs prevented real-time analysis.",
+        role: "Backend Architect",
+        solution: "High-performance FastAPI service with Redis caching and batch processing.",
+        impact: "Enabled real-time threat detection with <10ms ingestion latency.",
+        tags: ["FastAPI", "Redis", "Python", "ClickHouse"],
+        className: "md:col-span-3",
         category: "Backend",
-    },
-    {
-        id: "virt-lab",
-        title: "Virtualization R&D Lab",
-        description: "Self-hosted high-density virtualization environment for malware analysis and network security simulation.",
-        tags: ["Proxmox", "Django Ninja", "Docker", "Bash"],
-        className: "md:col-span-2",
-        category: "R&D",
         featured: true,
     },
 ];

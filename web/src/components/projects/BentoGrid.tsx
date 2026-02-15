@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 
 export const BentoGrid = () => {
     return (
-        <section className="container mx-auto px-4 md:px-6 py-20 relative z-10">
+        <section id="projects" className="container mx-auto px-4 md:px-6 py-20 relative z-10">
             <h2 className="text-3xl font-bold mb-12 border-b border-primary/20 pb-4 inline-block">
                 &gt; Systems_Architected
             </h2>
@@ -25,7 +25,10 @@ export const BentoGrid = () => {
                     >
                         <ProjectCard
                             title={project.title}
-                            description={project.description}
+                            problem={project.problem}
+                            role={project.role}
+                            solution={project.solution}
+                            impact={project.impact}
                             tags={project.tags}
                             className="h-full"
                         />

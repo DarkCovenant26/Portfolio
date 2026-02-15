@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const CommandLine = () => {
     const [text, setText] = useState("");
-    const fullText = "> initializing system architecture... protocol: SECURE_HFT_V2";
+    const fullText = "> system_status: ONLINE // mode: PRODUCTION_READY";
     const controls = useAnimation();
 
     useEffect(() => {

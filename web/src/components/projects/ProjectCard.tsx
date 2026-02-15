@@ -7,7 +7,10 @@ import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
     title: string;
-    description: string;
+    problem: string;
+    role: string;
+    solution: string;
+    impact: string;
     tags: string[];
     link?: string;
     className?: string;
@@ -16,7 +19,10 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({
     title,
-    description,
+    problem,
+    role,
+    solution,
+    impact,
     tags,
     link = "#",
     className,
@@ -25,56 +31,64 @@ export const ProjectCard = ({
     return (
         <motion.div
             className={cn(
-                "group relative overflow-hidden rounded-lg border border-white/5 bg-card backdrop-blur-sm p-6 transition-all duration-300",
+                "group relative overflow-hidden rounded-lg border border-white/5 bg-card backdrop-blur-sm p-6 transition-all duration-300 h-full flex flex-col",
                 "hover:border-primary/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]",
                 className
             )}
-            whileHover={{ scale: 1.02, y: -2 }}
-            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.01 }}
         >
-            {/* Visual Header / Fallback */}
-            <div className="absolute inset-x-0 top-0 h-32 w-full overflow-hidden mask-gradient-to-b from-black to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500">
-                {image ? (
-                    // Placeholder for real image implementation
-                    <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} />
-                ) : (
-                    <div
-                        className="w-full h-full"
-                        style={{
-                            backgroundImage: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 50%), linear-gradient(0deg, transparent 49%, rgba(59,130,246,0.05) 50%, transparent 51%)",
-                            backgroundSize: "100% 100%, 20px 20px"
-                        }}
-                    />
-                )}
-            </div>
-
-            <div className="relative z-10 flex flex-col h-full mt-20">
-                <div className="flex justify-between items-start mb-4">
+            <div className="flex justify-between items-start mb-4">
+                <div>
                     <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
                         {title}
                     </h3>
-                    <Link
-                        href={link}
-                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary"
+                    <span className="text-xs font-mono text-primary/80 border border-primary/20 px-2 py-0.5 rounded mt-1 inline-block">
+                        {role}
+                    </span>
+                </div>
+                <Link
+                    href={link}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary"
+                >
+                    <ArrowUpRight className="h-5 w-5" />
+                </Link>
+            </div>
+
+            <div className="space-y-4 flex-grow">
+                <div>
+                    <h4 className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">The Problem</h4>
+                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                        {problem}
+                    </p>
+                </div>
+
+                <div>
+                    <h4 className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">The Solution</h4>
+                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                        {solution}
+                    </p>
+                </div>
+
+                <div className="bg-primary/5 p-3 rounded-md border border-primary/10">
+                    <h4 className="text-xs uppercase tracking-wider text-primary font-semibold mb-1 flex items-center">
+                        <span className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse" />
+                        Impact
+                    </h4>
+                    <p className="text-sm text-white font-medium leading-relaxed">
+                        {impact}
+                    </p>
+                </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
+                {tags.map((tag) => (
+                    <span
+                        key={tag}
+                        className="px-2 py-1 text-xs font-mono rounded bg-white/5 text-slate-400 border border-transparent group-hover:border-primary/30 group-hover:text-primary/90 transition-all"
                     >
-                        <ArrowUpRight className="h-5 w-5" />
-                    </Link>
-                </div>
-
-                <p className="text-muted-foreground mb-6 font-light leading-relaxed flex-grow">
-                    {description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                    {tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="px-2 py-1 text-xs font-mono rounded bg-white/5 text-slate-300 border border-transparent group-hover:border-primary/30 group-hover:text-primary/90 transition-all"
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+                        {tag}
+                    </span>
+                ))}
             </div>
         </motion.div>
     );
