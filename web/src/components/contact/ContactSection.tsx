@@ -21,7 +21,7 @@ export const ContactSection = () => {
                 </h2>
 
                 <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light">
-                    I'm currently opening my schedule for new backend architecture and DevOps consulting projects.
+                    Interested in connecting? I'm always open to conversations about engineering, architecture, and new opportunities.
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">

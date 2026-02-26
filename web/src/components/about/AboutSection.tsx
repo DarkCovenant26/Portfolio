@@ -30,8 +30,8 @@ export const AboutSection = () => {
                         </p>
 
                         <p>
-                            I work best with <span className="text-primary font-medium">startups, SaaS companies, and technical teams</span> that
-                            need backend reliability and strong DevOps foundations. If you value security by design and
+                            I thrive in environments where <span className="text-primary font-medium">backend reliability and strong DevOps foundations</span> are
+                            valued — from startups to enterprise SaaS teams. If you value security by design and
                             intuitive user experiences, we'll get along great.
                         </p>
                     </div>

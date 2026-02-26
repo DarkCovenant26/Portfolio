@@ -19,7 +19,7 @@ export const HeroHeadline = () => {
                     Senior Backend & Systems Architect
                 </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
-                    I Help Teams Build Secure, Scalable Web Systems
+                    Building Secure, Scalable Backend Systems
                 </span>
             </motion.h1>
 

@@ -5,12 +5,12 @@ import { Server, Workflow, Zap, ShieldCheck } from "lucide-react";
 
 const services = [
     {
-        title: "Backend Architecture Consulting",
+        title: "Backend Architecture",
         description: "System design, scalability planning, and database optimization for high-load environments.",
         icon: <Server className="w-8 h-8 text-primary" />,
     },
     {
-        title: "DevOps & CI/CD Setup",
+        title: "DevOps & CI/CD",
         description: "Dockerization, GitHub Actions/GitLab CI, and automated deployment pipelines.",
         icon: <Workflow className="w-8 h-8 text-secondary" />,
     },
@@ -36,7 +36,7 @@ export const ServicesSection = () => {
                 viewport={{ once: true }}
             >
                 <h2 className="text-3xl font-bold mb-12 border-b border-primary/20 pb-4 inline-block">
-                    &gt; Services_Offered
+                    &gt; Core_Competencies
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

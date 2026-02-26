@@ -6,7 +6,7 @@ import { CommandLine } from "@/components/hero/CommandLine";
 import { AboutSection } from "@/components/about/AboutSection";
 import { ServicesSection } from "@/components/services/ServicesSection";
 import { ContactSection } from "@/components/contact/ContactSection";
-import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
+
 import { BentoGrid } from "@/components/projects/BentoGrid";
 import { TechPipeline } from "@/components/tech/TechPipeline";
 import Link from "next/link";
@@ -66,8 +66,7 @@ export default function Home() {
             {/* Contact Section */}
             <ContactSection />
 
-            {/* Testimonials Section */}
-            {/* <TestimonialsSection /> */}
+
 
             <div className="h-20" /> {/* Spacer */}
         </div>
