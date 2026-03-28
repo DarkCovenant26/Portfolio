@@ -10,9 +10,9 @@ const badgeVariants = cva(
                 default:
                     "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
                 secondary:
-                    "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-                outline: "text-foreground",
-                cyber: "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20",
+                    "border-transparent bg-muted text-muted-foreground hover:bg-muted/80",
+                outline: "text-muted-foreground border-card-border",
+                cyber: "border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 shadow-[0_0_10px_rgba(var(--primary),0.1)]",
             },
         },
         defaultVariants: {

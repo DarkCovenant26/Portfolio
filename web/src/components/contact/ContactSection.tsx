@@ -15,17 +15,17 @@ export const ContactSection = () => {
                 viewport={{ once: true }}
                 className="max-w-4xl mx-auto text-center"
             >
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                     Have a project in mind? <br />
                     <span className="text-primary">Let’s talk.</span>
                 </h2>
 
-                <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light">
+                <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                     Interested in connecting? I'm always open to conversations about engineering, architecture, and new opportunities.
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
-                    <MagneticButton asChild size="lg" className="h-16 px-10 text-lg bg-white text-black hover:bg-slate-200 rounded-full font-bold">
+                    <MagneticButton asChild size="lg" className="h-16 px-10 text-lg rounded-full font-bold">
                         <Link href="mailto:your.email@example.com">
                             Email Me <Mail className="ml-2 h-5 w-5" />
                         </Link>
@@ -35,14 +35,14 @@ export const ContactSection = () => {
                         <Link
                             href="https://github.com"
                             target="_blank"
-                            className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all text-white"
+                            className="p-4 rounded-full bg-muted border border-card-border hover:bg-primary/10 hover:border-primary/50 transition-all"
                         >
                             <Github className="h-6 w-6" />
                         </Link>
                         <Link
                             href="https://linkedin.com"
                             target="_blank"
-                            className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all text-white"
+                            className="p-4 rounded-full bg-muted border border-card-border hover:bg-primary/10 hover:border-primary/50 transition-all"
                         >
                             <Linkedin className="h-6 w-6" />
                         </Link>

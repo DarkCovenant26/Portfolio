@@ -69,7 +69,7 @@ export const TechPipeline = () => {
                 &gt; Architecture_Pipeline
             </h2>
 
-            <div className="relative w-full overflow-hidden border border-white/5 bg-card/30 backdrop-blur-sm rounded-xl p-8 flex items-center justify-center">
+            <div className="relative w-full overflow-hidden border border-card-border bg-surface-muted backdrop-blur-sm rounded-xl p-8 flex items-center justify-center">
                 <div className="relative w-full max-w-5xl aspect-[16/9]">
                     <svg
                         className="absolute inset-0 w-full h-full pointer-events-none"
@@ -168,12 +168,12 @@ export const TechPipeline = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 10 }}
-                                className="absolute top-4 left-4 bg-slate-900/95 border border-primary/30 p-4 rounded-lg backdrop-blur-md max-w-sm text-left z-50 shadow-2xl pointer-events-none"
+                                className="absolute top-4 left-4 glass p-4 rounded-lg backdrop-blur-md max-w-sm text-left z-50 shadow-2xl pointer-events-none"
                             >
                                 <h4 className="text-primary font-bold mb-1 text-sm">
                                     {(nodes.find(n => n.id === activeNode) as any)?.fullLabel || nodes.find(n => n.id === activeNode)?.label}
                                 </h4>
-                                <p className="text-xs text-slate-300 leading-relaxed">
+                                <p className="text-xs text-muted-foreground leading-relaxed">
                                     {nodes.find(n => n.id === activeNode)?.description}
                                 </p>
                             </motion.div>
@@ -189,8 +189,8 @@ export const TechPipeline = () => {
                 <span className="text-xs opacity-60 mt-1 block">Dotted lines = optional cache path | Solid lines = primary flow</span>
             </p>
 
-            <div className="max-w-4xl mx-auto border-t border-white/10 pt-12">
-                <h3 className="text-xl font-bold mb-8 text-center text-white">Selected Technical Stack</h3>
+            <div className="max-w-4xl mx-auto border-t border-card-border pt-12">
+                <h3 className="text-xl font-bold mb-8 text-center">Selected Technical Stack</h3>
                 <div className="flex flex-wrap justify-center gap-4">
                     {[
                         "Django", "FastAPI", "PostgreSQL", "Redis", "Celery",
@@ -198,7 +198,7 @@ export const TechPipeline = () => {
                     ].map((tech) => (
                         <span
                             key={tech}
-                            className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 font-mono text-sm hover:border-primary/50 hover:text-primary transition-colors cursor-default"
+                            className="px-4 py-2 rounded-full bg-muted border border-card-border text-foreground font-mono text-sm hover:border-primary/50 hover:text-primary transition-colors cursor-default"
                         >
                             {tech}
                         </span>

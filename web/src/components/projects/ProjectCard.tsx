@@ -31,24 +31,24 @@ export const ProjectCard = ({
     return (
         <motion.div
             className={cn(
-                "group relative overflow-hidden rounded-lg border border-white/5 bg-card backdrop-blur-sm p-6 transition-all duration-300 h-full flex flex-col",
-                "hover:border-primary/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]",
+                "group relative overflow-hidden rounded-lg border border-card-border bg-surface-card backdrop-blur-sm p-6 transition-all duration-300 h-full flex flex-col",
+                "hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.15)] shadow-sm dark:shadow-none",
                 className
             )}
             whileHover={{ scale: 1.01 }}
         >
             <div className="flex justify-between items-start mb-4">
                 <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                         {title}
                     </h3>
-                    <span className="text-xs font-mono text-primary/80 border border-primary/20 px-2 py-0.5 rounded mt-1 inline-block">
+                    <span className="text-xs font-mono text-primary/80 border border-primary/20 px-2 py-0.5 rounded mt-1 inline-block bg-primary/5">
                         {role}
                     </span>
                 </div>
                 <Link
                     href={link}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary"
+                    className="p-2 rounded-md border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 hover:border-primary/60 transition-all duration-300"
                 >
                     <ArrowUpRight className="h-5 w-5" />
                 </Link>
@@ -56,35 +56,35 @@ export const ProjectCard = ({
 
             <div className="space-y-4 flex-grow">
                 <div>
-                    <h4 className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">The Problem</h4>
-                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                    <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">The Problem</h4>
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed">
                         {problem}
                     </p>
                 </div>
 
                 <div>
-                    <h4 className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">The Solution</h4>
-                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                    <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">The Solution</h4>
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed">
                         {solution}
                     </p>
                 </div>
 
-                <div className="bg-primary/5 p-3 rounded-md border border-primary/10">
+                <div className="bg-surface-accent p-3 rounded-md border border-primary/10">
                     <h4 className="text-xs uppercase tracking-wider text-primary font-semibold mb-1 flex items-center">
-                        <span className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse" />
+                        <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse" />
                         Impact
                     </h4>
-                    <p className="text-sm text-white font-medium leading-relaxed">
+                    <p className="text-sm font-medium leading-relaxed">
                         {impact}
                     </p>
                 </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-white/5">
+            <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-card-border">
                 {tags.map((tag) => (
                     <span
                         key={tag}
-                        className="px-2 py-1 text-xs font-mono rounded bg-white/5 text-slate-400 border border-transparent group-hover:border-primary/30 group-hover:text-primary/90 transition-all"
+                        className="px-2 py-1 text-xs font-mono rounded bg-muted text-muted-foreground border border-transparent group-hover:border-primary/30 group-hover:text-primary transition-all"
                     >
                         {tag}
                     </span>

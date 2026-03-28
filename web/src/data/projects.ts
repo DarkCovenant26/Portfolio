@@ -6,6 +6,7 @@ export interface Project {
     solution: string;
     impact: string;
     tags: string[];
+    link?: string;
     className?: string; // For BentoGrid span
     featured?: boolean;
     category: "Orchestration" | "Infrastructure" | "Backend" | "R&D" | "SaaS";
@@ -14,15 +15,29 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        id: "enterprise-grc",
-        title: "Enterprise GRC Ecosystem",
-        problem: "Scaling compliance audits for massive regulatory datasets was causing timeouts.",
+        id: "sequoia-grc",
+        title: "Sequoia Compliance Engine v2",
+        problem: "Automating the ingestion and mapping of massive SCF (Secure Controls Framework) datasets.",
         role: "Lead Backend Architect",
-        solution: "Transitioned to Micro-Frontends and async Celery processing pipelines.",
-        impact: "~40% reduction in audit reporting time; enabled real-time analytics across the platform.",
-        tags: ["React", "Module Federation", "Django", "PostgreSQL"],
+        solution: "Engineered a high-performance data pipeline using Pandas and RapidFuzz for framework synchronization and maturity analytics.",
+        impact: "Automated 1000+ control mappings; 45% reduction in audit reporting time through real-time readiness scoring.",
+        tags: ["Django", "SCF 2024", "Pandas", "RapidFuzz", "Celery"],
+        link: "/work/sequoia-grc",
         className: "md:col-span-2",
         category: "SaaS",
+        featured: true,
+    },
+    {
+        id: "risk-sentinel",
+        title: "Risk Management Engine v2",
+        problem: "Legacy risk assessments are static and fail to reflect real-time mitigation status.",
+        role: "Module Architect & Lead",
+        solution: "Engineered a dynamic 'Dual-State' scoring engine that calculates residual risk based on live control implementation.",
+        impact: "Shifted platform from point-in-time assessment to continuous-state risk monitoring with live executive telemetry.",
+        tags: ["Django 5", "Service Patterns", "Redis", "PostgreSQL"],
+        link: "/work/risk-management-sentinel",
+        className: "md:col-span-1",
+        category: "Backend",
         featured: true,
     },
     {
@@ -33,19 +48,34 @@ export const projects: Project[] = [
         solution: "Automated zero-trust CI/CD pipelines with integrated secret management.",
         impact: "Contributed to zero production security incidents over 12+ months.",
         tags: ["Jenkins", "GitLab CI", "Docker", "Infisical"],
+        link: "/work/secure-auth-gateway",
         className: "md:col-span-1",
         category: "Orchestration",
         featured: true,
     },
+
     {
-        id: "threat-aggregator",
-        title: "Threat Data Aggregator",
-        problem: "Slow ingestion of high-volume security logs prevented real-time analysis.",
-        role: "Backend Architect",
-        solution: "High-performance FastAPI service with Redis caching and batch processing.",
-        impact: "Enabled near real-time threat detection with sub-10ms ingestion latency.",
-        tags: ["FastAPI", "Redis", "Python", "ClickHouse"],
-        className: "md:col-span-3",
+        id: "white-label-replication",
+        title: "White-Label SaaS Replication",
+        problem: "Enterprise partner required a dedicated, white-labeled instance of the Cyber Security SaaS on their own infrastructure.",
+        role: "Lead Replication Architect",
+        solution: "Engineered a robust replication pipeline using GitLab CI and Jenkins, enabling automated deployment and environment parity for partner servers.",
+        impact: "Successfully delivered full SaaS replication, securing a major white-label partnership and demonstrating high-scale deployment capability.",
+        tags: ["GitLab CI", "Jenkins", "DevOps", "Cyber Security", "SaaS"],
+        className: "md:col-span-2",
+        category: "SaaS",
+        featured: true,
+    },
+    {
+        id: "sma-assessment",
+        title: "Security Management Assessment (SMA)",
+        problem: "Security assessments lack industry context, making maturity scores difficult to quantify against peers.",
+        role: "Lead Architect",
+        solution: "Engineered a benchmarking engine using hierarchical JSONField mappings to provide real-time peer-performance diagnostics.",
+        impact: "Optimized 35k+ benchmark data points into a sub-millisecond lookup system; automated diagnostic PDF generation with ReportLab.",
+        tags: ["Django 5", "Pandas", "ReportLab", "JSONField", "Pydantic"],
+        link: "/work/sma-benchmarking",
+        className: "md:col-span-1",
         category: "Backend",
         featured: true,
     },

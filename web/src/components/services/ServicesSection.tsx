@@ -5,24 +5,24 @@ import { Server, Workflow, Zap, ShieldCheck } from "lucide-react";
 
 const services = [
     {
-        title: "Backend Architecture",
-        description: "System design, scalability planning, and database optimization for high-load environments.",
+        title: "Architecture & Systems Design",
+        description: "Multi-tenant SaaS architecture, micro-frontends, API gateways, and state management strategies.",
         icon: <Server className="w-8 h-8 text-primary" />,
     },
     {
-        title: "DevOps & CI/CD",
-        description: "Dockerization, GitHub Actions/GitLab CI, and automated deployment pipelines.",
+        title: "Cross-Functional Leadership",
+        description: "Technical team leadership, sprint orchestration, and mentoring engineering talent across departments.",
         icon: <Workflow className="w-8 h-8 text-secondary" />,
     },
     {
-        title: "Performance Optimization",
-        description: "Async workflows, Celery task orchestration, and bottleneck elimination.",
-        icon: <Zap className="w-8 h-8 text-accent" />,
+        title: "GRC & Security Governance",
+        description: "Aligning software builds with stringent quality standards, SOC2/HIPAA compliance, and risk mitigation.",
+        icon: <ShieldCheck className="w-8 h-8 text-green-400" />,
     },
     {
-        title: "Security-Focused System Design",
-        description: "Compliance-aware architectures (SOC2/HIPAA) and secure coding practices.",
-        icon: <ShieldCheck className="w-8 h-8 text-green-400" />,
+        title: "Performance & Token Hygiene",
+        description: "Async workflows, Celery task orchestration, CI/CD pipeline optimization, and scaling distributed workloads.",
+        icon: <Zap className="w-8 h-8 text-accent" />,
     },
 ];
 
@@ -52,10 +52,10 @@ export const ServicesSection = () => {
                             <div className="mb-4 p-3 bg-background rounded-md inline-block border border-primary/10 group-hover:scale-110 transition-transform">
                                 {service.icon}
                             </div>
-                            <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">
+                            <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                                 {service.title}
                             </h3>
-                            <p className="text-slate-400 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 {service.description}
                             </p>
                         </motion.div>

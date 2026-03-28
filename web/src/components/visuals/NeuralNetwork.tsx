@@ -55,7 +55,12 @@ export const NeuralNetwork = () => {
         };
 
         const draw = () => {
+            const isDark = document.documentElement.classList.contains("dark");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Fetch theme colors dynamically
+            const primaryColor = isDark ? "rgba(59, 130, 246, 0.4)" : "rgba(37, 99, 235, 0.2)";
+            const secondaryColor = isDark ? "rgba(16, 185, 129, 0.2)" : "rgba(14, 165, 233, 0.3)";
 
             // Update and draw particles
             particles.forEach((p, i) => {
@@ -69,7 +74,7 @@ export const NeuralNetwork = () => {
                 // Draw particle
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(59, 130, 246, 0.5)"; // Primary color
+                ctx.fillStyle = primaryColor;
                 ctx.fill();
 
                 // Connect particles
@@ -81,8 +86,7 @@ export const NeuralNetwork = () => {
 
                     if (dist < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - dist / connectionDistance)
-                            })`;
+                        ctx.strokeStyle = primaryColor.replace("0.4", (0.15 * (1 - dist / connectionDistance)).toString()).replace("0.2", (0.1 * (1 - dist / connectionDistance)).toString());
                         ctx.lineWidth = 1;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -96,14 +100,11 @@ export const NeuralNetwork = () => {
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < mouseDistance) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(16, 185, 129, ${0.2 * (1 - dist / mouseDistance)
-                        })`; // Secondary color for interaction
+                    ctx.strokeStyle = secondaryColor.replace("0.2", (0.2 * (1 - dist / mouseDistance)).toString()).replace("0.3", (0.2 * (1 - dist / mouseDistance)).toString());
                     ctx.lineWidth = 1;
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(mouseX, mouseY);
                     ctx.stroke();
-
-                    // Gentle repulsion/attraction can be added here
                 }
             });
 

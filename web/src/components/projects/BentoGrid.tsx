@@ -30,6 +30,7 @@ export const BentoGrid = () => {
                             solution={project.solution}
                             impact={project.impact}
                             tags={project.tags}
+                            link={project.link}
                             className="h-full"
                         />
                     </motion.div>

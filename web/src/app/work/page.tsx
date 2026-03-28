@@ -21,27 +21,28 @@ export default function WorkPage() {
                     <div className="space-y-6">
                         <div className="space-y-2">
                             <Badge variant="cyber">FEDERATED ARCHITECTURE</Badge>
-                            <h2 className="text-3xl font-bold">The Federated Cybersecurity Ecosystem</h2>
+                            <h2 className="text-3xl font-bold">Sequoia Compliance Engine v2</h2>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            Architected a multi-module SaaS platform designed to ingest, normalize, and analyze disparate security data streams in near real-time. Designed a cross-module communication fabric allowing independent domains (SIEM, Risk, Audit) to share context.
+                            Architected a high-performance GRC platform designed to automate the mapping of complex cybersecurity frameworks. Engineered a robust data pipeline utilizing **Pandas** and **RapidFuzz** to ingest and synchronize 8MB+ SCF (Secure Controls Framework) datasets.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <Badge variant="secondary">Python</Badge>
-                            <Badge variant="secondary">FastAPI</Badge>
-                            <Badge variant="secondary">PostgreSQL</Badge>
-                            <Badge variant="secondary">Redis</Badge>
+                            <Badge variant="secondary">Django REST</Badge>
+                            <Badge variant="secondary">SCF 2024</Badge>
+                            <Badge variant="secondary">Pandas</Badge>
+                            <Badge variant="secondary">Celery</Badge>
+                            <Badge variant="secondary">RapidFuzz</Badge>
                         </div>
-                        <ul className="space-y-2 text-sm text-neutral-300 font-mono">
+                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
                             <li className="flex items-center gap-2">
-                                <span className="text-primary">+</span> Multi-tenant MSSP support
+                                <span className="text-primary">+</span> Automated framework synchronization
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-primary">+</span> Near real-time ingestion
+                                <span className="text-primary">+</span> 45% faster audit reporting
                             </li>
                         </ul>
                     </div>
-                    <Card className="bg-slate-950/50 border-white/5">
+                    <Card className="glass">
                         <CardContent className="p-4">
                             <SystemBlueprint type="federated" />
                         </CardContent>
@@ -51,7 +52,7 @@ export default function WorkPage() {
                 {/* Project 2: Orchestration Grid */}
                 <section className="grid lg:grid-cols-2 gap-8 items-center lg:flex-row-reverse">
                     {/* Order change for visual variety: Diagram Left on desktop? No, let's keep text left for consistency or alternate. Let's alternate locally via grid logic if we wanted, but simple grid is fine. Let's just swap columns in grid. */}
-                    <Card className="bg-slate-950/50 border-white/5 lg:order-last">
+                    <Card className="glass lg:order-last">
                         <CardContent className="p-4">
                             <SystemBlueprint type="orchestration" />
                         </CardContent>
@@ -70,7 +71,7 @@ export default function WorkPage() {
                             <Badge variant="secondary">Python</Badge>
                             <Badge variant="secondary">Docker</Badge>
                         </div>
-                        <ul className="space-y-2 text-sm text-neutral-300 font-mono">
+                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
                             <li className="flex items-center gap-2">
                                 <span className="text-primary">+</span> Comprehensive state tracking
                             </li>
@@ -96,7 +97,7 @@ export default function WorkPage() {
                             <Badge variant="secondary">GitLab CI</Badge>
                             <Badge variant="secondary">Jenkins</Badge>
                         </div>
-                        <ul className="space-y-2 text-sm text-neutral-300 font-mono">
+                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
                             <li className="flex items-center gap-2">
                                 <span className="text-primary">+</span> Standardized deployment patterns
                             </li>
@@ -105,11 +106,107 @@ export default function WorkPage() {
                             </li>
                         </ul>
                     </div>
-                    <Card className="bg-slate-950/50 border-white/5">
+                    <Card className="glass">
                         <CardContent className="p-4">
                             <SystemBlueprint type="idp" />
                         </CardContent>
                     </Card>
+                </section>
+                
+                {/* Project 4: SaaS Replication */}
+                <section className="grid lg:grid-cols-2 gap-8 items-center lg:flex-row-reverse">
+                    <Card className="glass lg:order-last">
+                        <CardContent className="p-4">
+                            <SystemBlueprint type="replication" />
+                        </CardContent>
+                    </Card>
+                    <div className="space-y-6">
+                        <div className="space-y-2">
+                            <Badge variant="cyber">WHITE-LABEL REPLICATION</Badge>
+                            <h2 className="text-3xl font-bold">Cyber Security SaaS Replication</h2>
+                        </div>
+                        <p className="text-muted-foreground leading-relaxed">
+                            Engineered a high-fidelity technical replication of the flagship Cyber Security SaaS for partner white-labeling. This "trial" project demonstrated the ability to rapidly clone and deploy mission-critical infrastructure to external partner servers while maintaining environment parity.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge variant="secondary">GitLab CI</Badge>
+                            <Badge variant="secondary">Jenkins</Badge>
+                            <Badge variant="secondary">Docker</Badge>
+                            <Badge variant="secondary">Nervous System (Audit)</Badge>
+                        </div>
+                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
+                            <li className="flex items-center gap-2">
+                                <span className="text-primary">+</span> Full environment parity
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="text-primary">+</span> Automated partner provisioning
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                {/* Project 5: Risk Engine */}
+                <section className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className="space-y-6">
+                        <div className="space-y-2">
+                            <Badge variant="cyber">RISK QUANTIFICATION</Badge>
+                            <h2 className="text-3xl font-bold">Project Sentinel: Dynamic Risk Engine</h2>
+                        </div>
+                        <p className="text-muted-foreground leading-relaxed">
+                            Architected a next-generation risk engine that calculates residual risk in real-time based on control implementation status. Implemented a "Dual-State" scoring model in **Django 5** that recalibrates impact scores as mitigation tasks are completed.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge variant="secondary">Django 5</Badge>
+                            <Badge variant="secondary">PostgreSQL</Badge>
+                            <Badge variant="secondary">Service Patterns</Badge>
+                            <Badge variant="secondary">Redis</Badge>
+                        </div>
+                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
+                            <li className="flex items-center gap-2">
+                                <span className="text-primary">+</span> Live Residual Risk scoring
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="text-primary">+</span> Real-time executive telemetry
+                            </li>
+                        </ul>
+                    </div>
+                    <Card className="glass">
+                        <CardContent className="p-4">
+                            <SystemBlueprint type="risk-engine" />
+                        </CardContent>
+                    </Card>
+                </section>
+
+                {/* Project 6: Benchmarking */}
+                <section className="grid lg:grid-cols-2 gap-8 items-center lg:flex-row-reverse">
+                    <Card className="glass lg:order-last">
+                        <CardContent className="p-4">
+                            <SystemBlueprint type="benchmarking" />
+                        </CardContent>
+                    </Card>
+                    <div className="space-y-6">
+                        <div className="space-y-2">
+                            <Badge variant="cyber">DIAGNOSTIC ANALYTICS</Badge>
+                            <h2 className="text-3xl font-bold">SMA: Industry Benchmarking Tool</h2>
+                        </div>
+                        <p className="text-muted-foreground leading-relaxed">
+                            Built a high-performance benchmarking engine that provides real-time security maturity scores compared against peer-specific industry data. Optimized 35,000+ benchmark data points into a lean **JSONField** lookup system.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            <Badge variant="secondary">Django</Badge>
+                            <Badge variant="secondary">Pandas</Badge>
+                            <Badge variant="secondary">ReportLab</Badge>
+                            <Badge variant="secondary">JSONField</Badge>
+                        </div>
+                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
+                            <li className="flex items-center gap-2">
+                                <span className="text-primary">+</span> industry-contextual scoring
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="text-primary">+</span> Automated PDF diagnostics
+                            </li>
+                        </ul>
+                    </div>
                 </section>
             </div>
         </div>

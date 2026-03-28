@@ -16,11 +16,10 @@ export const AboutSection = () => {
                         &gt; About_Me
                     </h2>
 
-                    <div className="space-y-6 text-lg text-slate-300 font-light leading-relaxed">
+                    <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
                         <p>
-                            I’m a <span className="text-white font-medium">senior full-stack engineer and systems architect</span> with
-                            experience building compliance, risk management, and high-performance backend systems.
-                            I bridge the gap between complex technical requirements and scalable business solutions.
+                            I’m a <span className="text-foreground font-medium">Director of Cyber Development and Lead Full-Stack Architect</span> with
+                            a proven track record in building secure-by-design compliance platforms, high-performance distributed systems, and white-label SaaS ecosystems.
                         </p>
 
                         <p>
@@ -30,9 +29,9 @@ export const AboutSection = () => {
                         </p>
 
                         <p>
-                            I thrive in environments where <span className="text-primary font-medium">backend reliability and strong DevOps foundations</span> are
-                            valued — from startups to enterprise SaaS teams. If you value security by design and
-                            intuitive user experiences, we'll get along great.
+                            I thrive in environments where <span className="text-primary font-medium">high-velocity shipping, security, and clear structure</span> are
+                            valued — from startups to enterprise SaaS teams. My goal is to stay hands-on with emerging tech while
+                            contributing to products through thoughtful technical decision-making.
                         </p>
                     </div>
                 </motion.div>
