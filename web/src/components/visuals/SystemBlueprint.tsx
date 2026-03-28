@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-type BlueprintType = "federated" | "orchestration" | "idp" | "replication" | "risk-engine" | "benchmarking";
+type BlueprintType = "federated" | "orchestration" | "idp" | "replication" | "risk-engine" | "benchmarking" | "task-pipeline";
 
 interface SystemBlueprintProps {
     type: BlueprintType;
@@ -246,8 +246,152 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                 </svg>
             )}
 
+            {/* Task Pipeline Sequence Diagram */}
+            {type === "task-pipeline" && (
+                <svg viewBox="0 0 400 200" className="w-full h-full p-4 overflow-visible">
+                    {/* Actors (Nodes) */}
+                    {[
+                        { x: 40, label: "CLIENT", color: "stroke-primary" },
+                        { x: 100, label: "ENGINE", color: "stroke-primary/60" },
+                        { x: 160, label: "REDIS", color: "stroke-amber-500" },
+                        { x: 230, label: "WORKER", color: "stroke-cyan-500" },
+                        { x: 300, label: "MODULE", color: "stroke-purple-500" },
+                        { x: 370, label: "ANALYTICS", color: "stroke-green-500" },
+                    ].map((actor, i) => (
+                        <g key={i}>
+                            {/* Lifeline */}
+                            <line
+                                x1={actor.x}
+                                y1="50"
+                                x2={actor.x}
+                                y2="170"
+                                className="stroke-muted/30 stroke-dasharray-[2,2] stroke-[0.5]"
+                            />
+                            {/* Actor Box */}
+                            <motion.rect
+                                x={actor.x - 20}
+                                y="30"
+                                width="40"
+                                height="15"
+                                rx="2"
+                                className={`fill-background/80 ${actor.color} stroke-[0.5]`}
+                                initial={{ opacity: 0, y: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: i * 0.1 }}
+                            />
+                            <text
+                                x={actor.x}
+                                y="40"
+                                textAnchor="middle"
+                                className="fill-muted-foreground font-mono text-[5px] uppercase tracking-tighter"
+                            >
+                                {actor.label}
+                            </text>
+                        </g>
+                    ))}
+
+                    {/* Sequential Message Flows */}
+                    
+                    {/* 1. Request Job: Client -> Engine */}
+                    <motion.path
+                        d="M 40 60 L 100 60"
+                        className="stroke-primary/40 stroke-[0.5] fill-none"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, times: [0, 0.2, 0.8, 1] }}
+                    />
+                    <motion.circle 
+                        r="1" 
+                        className="fill-primary" 
+                        initial={{ cx: 40, cy: 60, opacity: 0 }} 
+                        animate={{ cx: [40, 100, 100, 40], opacity: [0, 1, 1, 0] }} 
+                        transition={{ duration: 4, repeat: Infinity, times: [0, 0.2, 0.8, 1] }} 
+                    />
+
+                    {/* 2. Redis Listing: Engine -> Redis */}
+                    <motion.path
+                        d="M 100 75 L 160 75"
+                        className="stroke-amber-500/40 stroke-[0.5] fill-none"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 0.8, times: [0, 0.2, 0.8, 1] }}
+                    />
+                    <motion.circle 
+                        r="1" 
+                        className="fill-amber-500" 
+                        initial={{ cx: 100, cy: 75, opacity: 0 }} 
+                        animate={{ cx: [100, 160, 160, 100], opacity: [0, 1, 1, 0] }} 
+                        transition={{ duration: 4, repeat: Infinity, delay: 0.8, times: [0, 0.2, 0.8, 1] }} 
+                    />
+
+                    {/* 3. Consume Task: Workers <- Redis */}
+                    <motion.path
+                        d="M 230 90 L 160 90"
+                        className="stroke-cyan-500/40 stroke-[0.5] fill-none"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 1.6, times: [0, 0.2, 0.8, 1] }}
+                    />
+                    <motion.circle 
+                        r="1" 
+                        className="fill-cyan-500" 
+                        initial={{ cx: 230, cy: 90, opacity: 0 }} 
+                        animate={{ cx: [230, 160, 160, 230], opacity: [0, 1, 1, 0] }} 
+                        transition={{ duration: 4, repeat: Infinity, delay: 1.6, times: [0, 0.2, 0.8, 1] }} 
+                    />
+
+                    {/* 4. Module Call: Worker -> Module (Bi-directional) */}
+                    <motion.path
+                        d="M 230 110 L 300 110"
+                        className="stroke-purple-500/40 stroke-[0.5] fill-none"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 2.2, times: [0, 0.2, 0.8, 1] }}
+                    />
+                    <motion.circle 
+                        r="1" 
+                        className="fill-purple-500" 
+                        initial={{ cx: 230, cy: 110, opacity: 0 }} 
+                        animate={{ cx: [230, 300, 300, 230], opacity: [0, 1, 1, 0] }} 
+                        transition={{ duration: 4, repeat: Infinity, delay: 2.2, times: [0, 0.2, 0.8, 1] }} 
+                    />
+                    <motion.path
+                        d="M 300 120 L 230 120"
+                        className="stroke-purple-500/40 stroke-[0.5] fill-none"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 2.5, times: [0, 0.2, 0.8, 1] }}
+                    />
+
+                    {/* 5. Results: Worker -> Analytics */}
+                    <motion.path
+                        d="M 230 140 L 370 140"
+                        className="stroke-green-500/40 stroke-[0.5] fill-none"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 3.2, times: [0, 0.2, 0.8, 1] }}
+                    />
+                    <motion.circle 
+                        r="1" 
+                        className="fill-green-500" 
+                        initial={{ cx: 230, cy: 140, opacity: 0 }} 
+                        animate={{ cx: [230, 370, 370, 230], opacity: [0, 1, 1, 0] }} 
+                        transition={{ duration: 4, repeat: Infinity, delay: 3.2, times: [0, 0.2, 0.8, 1] }} 
+                    />
+                    
+                    {/* 6. Dashboard Feedback: Analytics -> Client (Loop closed) */}
+                    <motion.path
+                        d="M 370 160 L 40 160"
+                        className="stroke-primary/20 stroke-[0.5] fill-none stroke-dasharray-[2,2]"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: [0, 1, 1, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: 3.6, times: [0, 0.2, 0.8, 1] }}
+                    />
+                </svg>
+            )}
+
             <div className="absolute bottom-2 right-2 text-[10px] font-mono text-muted-foreground">
-                FIG {type === "federated" ? "1.0" : type === "orchestration" ? "2.1" : type === "idp" ? "3.0" : "4.0"}
+                FIG {type === "federated" ? "1.0" : type === "orchestration" ? "2.1" : type === "idp" ? "3.0" : type === "task-pipeline" ? "2.2" : "4.0"}
             </div>
         </div>
     );

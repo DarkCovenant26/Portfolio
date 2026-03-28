@@ -9,13 +9,45 @@ export default function WorkPage() {
     return (
         <div className="container mx-auto px-4 md:px-6 py-24 space-y-16">
             <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight">Systems Architected</h1>
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Systems Architected</h1>
                 <p className="text-xl text-muted-foreground max-w-2xl">
-                    A selection of high-scale platforms designed to solve complex regulatory and operational challenges.
+                    A selection of high-scale platforms built upon a shared, standardized architectural core.
                 </p>
             </div>
 
-            <div className="grid gap-12">
+            {/* Signature Foundation: Shared Task Engine */}
+            <Card className="glass overflow-hidden border-primary/20">
+                <div className="grid lg:grid-cols-2 gap-8 items-center p-6 md:p-10">
+                    <div className="space-y-6">
+                        <div className="space-y-2">
+                            <Badge variant="cyber">CORE ARCHITECTURE</Badge>
+                            <h2 className="text-3xl font-black tracking-tight">Standardized Task Orchestration Core</h2>
+                        </div>
+                        <p className="text-lg text-muted-foreground leading-relaxed italic">
+                            The following modules share a common, resilient backbone. This "Signature Architecture" ensures consistency, security, and high availability across the entire portfolio.
+                        </p>
+                        <ul className="grid grid-cols-2 gap-4 text-xs font-mono text-muted-foreground uppercase opacity-80">
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary" /> Multi-Stage Flow
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" /> Redis Queuing
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Worker Autonomy
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-purple-500" /> External Sink
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="bg-muted/10 rounded-lg p-4 border border-primary/5">
+                        <SystemBlueprint type="task-pipeline" />
+                    </div>
+                </div>
+            </Card>
+
+            <div className="grid gap-12 pt-12 border-t border-primary/10">
                 {/* Project 1: Federated Ecosystem */}
                 <section className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className="space-y-6">
@@ -24,7 +56,7 @@ export default function WorkPage() {
                             <h2 className="text-3xl font-bold">Sequoia Compliance Engine v2</h2>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            Architected a high-performance GRC platform designed to automate the mapping of complex cybersecurity frameworks. Engineered a robust data pipeline utilizing **Pandas** and **RapidFuzz** to ingest and synchronize 8MB+ SCF (Secure Controls Framework) datasets.
+                            Architected a high-performance GRC platform designed to automate the mapping of complex cybersecurity frameworks. **Powered by the Core Task Engine**, this system utilizes **Pandas** and **RapidFuzz** to ingest and synchronize 8MB+ SCF datasets with sub-second latency.
                         </p>
                         <div className="flex flex-wrap gap-2">
                             <Badge variant="secondary">Django REST</Badge>
@@ -49,38 +81,6 @@ export default function WorkPage() {
                     </Card>
                 </section>
 
-                {/* Project 2: Orchestration Grid */}
-                <section className="grid lg:grid-cols-2 gap-8 items-center lg:flex-row-reverse">
-                    {/* Order change for visual variety: Diagram Left on desktop? No, let's keep text left for consistency or alternate. Let's alternate locally via grid logic if we wanted, but simple grid is fine. Let's just swap columns in grid. */}
-                    <Card className="glass lg:order-last">
-                        <CardContent className="p-4">
-                            <SystemBlueprint type="orchestration" />
-                        </CardContent>
-                    </Card>
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <Badge variant="cyber">DISTRIBUTED SYSTEMS</Badge>
-                            <h2 className="text-3xl font-bold">Distributed Task Orchestration Grid</h2>
-                        </div>
-                        <p className="text-muted-foreground leading-relaxed">
-                            Engineered a resilient async worker system using Redis and Celery to handle long-running security tasks. Built self-healing worker pools with dynamic scaling based on queue pressure.
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            <Badge variant="secondary">Redis</Badge>
-                            <Badge variant="secondary">Celery</Badge>
-                            <Badge variant="secondary">Python</Badge>
-                            <Badge variant="secondary">Docker</Badge>
-                        </div>
-                        <ul className="space-y-2 text-sm text-muted-foreground font-mono">
-                            <li className="flex items-center gap-2">
-                                <span className="text-primary">+</span> Comprehensive state tracking
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <span className="text-primary">+</span> Failure-oblivious architecture
-                            </li>
-                        </ul>
-                    </div>
-                </section>
 
                 {/* Project 3: IDP */}
                 <section className="grid lg:grid-cols-2 gap-8 items-center">
@@ -90,7 +90,7 @@ export default function WorkPage() {
                             <h2 className="text-3xl font-bold">Internal Developer Platform (IDP)</h2>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            Transformed the engineering lifecycle by treating infrastructure as a product. Created a unified CI/CD backbone and container strategy that normalized deployment patterns across distinct engineering teams.
+                            Transformed the engineering lifecycle by treating infrastructure as a product. Leveraged the **Standardized Orchestration backbone** to create a unified CI/CD strategy that normalized deployment patterns across distinct teams.
                         </p>
                         <div className="flex flex-wrap gap-2">
                             <Badge variant="secondary">Docker</Badge>
@@ -153,7 +153,7 @@ export default function WorkPage() {
                             <h2 className="text-3xl font-bold">Project Sentinel: Dynamic Risk Engine</h2>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            Architected a next-generation risk engine that calculates residual risk in real-time based on control implementation status. Implemented a "Dual-State" scoring model in **Django 5** that recalibrates impact scores as mitigation tasks are completed.
+                            Architected a next-generation risk engine using the **Universal Core Engine** to calculate residual risk in real-time. Implemented a "Dual-State" scoring model in **Django 5** that recalibrates impact scores dynamically.
                         </p>
                         <div className="flex flex-wrap gap-2">
                             <Badge variant="secondary">Django 5</Badge>
@@ -190,7 +190,7 @@ export default function WorkPage() {
                             <h2 className="text-3xl font-bold">SMA: Industry Benchmarking Tool</h2>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            Built a high-performance benchmarking engine that provides real-time security maturity scores compared against peer-specific industry data. Optimized 35,000+ benchmark data points into a lean **JSONField** lookup system.
+                            Built a high-performance benchmarking engine utilizing the **Shared Core Task pipeline** for contextual peer scoring. Optimized 35,000+ benchmark data points into a lean **JSONField** lookup system.
                         </p>
                         <div className="flex flex-wrap gap-2">
                             <Badge variant="secondary">Django</Badge>
