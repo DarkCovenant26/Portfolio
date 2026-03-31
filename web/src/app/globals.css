@@ -148,9 +148,7 @@
 
 @layer base {
   :root {
-    /* Fallback / Reference variables if needed by ShadCN or others */
-    --background: 10 10 10;
-    --foreground: 248 250 252;
+    /* Base theme is already defined above */
   }
 
   body {

@@ -53,7 +53,7 @@ export default function WorkPage() {
                     <div className="space-y-6">
                         <div className="space-y-2">
                             <Badge variant="cyber">FEDERATED ARCHITECTURE</Badge>
-                            <h2 className="text-3xl font-bold">Sequoia Compliance Engine v2</h2>
+                            <h2 className="text-3xl font-bold">Enterprise GRC Core</h2>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
                             Architected a high-performance GRC platform designed to automate the mapping of complex cybersecurity frameworks. **Powered by the Core Task Engine**, this system utilizes **Pandas** and **RapidFuzz** to ingest and synchronize 8MB+ SCF datasets with sub-second latency.

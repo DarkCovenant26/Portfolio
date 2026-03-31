@@ -28,7 +28,7 @@ export default function PhilosophyPage() {
                         </p>
                         <div className="pt-2 border-t border-card-border">
                             <span className="text-xs font-mono text-primary/70 uppercase tracking-widest">Applied In:</span>
-                            <p className="text-sm font-medium mt-1">SMA Benchmarking Engine</p>
+                            <p className="text-sm font-medium mt-1">Enterprise GRC Core & SMA Engine</p>
                         </div>
                     </CardContent>
                 </Card>
@@ -60,7 +60,7 @@ export default function PhilosophyPage() {
                         </p>
                         <div className="pt-2 border-t border-card-border">
                             <span className="text-xs font-mono text-accent/70 uppercase tracking-widest">Applied In:</span>
-                            <p className="text-sm font-medium mt-1">Sequoia v2 & Project Sentinel</p>
+                            <p className="text-sm font-medium mt-1">Enterprise GRC Core & Project Sentinel</p>
                         </div>
                     </CardContent>
                 </Card>
@@ -75,7 +75,7 @@ export default function PhilosophyPage() {
                         <Badge variant="cyber" className="w-fit">FUTURE VISION</Badge>
                         <h2 className="text-3xl md:text-4xl font-bold">Autonomous Assurance</h2>
                         <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                            The future of GRC and Security is not manual checklists but continuous, programmatic verification. My vision is to build "Self-Driving Compliance" architectures—systems like **Sequoia v2** and **Project Sentinel** that automatically detect risk posture, map infrastructure changes to regulatory controls, and generate evidence artifacts without human intervention.
+                            The future of GRC and Security is not manual checklists but continuous, programmatic verification. My vision is to build "Self-Driving Compliance" architectures—systems like **Enterprise GRC Core** and **Project Sentinel** that automatically detect risk posture, map infrastructure changes to regulatory controls, and generate evidence artifacts without human intervention.
                         </p>
                     </div>
                     <div className="w-full md:w-auto flex-shrink-0">

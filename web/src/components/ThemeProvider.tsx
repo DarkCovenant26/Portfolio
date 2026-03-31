@@ -12,13 +12,23 @@ const ThemeContext = createContext<{
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const [theme, setThemeState] = useState<Theme>("dark");
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const savedTheme = localStorage.getItem("theme") as Theme;
         if (savedTheme) {
-            setTheme(savedTheme);
+            setThemeState(savedTheme);
+            if (savedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
         } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-            setTheme("light");
+            setThemeState("light");
+            document.documentElement.classList.remove("dark");
+        } else {
+            document.documentElement.classList.add("dark");
         }
     }, []);
 
@@ -36,9 +46,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setTheme(theme === "dark" ? "light" : "dark");
     };
 
+    // Return a dummy div or just children during hydration to avoid flash
     return (
         <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-            {children}
+            <div style={{ visibility: mounted ? "visible" : "hidden" }}>
+                {children}
+            </div>
         </ThemeContext.Provider>
     );
 }

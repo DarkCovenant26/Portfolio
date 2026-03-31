@@ -33,7 +33,7 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                             cx="200"
                             cy="100"
                             r="10"
-                            className="fill-slate-800/30 stroke-slate-500 stroke-[0.5]"
+                            className="fill-muted/30 stroke-muted-foreground stroke-[0.5]"
                             initial={{ x: 0, y: 0 }}
                             animate={{
                                 x: Math.cos((i * 72 * Math.PI) / 180) * 120,
@@ -87,7 +87,7 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                 <div className="flex flex-col items-center justify-center gap-8 w-full">
                     <div className="flex gap-4">
                         {[1, 2, 3].map(i => (
-                            <motion.div key={i} className="w-12 h-12 border border-slate-500 rounded bg-slate-800"
+                            <motion.div key={i} className="w-12 h-12 border border-muted-foreground/20 rounded bg-muted/40"
                                 initial={{ y: -50, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: i * 0.2 }}
@@ -157,12 +157,12 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                         width="60"
                         height="60"
                         rx="4"
-                        className="fill-slate-500/10 stroke-slate-500 stroke-1"
+                        className="fill-muted/10 stroke-muted-foreground stroke-1"
                         initial={{ x: 100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 1.5, duration: 1 }}
                     />
-                    <text x="280" y="150" className="fill-slate-600 dark:fill-slate-400 font-mono text-[10px]">PARTNER_NODE</text>
+                    <text x="280" y="150" className="fill-muted-foreground font-mono text-[10px]">PARTNER_NODE</text>
                 </svg>
             )}
             
@@ -213,14 +213,14 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                     {/* Peer Cloud Polygon */}
                     <motion.polygon
                         points="150,50 250,50 300,100 250,150 150,150 100,100"
-                        className="fill-slate-800/20 stroke-primary/10 stroke-[0.5]"
+                        className="fill-muted/20 stroke-primary/10 stroke-[0.5]"
                         animate={{ opacity: [0.2, 0.4, 0.2] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     />
                     
                     {/* Industry Mean Line */}
-                    <line x1="200" y1="50" x2="200" y2="150" className="stroke-slate-400 dark:stroke-slate-700/30 stroke-dasharray-[2,2]" />
-                    <text x="210" y="60" className="fill-slate-600 dark:fill-slate-500 font-mono text-[8px]">INDUSTRY_MEAN</text>
+                    <line x1="200" y1="50" x2="200" y2="150" className="stroke-muted-foreground/30 stroke-dasharray-[2,2]" />
+                    <text x="210" y="60" className="fill-muted-foreground/60 font-mono text-[8px]">INDUSTRY_MEAN</text>
                     
                     {/* Target Node (User) */}
                     <motion.circle
@@ -240,7 +240,7 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                             cx={150 + Math.random() * 100}
                             cy={70 + Math.random() * 60}
                             r="1.5"
-                            className="fill-slate-400 dark:fill-slate-600/30"
+                            className="fill-muted-foreground/30"
                         />
                     ))}
                 </svg>

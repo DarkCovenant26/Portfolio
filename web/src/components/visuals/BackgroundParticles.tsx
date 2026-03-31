@@ -38,7 +38,7 @@ function ParticleField(props: any) {
 
 export function BackgroundParticles() {
     return (
-        <div className="absolute inset-0 -z-10 bg-slate-950">
+        <div className="absolute inset-0 -z-10 bg-background">
             <Canvas camera={{ position: [0, 0, 1] }}>
                 <ParticleField />
             </Canvas>

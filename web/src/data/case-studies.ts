@@ -55,8 +55,8 @@ export const caseStudies: CaseStudy[] = [
         },
     },
     {
-        slug: "sequoia-grc",
-        title: "Project Sequoia v2: Automated Regulatory Intelligence",
+        slug: "enterprise-grc",
+        title: "Enterprise GRC Core: Automated Regulatory Intelligence",
         description: "Engineered a high-performance GRC platform that automates the mapping of complex cybersecurity frameworks using advanced data engineering.",
         clientType: "FinTech / Cyber Security",
         role: "Lead Backend Architect",
@@ -64,9 +64,9 @@ export const caseStudies: CaseStudy[] = [
         technologies: ["Django REST", "SCF 2024.1.1", "Pandas", "RapidFuzz", "Celery"],
         sections: {
             mission:
-                "Compliance audits were being managed through thousands of scattered Excel rows, making it impossible to track maturity trends or ensure alignment with evolving standards like SCF, ISO 27001, and SOC2. The volume of data caused major performance bottlenecks.",
+                "The project began with a single, massive Excel file containing thousands of un-referenced rows of regulatory data. The domain was so complex that traditional business requirements were non-existent; the Product Owner could not 'dumb down' the logic. Compliance audits were failing due to this manual bottleneck.",
             architecture:
-                "Engineered a 'Multi-Surface Architectural Strategy' focused on functional multimodality. I designed a single backend capable of simultaneously powering two distinct operational models: an intuitive, manual compliance workflow for specific control management and a high-throughput Universal Control Blueprint (UCB) engine for framework-wide bulk orchestration.",
+                "After a failed initial prototype (V1) that struggled with the sheer volume of fragmented data, I led a rigorous domain-driven rebuild (V2). I engineered a 'Multi-Surface Architectural Strategy' capable of simultaneously powering manual control management and a high-throughput Universal Control Blueprint (UCB) engine.",
             execution:
                 "Developed a robust data pipeline to ingest 8MB+ SCF datasets using Pandas for high-speed processing and RapidFuzz for resilient control mapping despite inconsistent input formats. To support the multi-surface design, I implemented **Imperative APIViews** to handle the nuanced 'manual' frontend interactions and **Declarative ViewSets** to optimize high-volume data flow during bulk orchestration, ensuring a seamless experience across two completely different user workflows.",
             baseline:
@@ -83,11 +83,11 @@ export const caseStudies: CaseStudy[] = [
         technologies: ["Django 5", "DRF", "PostgreSQL", "Service Patterns", "Redis"],
         sections: {
             mission:
-                "Traditional risk assessments are static, point-in-time snapshots that fail to reflect the actual security posture of an organization. Stakeholders needed a dynamic way to see how specific control failures or implementations impact overall risk levels in real-time.",
+                "Architected and led the iterative ground-up rebuild (V2) of 'Project Sentinel' (Risk Management Engine); translated ambiguous stakeholder visions and 'nightmare' high-level computations into a high-performance, deterministic residual risk engine via Django Service patterns.",
             architecture:
                 "Engineered a 'Dual-State' risk quantification engine using Django Service patterns. The system maintains two distinct risk profiles for every asset: Inherent Risk (the baseline threat) and Actual Residual Risk (the risk remaining after accounting for implemented controls).",
             execution:
-                "Implemented a calculation pipeline that monitors the status of linked mitigation tasks. When a control is marked 'Completed' in the system, the engine triggers a background recalculation of the Effective Risk Score. Leveraged PostgreSQL's JSONB for flexible risk modeling and Redis for high-speed dashboard telemetry.",
+                "Developed a robust, deterministic calculation pipeline using Django Service patterns to decouple complex business logic from the database layer. By implementing a suite of modular 'updaters' and state-aware service classes, I successfully bridged the gap between vague strategic goals and rigid mathematical formulas, delivering a real-time risk scoring engine that ensures data integrity and auditability.",
             baseline:
                 "Shifted the organization from reactive to proactive risk management. Executive leadership now has access to 'Live Risk Gauges' that reflect the current implementation status of security controls, enabling faster decision-making for resource allocation.",
         },
@@ -95,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
     {
         slug: "sma-benchmarking",
         title: "Project SMA: Security Management Assessment",
-        description: "Built a diagnostic benchmarking engine that provides real-time security maturity scores compared against peer-specific industry data.",
+        description: "Architected the Security Management Assessment (SMA) benchmarking tool, utilizing JSONField optimizations to map 35k+ industry data points; leveraged AI-augmented analysis to reverse-engineer and restructure unstructured legacy 'brain-dumps' into a clean, hierarchical API logic",
         clientType: "FinTech / SaaS",
         role: "Lead Architect",
         period: "2025 - Present",
@@ -106,7 +106,7 @@ export const caseStudies: CaseStudy[] = [
             architecture:
                 "Engineered a high-performance benchmarking engine utilizing a hierarchical industry lookup system. To avoid a massive, unmanageable database, I optimized 35,000+ benchmark rows into a lean 'JSONField Answer Key' system, enabling sub-millisecond lookups for contextual scoring.",
             execution:
-                "Integrated a complex data ingestion pipeline that syncs diagnostic scorecards from Excel using Pandas. Built an automated report generation system using ReportLab to generate on-the-fly, high-fidelity PDF assessments that visualize gaps between the user and their industry's mean and median scores (N-size calculation).",
+                "Spearheaded an 'AI-Augmented Discovery' phase to decipher and restructure a high-complexity 'brain dump' spreadsheet of unstructured legacy calculations. This enabled the design of a clean, hierarchical data model and a high-performance benchmarking engine utilizing a lookup system. To avoid a massive, unmanageable database, I optimized 35,000+ benchmark rows into a lean 'JSONField Answer Key' system, enabling sub-millisecond lookups for contextual scoring.",
             baseline:
                 "Successfully transitioned the assessment process from static spreadsheets to a dynamic, comparison-driven diagnostic tool. Organizations now receive strategic roadmaps based on real-world peer performance rather than generic checklists.",
         },

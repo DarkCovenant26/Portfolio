@@ -15,21 +15,21 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        id: "sequoia-grc",
-        title: "Sequoia Compliance Engine v2",
+        id: "enterprise-grc",
+        title: "Enterprise GRC Core",
         problem: "Automating the ingestion and mapping of massive SCF (Secure Controls Framework) datasets.",
         role: "Lead Backend Architect",
         solution: "Engineered a high-performance data pipeline using Pandas and RapidFuzz for framework synchronization and maturity analytics.",
         impact: "Automated 1000+ control mappings; 45% reduction in audit reporting time through real-time readiness scoring.",
         tags: ["Django", "SCF 2024", "Pandas", "RapidFuzz", "Celery"],
-        link: "/work/sequoia-grc",
+        link: "/work/enterprise-grc",
         className: "md:col-span-2",
         category: "SaaS",
         featured: true,
     },
     {
         id: "risk-sentinel",
-        title: "Risk Management Engine v2",
+        title: "Risk Management Engine",
         problem: "Legacy risk assessments are static and fail to reflect real-time mitigation status.",
         role: "Module Architect & Lead",
         solution: "Engineered a dynamic 'Dual-State' scoring engine that calculates residual risk based on live control implementation.",
@@ -41,8 +41,8 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: "devsecops-pipeline",
-        title: "DevSecOps Pipeline Orchestration",
+        id: "devops-pipeline",
+        title: "DevOps Pipeline Orchestration",
         problem: "Inconsistent deployment security and manual bottlenecks slowed releases.",
         role: "DevOps Engineer",
         solution: "Automated zero-trust CI/CD pipelines with integrated secret management.",

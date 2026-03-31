@@ -2,38 +2,19 @@
 
 import { motion } from "framer-motion";
 
-const timelineData = [
-    {
-        period: "2025 - Present",
-        role: "Director of Cyber Development",
-        company: "CyTech Development and Operations, Inc.",
-        description:
-            "Directing strategic technical roadmaps and product engineering for flagship cyber security platforms. Successfully executed technical replication and white-labeling for executive partners using GitLab CI/CD and Jenkins, demonstrating high-scale infrastructure deployment capabilities and secure-by-design architecture.",
-    },
-    {
-        period: "2023 - 2025",
-        role: "Senior Manager & Head of GRC",
-        company: "CyTech Development and Operations, Inc.",
-        description:
-            "Mentored 10 junior developers from HTML/CSS baseline to full-stack capability within 6 months through exposure-based learning. Built reusable patterns and reduced environment setup from 2 weeks to 1-3 days. Developed 3 OJTs into full-time engineers with 1 promoted to team lead.",
-    },
-    {
-        period: "2023",
-        role: "Web Developer",
-        company: "CyTech Development and Operations, Inc.",
-        description:
-            "Developed custom, responsive web applications resulting in tailored solutions for client needs. Maintained strict version control and optimization strategies.",
-    },
-    {
-        period: "2021 - 2023",
-        role: "IT Instructor / Program Head",
-        company: "STI College",
-        description:
-            "Built a foundation in technical mentorship, training, and process improvement. Evaluated progress and adjusted instructional strategies for optimal learning outcomes.",
-    },
-];
+import { cvData } from "@/data/cv-data";
 
 export const ExperienceTimeline = () => {
+    // Map cvData.experience to the timeline format
+    const timelineItems = cvData.experience.slice(0, 4).map(item => ({
+        period: item.period,
+        role: item.title,
+        company: item.company,
+        // Create a punchy summary from the first 2-3 responsibilities
+        description: item.responsibilities.length > 3 
+            ? item.responsibilities.slice(0, 2).join(" ") + " Lead architectural initiatives including " + item.responsibilities[2].split(",")[0] + "."
+            : item.responsibilities.join(" ")
+    }));
     return (
         <section className="container mx-auto px-4 md:px-6 py-20 relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -48,7 +29,7 @@ export const ExperienceTimeline = () => {
                     </h2>
 
                     <div className="relative border-l border-primary/20 ml-3 md:ml-6 space-y-12 pb-8">
-                        {timelineData.map((item, index) => (
+                        {timelineItems.map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: -20 }}
