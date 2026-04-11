@@ -58,11 +58,11 @@ export const cvData: CVData = {
             period: "September 2025 - Present",
             responsibilities: [
                 "Direct the strategic vision and technical roadmap for cyber security product development, focusing on 'Secure by Design' principles for GRC platforms",
-                "Architected and led the iterative ground-up rebuild (V2) of 'Project Sentinel' (Risk Management Engine); translated ambiguous stakeholder visions and 'nightmare' high-level computations into a high-performance, deterministic residual risk engine via Django Service patterns",
-                "Architected the Security Management Assessment (SMA) benchmarking tool, utilizing JSONField optimizations to map 35k+ industry data points; leveraged AI-augmented analysis to reverse-engineer and restructure unstructured legacy 'brain-dumps' into a clean, hierarchical API logic",
-                "Leveraged AI-augmented analysis to engineer a high-performance Pandas data pipeline for Enterprise GRC Core, reverse-engineering 8MB+ SCF datasets into a scalable 'Secure by Design' architecture",
-                "Successfully executed technical replication of flagship SaaS into partner infrastructure as a white-label solution, securing key enterprise business partnerships",
-                "Orchestrated complex CI/CD workflows using GitLab CI and Jenkins to enable seamless environment parity and automated deployment to partner-owned VPCs",
+                "Architected and led the ground-up rebuild (V2) of 'Project Sentinel' (Risk Management Engine); successfully balanced aggressive weekly delivery cycles with long-term architectural integrity to replace a high-complexity legacy system",
+                "Optimized the Security Management Assessment (SMA) benchmarking tool using JSONField optimizations to map 35k+ industry data points; reverse-engineered unstructured legacy 'brain-dumps' into a clean, hierarchical API logic",
+                "Assumed full-stack ownership of infrastructure orchestration for enterprise white-labeled SaaS instances, ensuring immediate client go-live during critical resource transitions",
+                "Successfully advocated for and implemented scalable ERD designs in a high-velocity environment, ensuring the database remained robust during rapid feature expansion",
+                "Orchestrated complex CI/CD workflows using GitLab CI and Jenkins to maintain environment parity across partner-owned VPCs while meeting demanding production deadlines",
             ],
         },
         {
@@ -71,11 +71,12 @@ export const cvData: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "December 2023 - September 2025",
             responsibilities: [
-                "Mentored 10 junior developers (OJTs and fresh graduates) through code reviews, pair programming, and exposure-based learning, enabling progression from HTML/CSS to full-stack capability (React, Django, Redis, Kafka) within 6 months",
-                "Architected 'Enterprise GRC Core', a high-performance GRC platform that replaced fragmented and un-managed Excel-based compliance workflows with a scalable Django/Celery/Redis ecosystem",
-                "Built reusable backend implementation patterns (async email workers, Redis caching, audit log triggers) that reduced repetitive development work and enabled team to implement complex features independently",
-                "Engineered an automated SCF (Secure Controls Framework) parser and updater, synchronizing 1000+ controls from regulatory updates into a multi-tenant DB",
-                "Developed a 'Readiness Analytics Engine' providing snapshot-based trend analysis and maturity scoring across 20+ cybersecurity frameworks",
+                "Scaled and mentored a high-performance engineering team of 10 junior developers, accelerating their progression from HTML/CSS to production-ready Full-Stack capability within 6 months",
+                "Architected 'Enterprise GRC Core', utilizing AI-augmented analysis and high-performance Pandas pipelines to reverse-engineer 8MB+ legacy SCF datasets into a scalable, multi-tenant ecosystem",
+                "Led the architectural transition of 8 standalone modules to a unified Multi-Tenant ecosystem, implementing physically isolated database instances via a custom Ref-ID header routing middleware",
+                "Engineered reusable backend patterns (async email workers, Redis caching, audit log triggers) that standardized development workflows and eliminated repetitive technical debt",
+                "Developed an automated SCF (Secure Controls Framework) parser and updater, synchronizing 1000+ controls from regulatory updates into a multi-tenant DB with zero downtime",
+                "Designed a 'Readiness Analytics Engine' providing snapshot-based trend analysis and maturity scoring across 20+ cybersecurity frameworks",
             ],
         },
         {
@@ -96,10 +97,10 @@ export const cvData: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "January 2023 - July 2023",
             responsibilities: [
-                "Developed custom web applications, resulting in tailored solutions for client needs",
-                "Maintained version control using Git for efficient code management",
-                "Participated in code reviews, providing constructive feedback to improve code quality",
-                "Conducted cross-browser testing to ensure compatibility and optimize load times",
+                "Rapidly transitioned from a .NET and HTML/CSS background to full-stack proficiency in React and Django REST Framework within weeks to meet aggressive product launch deadlines",
+                "Spearheaded the V1 architectural design (ERD) of the company’s first GRC module, reverse-engineering a contextless, unreferenced SCF Excel dataset into a functional relational database schema",
+                "Synthesized high-level stakeholder requirements and complex cybersecurity concepts into a functional MVP through deep manual analysis and rapid prototyping",
+                "Maintained version control using Git and conducted cross-browser testing to ensure a consistent user experience during high-velocity development cycles",
             ],
         },
         {
@@ -222,11 +223,10 @@ export const cvDataDeveloper: CVData = {
             period: "September 2025 - Present",
             responsibilities: [
                 "Direct the strategic vision and technical roadmap for cyber security product development, focusing on 'Secure by Design' principles for GRC platforms",
-                "Architected and led the iterative ground-up rebuild (V2) of 'Project Sentinel' (Risk Management Engine); translated ambiguous stakeholder visions and 'nightmare' high-level computations into a high-performance, deterministic residual risk engine via Django Service patterns",
-                "Architected the Security Management Assessment (SMA) benchmarking tool, utilizing JSONField optimizations to map 35k+ industry data points; leveraged AI-augmented analysis to reverse-engineer and restructure unstructured legacy 'brain-dumps' into a clean, hierarchical API logic",
-                "Leveraged AI-augmented analysis to engineer a high-performance Pandas data pipeline for Enterprise GRC Core, reverse-engineering 8MB+ SCF datasets into a scalable 'Secure by Design' architecture",
-                "Successfully executed technical replication of flagship SaaS into partner infrastructure as a white-label solution, ensuring environment parity and high-scale deployment capability",
-                "Orchestrated complex CI/CD workflows using GitLab CI and Jenkins to enable automated deployment and infrastructure synchronization for executive partners",
+                "Architected and led the ground-up rebuild (V2) of 'Project Sentinel'; successfully managed high-velocity weekly feature releases while maintaining rigorous architectural standards and database scalability",
+                "Architected the Security Management Assessment (SMA) engine via JSONField optimizations to map 35k+ industry data points, restructuring legacy assets into a clean, hierarchical API logic",
+                "Assumed full-stack ownership of infrastructure orchestration for enterprise white-labeled SaaS solutions, ensuring immediate system availability during critical resource shifts",
+                "Orchestrated complex GitLab CI and Jenkins workflows to enable automated deployment and infrastructure synchronization for strategic enterprise partners",
             ],
         },
         {
@@ -235,10 +235,11 @@ export const cvDataDeveloper: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "December 2023 - September 2025",
             responsibilities: [
-                "Implement frontend monolith-to-module-federation migration using React and Webpack Module Federation, reducing build times and enabling independent team deployments across 4 developers",
-                "Build multi-tenant white-label environment provisioning system with Django backend, automated deployment workflows, and tenant-specific configuration management",
-                "Design and maintain reusable React component libraries and Django API patterns that improve development velocity and code consistency",
-                "Collaborate with product team to translate business requirements into technical implementations, participating in architecture discussions and technical planning",
+                "Scaled engineering velocity by mentoring a team of 10 developers, progressing them from foundational skills to production-level competency in Django, React, and Redis within 6 months",
+                "Architected 'Enterprise GRC Core', leveraging AI-driven data analysis and Pandas pipelines to reverse-engineer 8MB+ legacy SCF datasets into a scalable, multi-tenant architecture",
+                "Spearheaded the implementation of a high-security Multi-Tenant architecture across 8 modules, utilizing physically isolated PostgreSQL instances and custom middleware for header-based tenant routing",
+                "Implemented frontend monolith-to-module-federation migration using React, reducing build times and enabling independent deployment cycles across 4 feature teams",
+                "Designed reusable backend patterns and white-label environment provisioning systems that reduced repetitive engineering effort and standardized client deployments",
             ],
         },
         {
@@ -259,10 +260,10 @@ export const cvDataDeveloper: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "January 2023 - July 2023",
             responsibilities: [
-                "Developed custom web applications using React, Django, and PostgreSQL for client-specific business requirements",
-                "Implemented responsive UI components with modern CSS frameworks and integrated RESTful APIs for data fetching and mutations",
-                "Maintained version control using Git, participated in code reviews, and followed established coding standards",
-                "Conducted cross-browser testing and performance optimization to ensure consistent user experience",
+                "Rapidly transitioned from a .NET background to Full-Stack development in React and Django REST Framework to meet aggressive weeks-long delivery windows for the GRC V1 launch",
+                "Engineered the foundational ERD for the GRC module by reverse-engineering unreferenced legacy SCF datasets through manual analysis, deciphering complex domain logic without existing context",
+                "Maintained version control and participated in code reviews, applying rapid-learning cycles to improve code quality and align technical implementation with shifting business needs",
+                "Conducted performance optimization and cross-browser testing for the initial platform rollout to ensure stability under pioneer user loads",
             ],
         },
     ],
@@ -344,9 +345,9 @@ export const cvDataDeveloper: CVData = {
         {
             title: "DevOps Pipeline Automation",
             description:
-                "Extended reference CI/CD pipeline into reusable templates with integrated secret management (Infisical), automated Docker builds, and standardized development environments. Created cookiecutter project templates reducing onboarding friction.",
+                "Assumed full ownership of CI/CD infrastructure during critical resource transitions. Standardized reference pipelines into reusable templates with integrated secret management (Infisical) and automated Docker builds. Created cookiecutter project templates reducing onboarding friction.",
             technologies: ["Jenkins", "GitLab CI", "Docker", "Infisical", "Python"],
-            impact: "Reduced developer environment setup from 2 weeks to 1-3 days; standardized deployment workflows",
+            impact: "Ensured 100% go-live success for white-labeled client instances under aggressive deadlines; reduced developer environment setup from 2 weeks to 1-3 days.",
         },
     ],
 };

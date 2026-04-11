@@ -10,54 +10,52 @@ const backendServices = [
     { name: "Unified Compliance Blueprint", abbrev: "UCB" },
 ];
 
-// Architecturally accurate flow layout
+// Architecturally accurate flow layout reflecting Multi-Tenant Orchestration
 const nodes = [
     // Row 1: Entry points
-    { id: "nextjs", label: "Next.js", x: 100, y: 80, description: "Server-side rendered React 19 app with edge caching.", type: "core" },
-    { id: "nginx", label: "Nginx", x: 250, y: 80, description: "Reverse proxy for load balancing and SSL termination.", type: "core" },
-    { id: "identity", label: "Identity Service", x: 450, y: 80, description: "Authentication and authorization gateway.", type: "core" },
+    { id: "nextjs", label: "Next.js", x: 100, y: 60, description: "Server-side rendered React 19 app with edge caching.", type: "core" },
+    { id: "nginx", label: "Nginx", x: 250, y: 60, description: "Reverse proxy for load balancing and SSL termination.", type: "core" },
+    { id: "identity", label: "Identity Service", x: 450, y: 60, description: "Authentication and authorization gateway.", type: "core" },
 
-    // Row 2: Backend services
-    { id: "csrm", label: "CSRM", fullLabel: "Cyber Security Risk Mgmt", x: 200, y: 180, description: "Cyber Security Risk Management Module", type: "service" },
-    { id: "compliance", label: "Compliance", fullLabel: "Global Security/Privacy Compliance", x: 400, y: 180, description: "Global Security/Privacy Compliance Module", type: "service" },
-    { id: "ucb", label: "UCB", fullLabel: "Unified Compliance Blueprint", x: 600, y: 180, description: "Unified Compliance Blueprint Module", type: "service" },
+    // Row 2: Backend services with Ref-ID context
+    { id: "csrm", label: "CSRM Service", x: 200, y: 150, description: "Cyber Security Risk Management module using the multi-tenant middleware.", type: "service" },
+    { id: "compliance", label: "Compliance Service", x: 400, y: 150, description: "Global Security/Privacy Compliance module using the multi-tenant middleware.", type: "service" },
+    { id: "ucb", label: "UCB Engine", x: 600, y: 150, description: "Unified Compliance Blueprint engine utilizing dynamic routing.", type: "service" },
 
-    // Row 3: Secrets Manager (credential lookup)
-    { id: "secrets", label: "Secrets Mgr", x: 400, y: 270, description: "Central registry for database credentials and routing keys.", type: "shared" },
+    // Row 3: The Orchestration Layer (The Core Achievement)
+    { id: "middleware", label: "Tenant Router (Middleware)", x: 400, y: 250, description: "Custom backend middleware that intercepts 'Ref-ID' headers to dynamically route requests to the correct physical database instance.", type: "shared" },
 
-    // Row 4: Databases
-    { id: "csrm-db", label: "CSRM DB", x: 200, y: 360, description: "Dedicated database for CSRM service", type: "database" },
-    { id: "compliance-db", label: "Compliance DB", x: 400, y: 360, description: "Dedicated database for Compliance service", type: "database" },
-    { id: "ucb-db", label: "UCB DB", x: 600, y: 360, description: "Dedicated database for UCB service", type: "database" },
+    // Row 4: Physically Isolated Databases
+    { id: "mssp-a", label: "MSSP Instance A", x: 200, y: 350, description: "Physically isolated database instance for high-security tenant A.", type: "database" },
+    { id: "mssp-b", label: "MSSP Instance B", x: 400, y: 350, description: "Physically isolated database instance for high-security tenant B.", type: "database" },
+    { id: "mssp-c", label: "MSSP Instance C", x: 600, y: 350, description: "Physically isolated database instance for high-security tenant C.", type: "database" },
 
-    // Side: Redis cache (read-through)
-    { id: "redis", label: "Redis Cache", x: 100, y: 270, description: "Read-through cache layer for frequently accessed data.", type: "cache" },
+    // Side: Shared Cache
+    { id: "redis", label: "Redis Cache", x: 100, y: 250, description: "Global read-through cache layer for session and framework data.", type: "cache" },
 ];
 
 const connections = [
-    // Entry flow
+    // Entry flow with Header Context
     { from: "nextjs", to: "nginx", label: "HTTP", type: "primary" },
     { from: "nginx", to: "identity", label: "Auth", type: "primary" },
 
-    // Identity to services
-    { from: "identity", to: "csrm", label: "Authorized", type: "primary" },
-    { from: "identity", to: "compliance", label: "Authorized", type: "primary" },
-    { from: "identity", to: "ucb", label: "Authorized", type: "primary" },
+    // Identity to services (Incoming Ref-ID Header)
+    { from: "identity", to: "csrm", label: "Ref-ID Header", type: "primary" },
+    { from: "identity", to: "compliance", label: "Ref-ID Header", type: "primary" },
+    { from: "identity", to: "ucb", label: "Ref-ID Header", type: "primary" },
 
-    // Services check cache first (optional read path)
-    { from: "csrm", to: "redis", label: "Cache Check", type: "cache" },
-    { from: "compliance", to: "redis", label: "Cache Check", type: "cache" },
-    { from: "ucb", to: "redis", label: "Cache Check", type: "cache" },
+    // Services hit the Middleware for routing
+    { from: "csrm", to: "middleware", label: "Resolve Tenant", type: "primary" },
+    { from: "compliance", to: "middleware", label: "Resolve Tenant", type: "primary" },
+    { from: "ucb", to: "middleware", label: "Resolve Tenant", type: "primary" },
 
-    // Services get credentials from Secrets Manager
-    { from: "csrm", to: "secrets", label: "Get Credentials", type: "primary" },
-    { from: "compliance", to: "secrets", label: "Get Credentials", type: "primary" },
-    { from: "ucb", to: "secrets", label: "Get Credentials", type: "primary" },
+    // Middleware routes to specific isolated instances
+    { from: "middleware", to: "mssp-a", label: "Route A", type: "primary" },
+    { from: "middleware", to: "mssp-b", label: "Route B", type: "primary" },
+    { from: "middleware", to: "mssp-c", label: "Route C", type: "primary" },
 
-    // Services query databases (after getting credentials)
-    { from: "secrets", to: "csrm-db", label: "Query", type: "primary" },
-    { from: "secrets", to: "compliance-db", label: "Query", type: "primary" },
-    { from: "secrets", to: "ucb-db", label: "Query", type: "primary" },
+    // Cache Path
+    { from: "middleware", to: "redis", label: "Cache Check", type: "cache" },
 ];
 
 export const TechPipeline = () => {
@@ -182,11 +180,12 @@ export const TechPipeline = () => {
                 </div>
             </div>
 
+            {/* Updated Legend for Multi-Tenancy */}
             <p className="text-center text-muted-foreground mt-6 font-mono text-xs max-w-2xl mx-auto leading-relaxed mb-12">
-                <span className="text-primary font-bold">Request Flow:</span> Next.js → Nginx → Identity Service → Backend Services<br />
-                <span className="text-yellow-500">↳ Cache Check (Redis)</span> | <span className="text-blue-500">↳ Get Credentials (Secrets Mgr)</span> → <span className="text-purple-500">Query Database</span>
+                <span className="text-primary font-bold">Request Flow:</span> Next.js → Nginx → Identity Service (with Ref-ID Header) → Backend Services<br />
+                <span className="text-blue-500">↳ Tenant Resolution (Middleware)</span> → <span className="text-purple-500">Physically Isolated MSSP Database Instance</span>
                 <br />
-                <span className="text-xs opacity-60 mt-1 block">Dotted lines = optional cache path | Solid lines = primary flow</span>
+                <span className="text-xs opacity-60 mt-1 block">Dotted lines = optional cache path | Solid lines = primary flow | Ref-ID = Tenant Routing Identifier</span>
             </p>
 
             <div className="max-w-4xl mx-auto border-t border-card-border pt-12">

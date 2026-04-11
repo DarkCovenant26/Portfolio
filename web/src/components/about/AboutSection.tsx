@@ -18,20 +18,16 @@ export const AboutSection = () => {
 
                     <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
                         <p>
-                            I’m a <span className="text-foreground font-medium">Director of Cyber Development and Lead Full-Stack Architect</span> with
-                            a proven track record in building secure-by-design compliance platforms, high-performance distributed systems, and white-label SaaS ecosystems.
+                            I don’t just build software; I stabilize and rescue it. As a <span className="text-foreground font-medium text-primary">Director of Cyber R&D and Lead Architect</span>,
+                            I specialize in transforming 'nightmare' legacy monoliths and unreferenced datasets into high-performance, <span className="text-foreground font-medium underline decoration-primary/30">Secure by Design</span> platforms.
                         </p>
 
                         <p>
-                            I enjoy solving <span className="text-secondary font-medium">complex architectural problems</span>,
-                            optimizing backend workflows, and designing systems that are secure, scalable, and maintainable.
-                            My focus is always on writing clean, robust code that stands the test of time.
+                            My professional journey has been defined by <span className="text-secondary font-medium italic">"Trials by Fire"</span> — from manually reverse-engineering contextless SCF frameworks in weeks to assuming full-stack infrastructure ownership during critical resource transitions. I thrive in high-velocity environments where aggressive weekly delivery must coexist with rigorous architectural integrity.
                         </p>
 
                         <p>
-                            I thrive in environments where <span className="text-primary font-medium">high-velocity shipping, security, and clear structure</span> are
-                            valued — from startups to enterprise SaaS teams. My goal is to stay hands-on with emerging tech while
-                            contributing to products through thoughtful technical decision-making.
+                            Whether I am architecting <span className="text-foreground font-medium">physically isolated multi-tenant clusters</span> or engineering AI-augmented Pandas pipelines, my approach is always pragmatic, battle-tested, and rooted in <span className="text-primary font-medium">Extreme Ownership</span>. I bridge the gap between ambiguous stakeholder visions and rigid mathematical certainty.
                         </p>
                     </div>
                 </motion.div>

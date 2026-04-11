@@ -15,10 +15,10 @@ export default function AboutPage() {
                         </h1>
                         <div className="prose prose-slate dark:prose-invert prose-lg text-muted-foreground leading-relaxed">
                             <p>
-                                I am a Principal Architect and Engineering Leader specializing in the design of large-scale cybersecurity platforms. With a deep background in distributed systems, I have led the technical evolution of SaaS ecosystems that power risk management, compliance, and threat detection for global enterprises.
+                                I don’t just build software; I stabilize and rescue it. As a <span className="text-foreground font-medium text-primary">Director of Cyber R&D and Lead Architect</span>, I specialize in transforming 'nightmare' legacy monoliths and unreferenced datasets into high-performance, <span className="text-foreground font-medium underline decoration-primary/30">Secure by Design</span> platforms.
                             </p>
                             <p>
-                                At the intersection of Operations, Security, and Engineering, I build more than just software—I build internal platforms that multiply developer velocity. From architecting high-throughput ingestion engines to designing secure API interoperability standards, I possess the ability to zoom out to the 10,000-foot strategic view and zoom in to the kernel-level debugger.
+                                My career has been defined by <span className="text-secondary font-medium">"Trials by Fire"</span> — from manually reverse-engineering contextless SCF frameworks in weeks to assuming full-stack infrastructure ownership of physically isolated multi-tenant clusters. I thrive in high-velocity environments where aggressive weekly delivery must coexist with rigorous architectural integrity and extreme ownership.
                             </p>
                         </div>
                     </div>
@@ -30,10 +30,10 @@ export default function AboutPage() {
                             CAREER_POSITIONING.md
                         </h3>
                         <blockquote className="text-2xl font-serif italic leading-normal pl-4 border-l-2 border-primary">
-                            "The Bridge Between Strategy and Scale."
+                            "Pragmatic Architecture. Tactical Resilience."
                         </blockquote>
                         <p className="text-muted-foreground">
-                            I am the translator between C-level security objectives and the distributed systems that enforce them. I don't just write code; I design the factories that build the code.
+                            I am the translator between high-stakes security objectives and the deterministic systems that enforce them. I specialize in reverse-engineering "impossible" complexity into scalable clarity.
                         </p>
                     </div>
                 </div>
