@@ -49,7 +49,7 @@ export const cvData: CVData = {
         photo: "/images/profile-photo.jpg",
     },
     summary:
-        "Director of Cyber R&D with a proven track record of leading high-performance engineering teams and architecting enterprise-grade cyber security platforms. Expert in multi-tenant SaaS architecture, secure-by-design principles, and distributed systems (Python/Django, React, Module Federation). Successfully led complex technical replications and white-labeling initiatives for global partners. Focused on engineering excellence, infrastructure automation, and building scalable, secure mission-critical software.",
+        "Lead Software Engineer and Systems Architect with a deep focus on building secure, enterprise-grade platforms. Expert in hands-on full-stack development (Python/Django, React, Next.js) and distributed service orchestration. Proven track record of leading high-performance engineering teams through complex technical replications and ground-up builds. Combines 'Secure by Design' principles with a pragmatic, delivery-focused mindset to build scalable, mission-critical software ecosystems.",
     experience: [
         {
             title: "Director of Cyber R&D",
@@ -57,12 +57,12 @@ export const cvData: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "September 2025 - Present",
             responsibilities: [
-                "Direct the strategic vision and technical roadmap for cyber security product development, focusing on 'Secure by Design' principles for GRC platforms",
-                "Architected and led the ground-up rebuild (V2) of 'Project Sentinel' (Risk Management Engine); successfully balanced aggressive weekly delivery cycles with long-term architectural integrity to replace a high-complexity legacy system",
-                "Optimized the Security Management Assessment (SMA) benchmarking tool using JSONField optimizations to map 35k+ industry data points; reverse-engineered unstructured legacy 'brain-dumps' into a clean, hierarchical API logic",
-                "Assumed full-stack ownership of infrastructure orchestration for enterprise white-labeled SaaS instances, ensuring immediate client go-live during critical resource transitions",
-                "Successfully advocated for and implemented scalable ERD designs in a high-velocity environment, ensuring the database remained robust during rapid feature expansion",
-                "Orchestrated complex CI/CD workflows using GitLab CI and Jenkins to maintain environment parity across partner-owned VPCs while meeting demanding production deadlines",
+                "Lead the technical architecture and hands-on delivery of cyber security platforms, prioritizing 'Secure by Design' principles in a hands-on capacity",
+                "Architected and implemented the ground-up rebuild (V2) of **Project Sentinel** (Dynamic Risk Quantification Engine); utilized **Django Service Patterns** to orchestrate real-time risk telemetry based on live task implementation status",
+                "Optimized high-performance SMA benchmarking tool using JSONField and AI logic to map 35k+ industry data points; reverse-engineered complex hierarchical schemas",
+                "Assumed full-stack ownership of infrastructure orchestration for enterprise SaaS instances, shipping mission-critical systems during crisis transitions",
+                "Designed and implemented scalable ERD schemas in a high-velocity environment, ensuring relational integrity during rapid feature expansion",
+                "Orchestrated automated CI/CD workflows using GitLab CI and Jenkins to maintain environment parity across partner VPCs",
             ],
         },
         {
@@ -214,7 +214,7 @@ export const cvDataDeveloper: CVData = {
         photo: "/images/profile-photo.jpg",
     },
     summary:
-        "Director of Cyber R&D and Lead Full-Stack Architect with over 3 years of production experience building scalable Python systems (Django, FastAPI) and distributed workflows (Celery, Redis, Kafka). Expert in secure-by-design architecture, multi-tenant SaaS provisioning, and DevOps automation. Proven capability in technical replication and white-labeling for enterprise partners. Combines deep technical expertise in backend systems with a strategic vision for development and engineering leadership.",
+        "Senior Lead Software Engineer & Full-Stack Architect with 4+ years of production experience building high-performance Python systems (Django, FastAPI) and resilient frontend architectures. Expert in multi-tenant SaaS logic, DevOps automation, and secure-by-design principles. A hands-on leader who bridges the gap between complex system design and industrial-grade delivery. Experienced in technical rescue operations and white-label scaling for global enterprise partners.",
     experience: [
         {
             title: "Director of Cyber R&D",
@@ -223,7 +223,7 @@ export const cvDataDeveloper: CVData = {
             period: "September 2025 - Present",
             responsibilities: [
                 "Direct the strategic vision and technical roadmap for cyber security product development, focusing on 'Secure by Design' principles for GRC platforms",
-                "Architected and led the ground-up rebuild (V2) of 'Project Sentinel'; successfully managed high-velocity weekly feature releases while maintaining rigorous architectural standards and database scalability",
+                "Architected and led the ground-up rebuild (V2) of **Project Sentinel**; pivoted from monolithic legacy views to a decoupled **Service-Layer architecture**, enabling real-time risk quantification through automated task-lifecycle orchestration",
                 "Architected the Security Management Assessment (SMA) engine via JSONField optimizations to map 35k+ industry data points, restructuring legacy assets into a clean, hierarchical API logic",
                 "Assumed full-stack ownership of infrastructure orchestration for enterprise white-labeled SaaS solutions, ensuring immediate system availability during critical resource shifts",
                 "Orchestrated complex GitLab CI and Jenkins workflows to enable automated deployment and infrastructure synchronization for strategic enterprise partners",

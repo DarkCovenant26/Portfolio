@@ -76,10 +76,10 @@ export const TechPipeline = () => {
                     >
                         <defs>
                             <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="rgba(59, 130, 246, 0.6)" />
+                                <polygon points="0 0, 10 3, 0 6" fill="currentColor" className="text-blue-500/60 transition-colors" />
                             </marker>
                             <marker id="arrowhead-cache" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="rgba(234, 179, 8, 0.5)" />
+                                <polygon points="0 0, 10 3, 0 6" fill="currentColor" className="text-yellow-500/50 transition-colors" />
                             </marker>
                         </defs>
 
@@ -94,7 +94,10 @@ export const TechPipeline = () => {
                                     <line
                                         x1={start.x} y1={start.y}
                                         x2={end.x} y2={end.y}
-                                        stroke={isCachePath ? "rgba(234, 179, 8, 0.3)" : "rgba(59, 130, 246, 0.3)"}
+                                        className={cn(
+                                            "transition-colors",
+                                            isCachePath ? "stroke-yellow-500/40" : "stroke-blue-500/40"
+                                        )}
                                         strokeWidth="2"
                                         strokeDasharray={isCachePath ? "4 4" : "0"}
                                         markerEnd={isCachePath ? "url(#arrowhead-cache)" : "url(#arrowhead)"}
@@ -183,9 +186,9 @@ export const TechPipeline = () => {
             {/* Updated Legend for Multi-Tenancy */}
             <p className="text-center text-muted-foreground mt-6 font-mono text-xs max-w-2xl mx-auto leading-relaxed mb-12">
                 <span className="text-primary font-bold">Request Flow:</span> Next.js → Nginx → Identity Service (with Ref-ID Header) → Backend Services<br />
-                <span className="text-blue-500">↳ Tenant Resolution (Middleware)</span> → <span className="text-purple-500">Physically Isolated MSSP Database Instance</span>
+                <span className="text-blue-600 dark:text-blue-400 font-medium">↳ Tenant Resolution (Middleware)</span> → <span className="text-purple-600 dark:text-purple-400 font-medium">Physically Isolated MSSP Database Instance</span>
                 <br />
-                <span className="text-xs opacity-60 mt-1 block">Dotted lines = optional cache path | Solid lines = primary flow | Ref-ID = Tenant Routing Identifier</span>
+                <span className="text-[10px] text-muted-foreground/60 mt-1 block">Dotted lines = optional cache path | Solid lines = primary flow | Ref-ID = Tenant Routing Identifier</span>
             </p>
 
             <div className="max-w-4xl mx-auto border-t border-card-border pt-12">

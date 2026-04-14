@@ -13,6 +13,23 @@ export type CaseStudy = {
         baseline: string;
     };
     image?: string;
+    technicalDeepDive?: {
+        blueprint: {
+            title: string;
+            description: string;
+            participants: string[];
+            flow: { from: string; to: string; action: string }[];
+        };
+        signatureSnippet: {
+            language: string;
+            code: string;
+            annotation: string;
+        };
+        reflections: {
+            title: string;
+            tradeOffs: { outcome: string; impact: string }[];
+        };
+    };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -40,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
         title: "SOC2 Compliance & Zero-Trust Authentication",
         description: "Overhauled the authentication pipeline to meet strict SOC2 compliance requirements for a sensitive data firm.",
         clientType: "FinTech Startup",
-        role: "Director of Cyber Development",
+        role: "Lead Software Engineer | Security Focus",
         period: "2023 - 2024",
         technologies: ["Next.js", "Django REST", "Redis", "Zod", "GitLab CI"],
         sections: {
@@ -72,25 +89,76 @@ export const caseStudies: CaseStudy[] = [
             baseline:
                 "Successfully transitioned the organization from fragmented Excel files to a unified regulatory intelligence platform. Reduced audit preparation time and enabled the team to ship production features autonomously using established architectural patterns.",
         },
+        technicalDeepDive: {
+            blueprint: {
+                title: "Legacy Monolithic Orchestration (V1)",
+                description: "Synchronous data pipeline optimized for rapid ingestion of unreferenced legacy datasets.",
+                participants: ["UI Layer", "Ingestion Script", "Central Database"],
+                flow: [
+                    { from: "UI Layer", to: "Ingestion Script", action: "Trigger Import" },
+                    { from: "Ingestion Script", to: "Central Database", action: "Pandas Bulk Upsert" },
+                    { from: "Central Database", to: "UI Layer", action: "Return Full Dataset" }
+                ]
+            },
+            signatureSnippet: {
+                language: "python",
+                code: `class IngestionEngine:\n    def process_csv(self, file_path):\n        df = pd.read_csv(file_path)\n        df['norm'] = df['raw'].apply(normalize)\n        return CorporateMetric.objects.bulk_create(df.to_dict('records'))`,
+                annotation: "Focused on high-speed data normalization from unstructured sources via in-memory vectorized operations."
+            },
+            reflections: {
+                title: "V1 Technical Trade-offs",
+                tradeOffs: [
+                    { outcome: "Immediate Consistency", impact: "Zero lag but caused UI lockups during 8MB+ ingestion." },
+                    { outcome: "Monolithic Coupling", impact: "Faster development but localized to single-module usage." },
+                    { outcome: "Manual Partitioning", impact: "Used basic DB filtering instead of true multi-tenant routing." }
+                ]
+            }
+        }
     },
     {
         slug: "risk-management-sentinel",
         title: "Project Sentinel: Dynamic Risk Quantification",
-        description: "Architected a next-generation risk management engine that calculates residual risk in real-time based on control implementation status.",
-        clientType: "Enterprise GRC",
-        role: "Module Lead & Architect",
+        description: "Architected a next-generation risk management engine that calculates residual risk in real-time by orchestrating live telemetry from engineering task-management systems.",
+        clientType: "Enterprise GRC / Cyber Security",
+        role: "Lead Software Engineer | Architect",
         period: "2025 - Present",
-        technologies: ["Django 5", "DRF", "PostgreSQL", "Service Patterns", "Redis"],
+        technologies: ["Django 5", "Service Patterns", "Redis", "Celery", "PostgreSQL"],
         sections: {
             mission:
-                "Architected and led the ground-up rebuild (V2) of 'Project Sentinel' (Risk Management Engine); successfully managed aggressive weekly feature releases while maintaining rigorous architectural standards and database scalability for high-complexity legacy computations.",
+                "The project began as a high-stakes architectural rescue. The existing Risk Register (V1) was a static spreadsheet-mimic: synchronous, monolithic, and disconnected from reality. My mission was to architect a 'Dynamic Quantification Engine' capable of reflecting risk based on actual implementation status, not just promises.",
             architecture:
-                "Engineered a 'Dual-State' risk quantification engine using Django Service patterns. The system maintains two distinct risk profiles for every asset, providing deterministic residual risk scores that account for live control implementation status.",
+                "I engineered a 'Service-Oriented Core' where risk logic was decoupled from database models. The primary achievement was the 'Live Sync Orchestrator'—a specialized layer that reaches out to external Task APIs to verify the completion of security controls before calculating a 'Projected' vs 'Actual' residual risk score.",
             execution:
-                "Developed a robust, deterministic calculation pipeline using Django Service patterns to decouple complex business logic from the database layer. By advocating for and implementing scalable ERD designs under high-velocity delivery pressure, I successfully bridged the gap between vague strategic visions and rigid mathematical formulas, delivering a real-time risk scoring engine that ensures data integrity.",
+                "I spearheaded the move from V1's legacy views to a robust Service Pattern. This involved designing an 'Asynchronous Synthesis' pipeline using Celery and Redis to handle complex risk recalculations across 1000+ controls without locking the user interface. I also enforced strict Tenant Isolation via a custom Ref-ID routing middleware.",
             baseline:
-                "Shifted the organization from reactive to proactive, continuous-state risk management. Executive leadership now has access to 'Live Risk Gauges' that reflect real-time security posture despite rapid product expansion.",
+                "Automated the calculation of 'Live Risk Gauges' for executive leadership. The platform now provides a deterministic, real-time security posture that is 100% verifiable through engineering audit trails, reducing manual review overhead by 85%.",
         },
+        technicalDeepDive: {
+            blueprint: {
+                title: "Live-Telemetry Risk Orchestration",
+                description: "Shifted from manual field updates to an orchestrated flow that verifies security status via external service state.",
+                participants: ["Risk Engine", "Service Layer", "Task Registry (External)", "Telemetry Store"],
+                flow: [
+                    { from: "Risk Engine", to: "Service Layer", action: "Trigger Recalculation" },
+                    { from: "Service Layer", to: "Task Registry (External)", action: "Fetch Completion Status" },
+                    { from: "Task Registry (External)", to: "Service Layer", action: "Return Live Task State" },
+                    { from: "Service Layer", to: "Telemetry Store", action: "Commit Score Synthesis" }
+                ]
+            },
+            signatureSnippet: {
+                language: "python",
+                code: `class ResidualRiskService:\n    def calculate_actual_risk(self, risk_id: int):\n        risk = Risk.objects.get(id=risk_id)\n        # Orchestration: Fetching live task data from external system\n        task_data = workplan_api.fetch_verification_status(risk.control_ids)\n        \n        # Quantification: Only count controls with 100% task completion\n        completed_eff = [\n            c.effectiveness for c in task_data \n            if c.status == \"COMPLETED\" and not c.has_staged_tasks\n        ]\n        \n        # Synthesis: Capped reduction based on live implementation status\n        final_effectiveness = sum(completed_eff) / len(completed_eff)\n        return risk.inherent_score * (1 - (final_effectiveness * 0.8))`,
+                annotation: "Orchestrates live verification by reaching out to the Task Management system before committing a risk score reduction."
+            },
+            reflections: {
+                title: "Architectural Evolution Trade-offs",
+                tradeOffs: [
+                    { outcome: "Eventual Consistency", impact: "Risk scores update after background sync, required UX Skeletons." },
+                    { outcome: "Decoupled Scalability", impact: "Moving logic to Services enabled industrial-scale simulations." },
+                    { outcome: "Verification Rigor", impact: "Actual risk is lower but 100% verifiable vs. non-monitored states." }
+                ]
+            }
+        }
     },
     {
         slug: "sma-benchmarking",
@@ -116,7 +184,7 @@ export const caseStudies: CaseStudy[] = [
         title: "The 'Trial by Fire' White-Label Replication",
         description: "Assumed extreme ownership of enterprise SaaS infrastructure during a critical resource transition, architecting pragmatic CI/CD pipelines to meet strict client go-live deadlines.",
         clientType: "Strategic Enterprise Partner",
-        role: "Director of Cyber Development",
+        role: "Lead Software Engineer | Infrastructure",
         period: "2025",
         technologies: ["GitLab CI", "Jenkins", "Docker", "SaaS White-Labeling"],
         sections: {
@@ -127,8 +195,55 @@ export const caseStudies: CaseStudy[] = [
             execution:
                 "Following the 'Trial by Fire' mandate that eventually led to my promotion to Director, I audited the existing technical debt and implemented a 'bare-bones' but rock-solid CI/CD pipeline. By focusing on essential environment parity and automated secret management, I successfully bypassed the initial bottleneck and established a functional deployment lifecycle in record time.",
             baseline:
-                "Achieved 100% go-live success within the aggressive client window. The 'bare-bones' pipeline proved so stable it continues to power the partner's production environment, securing a key strategic partnership for the company and demonstrating my ability to deliver under extreme crisis conditions.",
+                "Achieved 100% go-live success within the aggressive client window. The 'bare-bones' pipeline proved so stable it continues to power the partner's production environment, securing a key strategic partnership and demonstrating my ability to lead technical execution under extreme crisis conditions.",
         },
+    },
+    {
+        slug: "kpi-orchestration",
+        title: "Global KPI Orchestration",
+        description: "Engineered a high-performance synthesis engine that aggregates cross-module security data in real-time to drive executive decision dashboards.",
+        clientType: "Enterprise GRC",
+        role: "Lead Systems Architect",
+        period: "2024 - Present",
+        technologies: ["Python", "Redis", "Celery", "Django REST", "Next.js"],
+        sections: {
+            mission:
+                "Standard compliance modules operated in silos, making global risk-posture reporting a slow, manual task. My mission was to build a 'Synthesis Engine' that could pull live metrics from any connected module and compute global KPIs on-the-fly.",
+            architecture:
+                "I architected an event-driven pipeline where modules push raw updates to a Redis queue. A cluster of specialized workers then consumes these events, applies deterministic scoring logic, and pushes the final KPI state to a real-time dashboard.",
+            execution:
+                "Developed the core computation service using Python and Redis for sub-second latency. I implemented a 'Module-Agnostic' interface that allows new frameworks (like SCF or ISO) to integrate with the KPI engine simply by fulfilling a standard data contract, eliminating the need for custom logic per-module.",
+            baseline:
+                "Enabled executive leadership to monitor enterprise readiness in real-time. Automated the data collection for 20+ global frameworks, reducing organizational reporting latency from 48 hours to less than 1 second.",
+        },
+        technicalDeepDive: {
+            blueprint: {
+                title: "KPI Synthesis Sequence",
+                description: "Event-driven flow from user request to real-time analytics delivery.",
+                participants: ["Client", "Engine", "Redis Queue", "Worker", "Module", "Analytics Store"],
+                flow: [
+                    { from: "Client", to: "Engine", action: "Request KPI Refresh" },
+                    { from: "Engine", to: "Redis Queue", action: "Enqueue Synthesis Task" },
+                    { from: "Redis Queue", to: "Worker", action: "Pop Task" },
+                    { from: "Worker", to: "Module", action: "Fetch Normalized Data" },
+                    { from: "Module", to: "Worker", action: "Return Module State" },
+                    { from: "Worker", to: "Analytics Store", action: "Commit KPI Synthesis" }
+                ]
+            },
+            signatureSnippet: {
+                language: "python",
+                code: `@receiver(post_save, sender=ClientSection)\ndef trigger_kpi_refresh(sender, instance, created, **kwargs):\n    # Recompute local effectiveness metrics\n    recompute_control_effectiveness_for_section(instance)\n    \n    # Orchestrate Global KPI Refresh via Interop Orchestrator\n    send_interop_notification(\n        action=\"calculate_audit_readiness\",\n        client_id=instance.client_standard.client.client_no,\n        params={\n            \"section_id\": instance.id,\n            \"status\": instance.status,\n            \"standard_name\": instance.client_standard.standard.standard\n        }\n    )`,
+                annotation: "Authentic Sequoia signal that orchestrates a Global KPI refresh by pushing event-driven notifications to the centralized dashboard engine."
+            },
+            reflections: {
+                title: "System Synchronization Trade-offs",
+                tradeOffs: [
+                    { outcome: "Scalable Event Intake", impact: "Decoupled computation from web requests, preventing UI timeouts." },
+                    { outcome: "Data Normalization", impact: "Unified disparate module outputs into a singular schema." },
+                    { outcome: "Compute Efficiency", impact: "Used Redis-backed caching to prevent redundant syntheses." }
+                ]
+            }
+        }
     },
     {
         slug: "multi-tenant-db-orchestration",

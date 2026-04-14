@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const CommandLine = () => {
     const [text, setText] = useState("");
-    const fullText = "> system_status: ONLINE // mode: READY";
+    const fullText = "> architecture_core: ONLINE // ref_id: AOI-771-NEXUS";
     const controls = useAnimation();
 
     useEffect(() => {
@@ -13,9 +13,9 @@ export const CommandLine = () => {
             await controls.start({ opacity: 1 });
             for (let i = 0; i <= fullText.length; i++) {
                 setText(fullText.slice(0, i));
-                await new Promise((resolve) => setTimeout(resolve, 50)); // Typing speed
+                await new Promise((resolve) => setTimeout(resolve, 30)); // Slightly faster typing
             }
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            // Once finished, stay static
             // Optional: Fade out or keep static
             // await controls.start({ opacity: 0.5 });
         };

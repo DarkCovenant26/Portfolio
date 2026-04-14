@@ -14,20 +14,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Portfolio | Senior Backend & Systems Architect",
-    description: "Specializing in Django, FastAPI, DevOps automation, and security-driven architectures for scalable web systems.",
+    title: "Lead Software Engineer | Systems Architect",
+    description: "Lead Software Engineer and Systems Architect specializing in Django, React, and secure-by-design orchestrations for enterprise platforms.",
     openGraph: {
         type: "website",
         locale: "en_US",
         url: "https://portfolio.example.com",
-        title: "Senior Backend & Systems Architect | Portfolio",
-        description: "Helping teams build secure, scalable backend systems and intelligent defense grids.",
-        siteName: "Zandro | Systems Architect",
+        title: "Lead Software Engineer | Systems Architect Portfolio",
+        description: "Building secure, scalable enterprise platforms through hands-on leadership and architectural mastery.",
+        siteName: "Zandro Narvaza | Lead Software Engineer",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Senior Backend & Systems Architect | Portfolio",
-        description: "Building secure, scalable backend architectures.",
+        title: "Lead Software Engineer | Systems Architect",
+        description: "Enterprise platform orchestration and hands-on software engineering.",
     },
 };
 

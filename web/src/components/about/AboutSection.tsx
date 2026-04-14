@@ -18,8 +18,8 @@ export const AboutSection = () => {
 
                     <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
                         <p>
-                            I don’t just build software; I stabilize and rescue it. As a <span className="text-foreground font-medium text-primary">Director of Cyber R&D and Lead Architect</span>,
-                            I specialize in transforming 'nightmare' legacy monoliths and unreferenced datasets into high-performance, <span className="text-foreground font-medium underline decoration-primary/30">Secure by Design</span> platforms.
+                            I don’t just build software—I architect and deliver it. As a <span className="text-foreground font-medium text-primary">Lead Software Engineer and Systems Architect</span>,
+                            I specialize in transforming complex legacy monoliths and unreferenced datasets into high-performance, <span className="text-foreground font-medium underline decoration-primary/30">Secure by Design</span> platforms.
                         </p>
 
                         <p>

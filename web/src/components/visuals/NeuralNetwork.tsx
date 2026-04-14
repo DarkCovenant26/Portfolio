@@ -22,9 +22,9 @@ export const NeuralNetwork = () => {
 
         let animationFrameId: number;
         let particles: Particle[] = [];
-        const particleCount = 60;
-        const connectionDistance = 150;
-        const mouseDistance = 200;
+        const particleCount = 25;
+        const connectionDistance = 180;
+        const mouseDistance = 0; // Disable mouse connection
 
         let mouseX = -1000;
         let mouseY = -1000;
@@ -47,9 +47,9 @@ export const NeuralNetwork = () => {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5,
-                    size: Math.random() * 2 + 1,
+                    vx: (Math.random() - 0.5) * 0.15, // Significantly slower
+                    vy: (Math.random() - 0.5) * 0.15,
+                    size: Math.random() * 1.5 + 0.5,
                 });
             }
         };
@@ -59,8 +59,8 @@ export const NeuralNetwork = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Fetch theme colors dynamically
-            const primaryColor = isDark ? "rgba(59, 130, 246, 0.4)" : "rgba(37, 99, 235, 0.2)";
-            const secondaryColor = isDark ? "rgba(16, 185, 129, 0.2)" : "rgba(14, 165, 233, 0.3)";
+            const primaryColor = isDark ? "rgba(59, 130, 246, 0.4)" : "rgba(37, 99, 235, 0.4)";
+            const secondaryColor = isDark ? "rgba(16, 185, 129, 0.2)" : "rgba(14, 165, 233, 0.4)";
 
             // Update and draw particles
             particles.forEach((p, i) => {
@@ -94,18 +94,7 @@ export const NeuralNetwork = () => {
                     }
                 }
 
-                // Connect to mouse
-                const dx = p.x - mouseX;
-                const dy = p.y - mouseY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < mouseDistance) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = secondaryColor.replace("0.2", (0.2 * (1 - dist / mouseDistance)).toString()).replace("0.3", (0.2 * (1 - dist / mouseDistance)).toString());
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(mouseX, mouseY);
-                    ctx.stroke();
-                }
+                // Mouse connection removed for executive calm
             });
 
             animationFrameId = requestAnimationFrame(draw);

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import { cvData } from "@/data/cv-data";
+import { Badge } from "@/components/ui/badge";
 
 export const ExperienceTimeline = () => {
     // Map cvData.experience to the timeline format
@@ -24,9 +25,14 @@ export const ExperienceTimeline = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl font-bold mb-12 border-b border-primary/20 pb-4 inline-block">
-                        &gt; Experience_Timeline
-                    </h2>
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-primary/20 pb-4">
+                        <h2 className="text-3xl font-bold">
+                            &gt; Career_Trajectory
+                        </h2>
+                        <Badge variant="outline" className="mt-4 md:mt-0 text-secondary border-secondary/20 bg-secondary/5 font-mono text-[10px] uppercase tracking-wider">
+                           Rapid Promotion Path: 2023 - Present
+                        </Badge>
+                    </div>
 
                     <div className="relative border-l border-primary/20 ml-3 md:ml-6 space-y-12 pb-8">
                         {timelineItems.map((item, index) => (
@@ -46,11 +52,11 @@ export const ExperienceTimeline = () => {
                                         {item.role}
                                     </h3>
                                     <span className="hidden md:inline-block mx-3 text-slate-500">•</span>
-                                    <span className="text-secondary font-medium tracking-wide text-sm mt-1 md:mt-0">
+                                    <span className="text-secondary dark:text-secondary font-semibold tracking-wide text-sm mt-1 md:mt-0">
                                         {item.period}
                                     </span>
                                 </div>
-                                <h4 className="text-sm text-secondary font-medium mb-4 uppercase tracking-wider">
+                                <h4 className="text-sm text-primary font-bold mb-4 uppercase tracking-wider">
                                     {item.company}
                                 </h4>
                                 <p className="text-muted-foreground leading-relaxed font-light">

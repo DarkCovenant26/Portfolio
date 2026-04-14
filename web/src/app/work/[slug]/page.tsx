@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudyData } from "@/data/case-studies";
 import { CaseStudyHeader } from "@/components/work/CaseStudyHeader";
 import { CaseStudyContent } from "@/components/work/CaseStudyContent";
+import { TechnicalDeepDive } from "@/components/work/TechnicalDeepDive";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { NeuralNetwork } from "@/components/visuals/NeuralNetwork";
 
@@ -44,6 +45,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <main className="relative z-10">
                 <CaseStudyHeader study={study} />
                 <CaseStudyContent study={study} />
+                {study.technicalDeepDive && <TechnicalDeepDive data={study.technicalDeepDive} />}
             </main>
         </div>
     );

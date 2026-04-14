@@ -15,6 +15,7 @@ interface ProjectCardProps {
     link?: string;
     className?: string;
     image?: string;
+    hasBlueprint?: boolean;
 }
 
 export const ProjectCard = ({
@@ -27,12 +28,13 @@ export const ProjectCard = ({
     link = "#",
     className,
     image,
+    hasBlueprint,
 }: ProjectCardProps) => {
     return (
         <motion.div
             className={cn(
-                "group relative overflow-hidden rounded-lg border border-card-border bg-surface-card backdrop-blur-sm p-6 transition-all duration-300 h-full flex flex-col",
-                "hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.15)] shadow-sm dark:shadow-none",
+                "group relative overflow-hidden rounded-xl border border-card-border bg-surface-card backdrop-blur-xl p-8 transition-all duration-500 h-full flex flex-col",
+                "hover:border-primary/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] shadow-sm dark:shadow-none",
                 className
             )}
             whileHover={{ scale: 1.01 }}
@@ -42,9 +44,20 @@ export const ProjectCard = ({
                     <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                         {title}
                     </h3>
-                    <span className="text-xs font-mono text-primary/80 border border-primary/20 px-2 py-0.5 rounded mt-1 inline-block bg-primary/5">
+                    <span className="text-xs font-mono text-primary/90 dark:text-primary/80 border border-primary/20 px-2 py-0.5 rounded mt-1 inline-block bg-primary/10 dark:bg-primary/5">
                         {role}
                     </span>
+                    {hasBlueprint && (
+                        <div className="flex items-center gap-1.5 mt-2">
+                             <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-600 dark:bg-cyan-500"></span>
+                            </span>
+                            <span className="text-[10px] font-bold text-cyan-600 dark:text-cyan-500 uppercase tracking-widest">
+                                Blueprint Available
+                            </span>
+                        </div>
+                    )}
                 </div>
                 <Link
                     href={link}

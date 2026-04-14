@@ -75,7 +75,7 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                             <motion.div
                                 className="h-full w-full bg-primary/5"
                                 animate={{ opacity: [0, 0.4, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, delay: Math.random() * 4 }}
+                                transition={{ duration: 4, repeat: Infinity, delay: i * 0.4 }}
                             />
                         </motion.div>
                     ))}
@@ -237,8 +237,8 @@ export function SystemBlueprint({ type }: SystemBlueprintProps) {
                     {[1, 2, 3, 4, 5].map((i) => (
                         <circle
                             key={`peer-${i}`}
-                            cx={150 + Math.random() * 100}
-                            cy={70 + Math.random() * 60}
+                            cx={150 + ((i * 17) % 100)}
+                            cy={70 + ((i * 23) % 60)}
                             r="1.5"
                             className="fill-muted-foreground/30"
                         />

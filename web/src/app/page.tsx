@@ -10,6 +10,8 @@ import { ContactSection } from "@/components/contact/ContactSection";
 
 import { BentoGrid } from "@/components/projects/BentoGrid";
 import { TechPipeline } from "@/components/tech/TechPipeline";
+import { ArchitectureShowcase } from "@/components/tech/ArchitectureShowcase";
+import { LeadershipPhilosophy } from "@/components/about/LeadershipPhilosophy";
 import Link from "next/link";
 import { ArrowRight, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,6 +53,12 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
+            {/* Architecture Showcase */}
+            <ArchitectureShowcase />
+
+            {/* Leadership & Philosophy */}
+            <LeadershipPhilosophy />
 
             {/* About Section */}
             <AboutSection />

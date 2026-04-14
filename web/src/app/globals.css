@@ -4,23 +4,23 @@
   --background: #ffffff;
   --foreground: #020617;
 
-  --primary: #2563eb;
+  --primary: #1e293b;
   --primary-foreground: #ffffff;
-  --primary-glow: rgba(37, 99, 235, 0.2);
+  --primary-glow: rgba(30, 41, 59, 0.1);
 
-  --secondary: #475569;
+  --secondary: #64748b;
   --secondary-foreground: #ffffff;
 
   --accent: #0ea5e9;
   --accent-foreground: #0a0a0a;
 
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
+  --muted: #f8fafc;
+  --muted-foreground: #334155;
 
   --card: #ffffff;
   --card-foreground: #020617;
-  --card-border: rgba(15, 23, 42, 0.1);
-  --cyber-grid: rgba(0, 0, 0, 0.05);
+  --card-border: rgba(30, 41, 59, 0.1);
+  --cyber-grid: rgba(0, 0, 0, 0.04);
 
   --surface-card: rgba(255, 255, 255, 0.8);
   --surface-muted: rgba(241, 245, 249, 0.5);
@@ -34,11 +34,11 @@
   --background: #0a0a0a;
   --foreground: #f8fafc;
 
-  --primary: #3b82f6;
+  --primary: #60a5fa;
   --primary-foreground: #0a0a0a;
-  --primary-glow: rgba(59, 130, 246, 0.3);
+  --primary-glow: rgba(96, 165, 250, 0.1);
 
-  --secondary: #64748b;
+  --secondary: #94a3b8;
   --secondary-foreground: #f8fafc;
 
   --accent: #0ea5e9;
@@ -49,8 +49,8 @@
 
   --card: rgba(10, 10, 10, 0.4);
   --card-foreground: #f8fafc;
-  --card-border: rgba(255, 255, 255, 0.05);
-  --cyber-grid: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.03);
+  --cyber-grid: rgba(255, 255, 255, 0.01);
 
   --surface-card: rgba(10, 10, 10, 0.4);
   --surface-muted: rgba(30, 41, 59, 0.4);
@@ -99,20 +99,7 @@
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes glitch {
-
-    2%,
-    64% {
-      transform: translate(2px, 0) skew(0deg);
-    }
-
-    4%,
-    60% {
-      transform: translate(-2px, 0) skew(0deg);
-    }
-
-    62% {
-      transform: translate(0, 0) skew(5deg);
-    }
+    0%, 100% { transform: none; }
   }
 
   @keyframes typewriter {
