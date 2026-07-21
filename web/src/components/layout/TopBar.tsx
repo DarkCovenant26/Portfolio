@@ -40,9 +40,59 @@ export function TopBar() {
             <Menu className="w-5 h-5" />
           </Button>
           <div className="topbar-breadcrumbs">
-            <span className="topbar-breadcrumb-link">Home</span>
-            <span className="mx-2 text-border">/</span>
-            <span className="text-foreground font-medium text-gradient-primary">Overview</span>
+            {(() => {
+              if (pathname === "/") {
+                return (
+                  <>
+                    <span className="topbar-breadcrumb-link">Home</span>
+                    <span className="mx-2 text-border">/</span>
+                    <span className="text-foreground font-medium text-gradient-primary">Overview</span>
+                  </>
+                );
+              }
+
+              const parts = pathname.split('/').filter(Boolean);
+              const breadcrumbs = [];
+              
+              breadcrumbs.push(
+                <Link key="home" href="/" className="topbar-breadcrumb-link transition-colors hover:text-primary">
+                  Home
+                </Link>
+              );
+              
+              let currentPath = "";
+              parts.forEach((part, index) => {
+                currentPath += `/${part}`;
+                const isLast = index === parts.length - 1;
+                
+                const navItem = mobileNavItems.find(item => item.href === currentPath);
+                let label = navItem?.label;
+                
+                if (!label) {
+                  label = part.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                }
+
+                breadcrumbs.push(
+                  <span key={`sep-${index}`} className="mx-2 text-border">/</span>
+                );
+
+                if (isLast) {
+                  breadcrumbs.push(
+                    <span key={`last-${index}`} className="text-foreground font-medium text-gradient-primary">
+                      {label}
+                    </span>
+                  );
+                } else {
+                  breadcrumbs.push(
+                    <Link key={`link-${index}`} href={currentPath} className="topbar-breadcrumb-link transition-colors hover:text-primary">
+                      {label}
+                    </Link>
+                  );
+                }
+              });
+
+              return breadcrumbs;
+            })()}
           </div>
         </div>
 
