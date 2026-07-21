@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
+import { Mail, Github, Gitlab, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { cvData } from "@/data/cv-data";
@@ -37,9 +37,20 @@ export const ContactSection = () => {
                             href={`https://${cvData.personal.github}`}
                             target="_blank"
                             className="p-4 rounded-full bg-muted border border-card-border hover:bg-primary/10 hover:border-primary/50 transition-all"
+                            title="GitHub (Personal Projects)"
                         >
                             <Github className="h-6 w-6" />
                         </Link>
+                        {cvData.personal.gitlab && (
+                            <Link
+                                href={`https://${cvData.personal.gitlab}`}
+                                target="_blank"
+                                className="p-4 rounded-full bg-muted border border-card-border hover:bg-primary/10 hover:border-primary/50 transition-all"
+                                title="GitLab (Professional)"
+                            >
+                                <Gitlab className="h-6 w-6" />
+                            </Link>
+                        )}
                         <Link
                             href={`https://${cvData.personal.linkedin}`}
                             target="_blank"

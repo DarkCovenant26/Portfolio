@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Command, Github, Linkedin, Menu, X, LayoutDashboard, Briefcase, Code2, Layers, Mail, Terminal, Cpu, Award } from "lucide-react";
+import { Command, Github, Gitlab, Linkedin, Menu, X, LayoutDashboard, Briefcase, Code2, Layers, Mail, Terminal, Cpu, Award } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 import { CommandPalette } from "@/components/CommandPalette";
 import Link from "next/link";
@@ -65,6 +65,13 @@ export function TopBar() {
               <Github className="w-4 h-4" />
             </a>
           </Button>
+          {cvData.personal.gitlab && (
+            <Button variant="ghost" size="icon" asChild className="topbar-icon-btn" title="GitLab (Professional)">
+              <a href={`https://${cvData.personal.gitlab}`} target="_blank" rel="noreferrer">
+                <Gitlab className="w-4 h-4" />
+              </a>
+            </Button>
+          )}
           <Button variant="ghost" size="icon" asChild className="topbar-icon-btn">
             <a href={`https://${cvData.personal.linkedin}`} target="_blank" rel="noreferrer">
               <Linkedin className="w-4 h-4" />

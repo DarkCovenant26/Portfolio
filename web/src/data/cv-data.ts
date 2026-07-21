@@ -7,6 +7,7 @@ export interface CVData {
         email: string;
         linkedin?: string;
         github?: string;
+        gitlab?: string;
         website?: string;
         photo?: string;
     };
@@ -55,6 +56,7 @@ export const cvData: CVData = {
         email: "zandro.narvaza@gmail.com",
         linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
         github: "github.com/darkcovenant26",
+        gitlab: "gitlab.cytechint.io/zandron",
         photo: "/images/profile-photo.jpg",
     },
     summary:
@@ -347,6 +349,7 @@ export const cvDataDeveloper: CVData = {
         email: "zandro.narvaza@gmail.com",
         linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
         github: "github.com/darkcovenant26",
+        gitlab: "gitlab.cytechint.io/zandron",
         photo: "/images/profile-photo.jpg",
     },
     summary:
@@ -625,6 +628,7 @@ export const cvDataDevOps: CVData = {
         email: "zandro.narvaza@gmail.com",
         linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
         github: "github.com/darkcovenant26",
+        gitlab: "gitlab.cytechint.io/zandron",
         photo: "/images/profile-photo.jpg",
     },
     summary:

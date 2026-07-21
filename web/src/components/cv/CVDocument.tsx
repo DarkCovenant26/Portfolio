@@ -55,7 +55,7 @@ export const CVDocument = React.forwardRef<HTMLDivElement, CVDocumentProps>(
                                         {data.personal.email}
                                     </a>
                                 </div>
-                                {(data.personal.linkedin || data.personal.github) && (
+                                {(data.personal.linkedin || data.personal.github || data.personal.gitlab) && (
                                     <div className="flex flex-wrap gap-3 items-center">
                                         {data.personal.linkedin && (
                                             <a href={`https://${data.personal.linkedin}`} className="hover:underline" style={{ color: '#0f766e' }}>
@@ -67,6 +67,14 @@ export const CVDocument = React.forwardRef<HTMLDivElement, CVDocumentProps>(
                                                 {data.personal.linkedin && <span style={{ color: '#2dd4bf' }}>•</span>}
                                                 <a href={`https://${data.personal.github}`} className="hover:underline" style={{ color: '#0f766e' }}>
                                                     {data.personal.github}
+                                                </a>
+                                            </>
+                                        )}
+                                        {data.personal.gitlab && (
+                                            <>
+                                                {(data.personal.linkedin || data.personal.github) && <span style={{ color: '#2dd4bf' }}>•</span>}
+                                                <a href={`https://${data.personal.gitlab}`} className="hover:underline" style={{ color: '#0f766e' }}>
+                                                    {data.personal.gitlab}
                                                 </a>
                                             </>
                                         )}

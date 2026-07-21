@@ -1,6 +1,6 @@
 "use client";
 
-import { Wifi, Activity, Github, Linkedin, Mail } from "lucide-react";
+import { Wifi, Activity, Github, Gitlab, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cvData } from "@/data/cv-data";
@@ -32,6 +32,9 @@ export function Footer() {
                 {/* Center: Social Links (Call to Action) */}
                 <div className="flex items-center gap-6">
                     <SocialLink href={`https://${cvData.personal.github}`} icon={Github} label="GITHUB" />
+                    {cvData.personal.gitlab && (
+                        <SocialLink href={`https://${cvData.personal.gitlab}`} icon={Gitlab} label="GITLAB" />
+                    )}
                     <SocialLink href={`https://${cvData.personal.linkedin}`} icon={Linkedin} label="LINKEDIN" />
                     <SocialLink href={`mailto:${cvData.personal.email}`} icon={Mail} label="EMAIL" />
                 </div>

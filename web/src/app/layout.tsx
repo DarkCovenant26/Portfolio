@@ -53,7 +53,8 @@ export default function RootLayout({
         "url": BASE_URL,
         "sameAs": [
             "https://linkedin.com/in/zandro-narvaza-3a2863198/",
-            "https://github.com/darkcovenant26"
+            "https://github.com/darkcovenant26",
+            "https://gitlab.cytechint.io/zandron"
         ]
     };
 

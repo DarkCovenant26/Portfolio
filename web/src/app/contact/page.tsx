@@ -1,5 +1,5 @@
 import { cvData } from "@/data/cv-data";
-import { Mail, Github, Linkedin, MapPin, Phone, Copy } from "lucide-react";
+import { Mail, Github, Gitlab, Linkedin, MapPin, Phone, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
@@ -62,6 +62,14 @@ export default function ContactPage() {
               <Button variant="outline" className="w-full justify-start h-10 text-xs" asChild>
                 <a href={`https://${cvData.personal.github}`} target="_blank" rel="noreferrer">
                   <Github className="mr-2 h-4 w-4" /> {cvData.personal.github}
+                </a>
+              </Button>
+            )}
+
+            {cvData.personal.gitlab && (
+              <Button variant="outline" className="w-full justify-start h-10 text-xs" asChild>
+                <a href={`https://${cvData.personal.gitlab}`} target="_blank" rel="noreferrer">
+                  <Gitlab className="mr-2 h-4 w-4" /> {cvData.personal.gitlab}
                 </a>
               </Button>
             )}

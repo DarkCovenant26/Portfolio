@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cvData, cvDataDeveloper, cvDataDevOps } from "@/data/cv-data";
-import { Mail, Phone, MapPin, Github, Linkedin, Printer, Briefcase, Code2, Server } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Gitlab, Linkedin, Printer, Briefcase, Code2, Server } from "lucide-react";
 import { CVDownloader } from "@/components/CVDownloader";
 import { motion } from "framer-motion";
 
@@ -112,6 +112,14 @@ export default function CVPage() {
                                         {activeData.personal.github}
                                     </a>
                                 </div>
+                                {activeData.personal.gitlab && (
+                                    <div className="flex items-center gap-3 text-slate-600">
+                                        <Gitlab className="w-4 h-4 text-blue-600" />
+                                        <a href={`https://${activeData.personal.gitlab}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                                            {activeData.personal.gitlab}
+                                        </a>
+                                    </div>
+                                )}
                                 <div className="flex items-center gap-3 text-slate-600">
                                     <Linkedin className="w-4 h-4 text-blue-600" />
                                     <a href={`https://${activeData.personal.linkedin}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
