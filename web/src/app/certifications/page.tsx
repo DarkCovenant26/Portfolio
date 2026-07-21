@@ -1,5 +1,11 @@
 import { cvData } from "@/data/cv-data";
 import { Award, Calendar, Building2, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Certifications",
+    description: "Professional credentials and formal training of Zandro E. Narvaza.",
+};
 
 export default function CertificationsPage() {
   return (

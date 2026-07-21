@@ -12,9 +12,32 @@ const jetbrainsMono = JetBrains_Mono({
     variable: "--font-jetbrains-mono",
 });
 
+const BASE_URL = 'https://portfolio-j24wgc3sa-zandro-narvazas-projects.vercel.app';
+
 export const metadata: Metadata = {
-    title: "Lead Software Engineer | Systems Architect",
+    metadataBase: new URL(BASE_URL),
+    title: {
+        default: "Zandro E. Narvaza | Lead Software Engineer & Systems Architect",
+        template: "%s | Zandro E. Narvaza"
+    },
     description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
+    openGraph: {
+        title: "Zandro E. Narvaza | Lead Software Engineer & Systems Architect",
+        description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
+        url: BASE_URL,
+        siteName: "Zandro E. Narvaza Portfolio",
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Zandro E. Narvaza | Lead Software Engineer",
+        description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    }
 };
 
 export default function RootLayout({
@@ -22,6 +45,18 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const personSchema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Zandro E. Narvaza",
+        "jobTitle": "Director of Cyber Development | Lead Full-Stack Architect",
+        "url": BASE_URL,
+        "sameAs": [
+            "https://linkedin.com/in/zandro-narvaza-3a2863198/",
+            "https://github.com/darkcovenant26"
+        ]
+    };
+
     return (
         <html lang="en" suppressHydrationWarning>
             <body
@@ -31,6 +66,10 @@ export default function RootLayout({
                     "min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-primary flex"
                 )}
             >
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+                />
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="dark"

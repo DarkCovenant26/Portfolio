@@ -1,5 +1,11 @@
 import { cvData } from "@/data/cv-data";
 import { Cpu, Server, Code, Database, Braces, Sparkles, Network, Terminal, Users } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Tech Stack",
+    description: "A comprehensive breakdown of Zandro E. Narvaza's engineering arsenal.",
+};
 
 export default function StackPage() {
   const getIconForCategory = (category: string) => {

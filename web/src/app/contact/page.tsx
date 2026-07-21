@@ -1,6 +1,12 @@
 import { cvData } from "@/data/cv-data";
 import { Mail, Github, Linkedin, MapPin, Phone, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact",
+    description: "Get in touch with Zandro E. Narvaza for opportunities, consulting, or engineering discussions.",
+};
 
 export default function ContactPage() {
   return (

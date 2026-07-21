@@ -1,5 +1,11 @@
 import { cvData } from "@/data/cv-data";
 import { Calendar, MapPin, Building2, Briefcase } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Experience",
+    description: "Professional journey and leadership roles of Zandro E. Narvaza.",
+};
 
 const EXPERIENCE_TECHS: Record<string, string[]> = {
   "Director of Cyber R&D": ["Django", "Django-Ninja", "Keycloak", "React", "Next.js", "MinIO", "Claude Code", "Docker", "Lens", "Event-Driven", "CI/CD", "GitLab CI", "Jenkins", "JSONField", "PostgreSQL"],

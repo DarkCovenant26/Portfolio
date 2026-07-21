@@ -1,4 +1,10 @@
 import { Monitor, Cpu, Terminal, Keyboard, Mouse, Speaker, Code, Server, Laptop, Briefcase } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Workspace & Setup",
+    description: "The hardware and software setup relied on by Zandro E. Narvaza to build scalable enterprise architecture.",
+};
 
 export default function UsesPage() {
   const software = [
