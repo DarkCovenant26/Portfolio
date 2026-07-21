@@ -1,15 +1,15 @@
 "use client";
 
-import { useTheme } from "@/components/ThemeProvider";
+import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ThemeToggle() {
-    const { theme, toggleTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     return (
         <button
-            onClick={toggleTheme}
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className="relative h-9 w-9 flex items-center justify-center rounded-md border border-card-border hover:bg-muted transition-colors"
             aria-label="Toggle theme"
         >

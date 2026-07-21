@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { cvData } from "@/data/cv-data";
 
 export const ContactSection = () => {
     return (
@@ -26,21 +27,21 @@ export const ContactSection = () => {
 
                 <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
                     <MagneticButton asChild size="lg" className="h-16 px-10 text-lg rounded-full font-bold">
-                        <Link href="mailto:your.email@example.com">
+                        <Link href={`mailto:${cvData.personal.email}`}>
                             Email Me <Mail className="ml-2 h-5 w-5" />
                         </Link>
                     </MagneticButton>
 
                     <div className="flex gap-4">
                         <Link
-                            href="https://github.com"
+                            href={`https://${cvData.personal.github}`}
                             target="_blank"
                             className="p-4 rounded-full bg-muted border border-card-border hover:bg-primary/10 hover:border-primary/50 transition-all"
                         >
                             <Github className="h-6 w-6" />
                         </Link>
                         <Link
-                            href="https://linkedin.com"
+                            href={`https://${cvData.personal.linkedin}`}
                             target="_blank"
                             className="p-4 rounded-full bg-muted border border-card-border hover:bg-primary/10 hover:border-primary/50 transition-all"
                         >

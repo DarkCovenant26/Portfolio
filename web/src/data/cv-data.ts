@@ -44,8 +44,8 @@ export const cvData: CVData = {
         location: "Cagayan de Oro City, Philippines",
         phone: "+639566500885",
         email: "zandro.narvaza@gmail.com",
-        linkedin: "linkedin.com/in/zandro-narvaza",
-        github: "github.com/zandro-narvaza",
+        linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
+        github: "github.com/darkcovenant26",
         photo: "/images/profile-photo.jpg",
     },
     summary:
@@ -63,6 +63,8 @@ export const cvData: CVData = {
                 "Assumed full-stack ownership of infrastructure orchestration for enterprise SaaS instances, shipping mission-critical systems during crisis transitions",
                 "Designed and implemented scalable ERD schemas in a high-velocity environment, ensuring relational integrity during rapid feature expansion",
                 "Orchestrated automated CI/CD workflows using GitLab CI and Jenkins to maintain environment parity across partner VPCs",
+                "Driving architectural modernization for the next-generation platform, leveraging Django-Ninja for high-performance APIs, Keycloak for centralized IAM, and MinIO for scalable object storage within an event-driven architecture",
+                "Accelerating development cycles via AI-assisted coding (Claude Code) and utilizing Lens to monitor and troubleshoot Kubernetes-based deployment pipelines",
             ],
         },
         {
@@ -77,6 +79,8 @@ export const cvData: CVData = {
                 "Engineered reusable backend patterns (async email workers, Redis caching, audit log triggers) that standardized development workflows and eliminated repetitive technical debt",
                 "Developed an automated SCF (Secure Controls Framework) parser and updater, synchronizing 1000+ controls from regulatory updates into a multi-tenant DB with zero downtime",
                 "Designed a 'Readiness Analytics Engine' providing snapshot-based trend analysis and maturity scoring across 20+ cybersecurity frameworks",
+                "Proactively invested in and integrated Gemini Pro into daily workflows to accelerate full-stack development and complex problem-solving, pre-dating company-wide AI adoption",
+                "Transitioned backend services to an event-driven architecture, implementing Celery and asynchronous workers to handle heavy computational loads and improve overall system responsiveness",
             ],
         },
         {
@@ -120,10 +124,11 @@ export const cvData: CVData = {
         {
             category: "Backend Development",
             items: [
-                "Python (Django, Django REST Framework, FastAPI)",
+                "Python (Django, Django REST Framework, Django-Ninja, FastAPI)",
                 "Celery (task queues, scheduled jobs)",
                 "PostgreSQL, DynamoDB",
                 "Redis",
+                "Keycloak (Identity and Access Management)",
                 "REST API design and integration",
                 "Microservices / modular backend architecture",
             ],
@@ -138,9 +143,17 @@ export const cvData: CVData = {
             ],
         },
         {
+            category: "AI & Development Tools",
+            items: [
+                "Gemini Pro",
+                "Claude Code",
+            ],
+        },
+        {
             category: "DevOps & Infrastructure",
             items: [
                 "Docker, Docker Compose",
+                "Kubernetes visibility (Lens IDE)",
                 "NGINX",
                 "GitLab CI/CD, Jenkins",
                 "AWS ECR, S3-compatible storage (MinIO)",
@@ -209,8 +222,8 @@ export const cvDataDeveloper: CVData = {
         location: "Cagayan de Oro City, Philippines",
         phone: "+639566500885",
         email: "zandro.narvaza@gmail.com",
-        linkedin: "linkedin.com/in/zandro-narvaza",
-        github: "github.com/zandro-narvaza",
+        linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
+        github: "github.com/darkcovenant26",
         photo: "/images/profile-photo.jpg",
     },
     summary:
@@ -227,6 +240,8 @@ export const cvDataDeveloper: CVData = {
                 "Architected the Security Management Assessment (SMA) engine via JSONField optimizations to map 35k+ industry data points, restructuring legacy assets into a clean, hierarchical API logic",
                 "Assumed full-stack ownership of infrastructure orchestration for enterprise white-labeled SaaS solutions, ensuring immediate system availability during critical resource shifts",
                 "Orchestrated complex GitLab CI and Jenkins workflows to enable automated deployment and infrastructure synchronization for strategic enterprise partners",
+                "Driving architectural modernization for the next-generation platform, leveraging Django-Ninja for high-performance APIs, Keycloak for centralized IAM, and MinIO for scalable object storage within an event-driven architecture",
+                "Accelerating development cycles via AI-assisted coding (Claude Code) and utilizing Lens to monitor and troubleshoot Kubernetes-based deployment pipelines",
             ],
         },
         {
@@ -240,6 +255,8 @@ export const cvDataDeveloper: CVData = {
                 "Spearheaded the implementation of a high-security Multi-Tenant architecture across 8 modules, utilizing physically isolated PostgreSQL instances and custom middleware for header-based tenant routing",
                 "Implemented frontend monolith-to-module-federation migration using React, reducing build times and enabling independent deployment cycles across 4 feature teams",
                 "Designed reusable backend patterns and white-label environment provisioning systems that reduced repetitive engineering effort and standardized client deployments",
+                "Proactively invested in and integrated Gemini Pro into daily workflows to accelerate full-stack development and complex problem-solving, pre-dating company-wide AI adoption",
+                "Transitioned backend services to an event-driven architecture, implementing Celery and asynchronous workers to handle heavy computational loads and improve overall system responsiveness",
             ],
         },
         {
@@ -271,10 +288,11 @@ export const cvDataDeveloper: CVData = {
         {
             category: "Backend Development",
             items: [
-                "Python (Django, Django REST Framework, FastAPI)",
+                "Python (Django, Django REST Framework, Django-Ninja, FastAPI)",
                 "Celery (task queues, scheduled jobs)",
                 "PostgreSQL, DynamoDB",
                 "Redis",
+                "Keycloak (Identity and Access Management)",
                 "REST API design and integration",
                 "Microservices / modular backend architecture",
             ],
@@ -289,9 +307,17 @@ export const cvDataDeveloper: CVData = {
             ],
         },
         {
+            category: "AI & Development Tools",
+            items: [
+                "Gemini Pro",
+                "Claude Code",
+            ],
+        },
+        {
             category: "DevOps & Infrastructure",
             items: [
                 "Docker, Docker Compose",
+                "Kubernetes visibility (Lens IDE)",
                 "NGINX",
                 "GitLab CI/CD, Jenkins",
                 "AWS ECR, S3-compatible storage (MinIO)",

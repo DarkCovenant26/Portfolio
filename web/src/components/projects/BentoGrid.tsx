@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { cn } from "@/lib/utils";
 
-import { projects } from "@/data/projects";
+import { caseStudies } from "@/data/case-studies";
 
 export const BentoGrid = () => {
     return (
@@ -14,9 +14,9 @@ export const BentoGrid = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
-                {projects.map((project, index) => (
+                {caseStudies.map((project, index) => (
                     <motion.div
-                        key={project.id}
+                        key={project.slug}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -25,12 +25,12 @@ export const BentoGrid = () => {
                     >
                         <ProjectCard
                             title={project.title}
-                            problem={project.problem}
+                            problem={project.problem ?? project.description}
                             role={project.role}
-                            solution={project.solution}
-                            impact={project.impact}
-                            tags={project.tags}
-                            link={project.link}
+                            solution={project.solution ?? ""}
+                            impact={project.impact ?? ""}
+                            tags={project.tags ?? project.technologies}
+                            link={project.link ?? `/projects/${project.slug}`}
                             hasBlueprint={project.hasBlueprint}
                             className="h-full"
                         />

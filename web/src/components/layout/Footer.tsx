@@ -3,6 +3,7 @@
 import { Wifi, Activity, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cvData } from "@/data/cv-data";
 
 export function Footer() {
     const pathname = usePathname();
@@ -30,9 +31,9 @@ export function Footer() {
 
                 {/* Center: Social Links (Call to Action) */}
                 <div className="flex items-center gap-6">
-                    <SocialLink href="https://github.com/DarkCovenant26" icon={Github} label="GITHUB" />
-                    <SocialLink href="https://linkedin.com/in/zandro-narvaza-3a2863198/" icon={Linkedin} label="LINKEDIN" />
-                    <SocialLink href="mailto:contact@example.com" icon={Mail} label="EMAIL" />
+                    <SocialLink href={`https://${cvData.personal.github}`} icon={Github} label="GITHUB" />
+                    <SocialLink href={`https://${cvData.personal.linkedin}`} icon={Linkedin} label="LINKEDIN" />
+                    <SocialLink href={`mailto:${cvData.personal.email}`} icon={Mail} label="EMAIL" />
                 </div>
 
                 {/* Right: Metrics */}

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google"; // Import from google fonts wrapper
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-
+import { Sidebar } from "@/components/layout/Sidebar";
+import { TopBar } from "@/components/layout/TopBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -15,20 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
     title: "Lead Software Engineer | Systems Architect",
-    description: "Lead Software Engineer and Systems Architect specializing in Django, React, and secure-by-design orchestrations for enterprise platforms.",
-    openGraph: {
-        type: "website",
-        locale: "en_US",
-        url: "https://portfolio.example.com",
-        title: "Lead Software Engineer | Systems Architect Portfolio",
-        description: "Building secure, scalable enterprise platforms through hands-on leadership and architectural mastery.",
-        siteName: "Zandro Narvaza | Lead Software Engineer",
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "Lead Software Engineer | Systems Architect",
-        description: "Enterprise platform orchestration and hands-on software engineering.",
-    },
+    description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
 };
 
 export default function RootLayout({
@@ -38,32 +24,25 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            try {
-                                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                    document.documentElement.classList.add('dark');
-                                } else {
-                                    document.documentElement.classList.remove('dark');
-                                }
-                            } catch (_) {}
-                        `,
-                    }}
-                />
-            </head>
             <body
                 className={cn(
                     inter.variable,
                     jetbrainsMono.variable,
-                    "min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-primary flex flex-col transition-colors duration-300"
+                    "min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-primary flex"
                 )}
             >
-                <ThemeProvider>
-                    <Navbar />
-                    <main className="flex-1">{children}</main>
-                    <Footer />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="dark"
+                    enableSystem
+                >
+                    <Sidebar />
+                    <div className="flex-1 flex flex-col md:pl-64 min-h-screen w-full transition-all duration-300 ease-in-out">
+                        <TopBar />
+                        <main className="flex-1 overflow-x-hidden p-4 md:p-6">
+                            {children}
+                        </main>
+                    </div>
                 </ThemeProvider>
             </body>
         </html>

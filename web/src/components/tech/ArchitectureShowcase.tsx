@@ -14,7 +14,7 @@ const bluePrints = [
         icon: Zap,
         description: "Event-driven synthesis engine that aggregates cross-module data into business-intel KPIs for a centralized dashboard.",
         snippet: "@receiver(post_save, sender=ClientSection)\ndef trigger_kpi_refresh(sender, instance, created, **kwargs):\n    # Recompute local effectiveness artifacts\n    recompute_control_effectiveness_for_section(instance)\n    \n    # Sync to centralized Dashboard via Interop Orchestrator\n    send_interop_notification(\n        action=\"calculate_audit_readiness\",\n        client_id=instance.client_standard.client.client_no,\n        params={\"section_id\": instance.id, \"status\": instance.status}\n    )",
-        link: "/work/kpi-orchestration",
+        link: "/projects/kpi-orchestration",
         tags: ["Orchestration", "Event-Driven", "Analytics"]
     },
     {
@@ -23,7 +23,7 @@ const bluePrints = [
         icon: Database,
         description: "Physical database isolation via custom header-based routing and high-entropy tenant identifiers.",
         snippet: "class MultiTenantRouter:\n  def db_for_read(self, model, **hints):\n    return get_tenant_context()\n\nclass TenantSecurityMiddleware:\n  def __call__(self, request):\n    ref_id = request.headers.get('ref-id')\n    set_tenant_context(ref_id)\n    return self.get_response(request)",
-        link: "/work/multi-tenant-db-orchestration",
+        link: "/projects/multi-tenant-db-orchestration",
         tags: ["Middleware", "Security", "Isolation"]
     },
     {
@@ -32,7 +32,7 @@ const bluePrints = [
         icon: Code,
         description: "High-performance data mapping using JSONField optimizations to process 35k+ industry benchmark points.",
         snippet: "def optimize_benchmarks(self, raw_data):\n    # Mapping complex hierarchical industry schemas\n    processed = { \n        d['key']: d['val'] for d in raw_data \n        if d.is_valid() \n    }\n    return SMAStats.objects.filter(id=self.id).update(\n        metrics_blob=Cast(processed, JSONField())\n    )",
-        link: "/work/sma-benchmarking",
+        link: "/projects/sma-benchmarking",
         tags: ["JSONField", "Optimization", "Mapping"]
     }
 ];
