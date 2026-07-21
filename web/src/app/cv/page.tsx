@@ -104,6 +104,27 @@ export default function CVPage() {
                                 </div>
                             ))}
                         </div>
+
+                        {/* Certifications */}
+                        {cvData.certifications && cvData.certifications.length > 0 && (
+                            <div className="space-y-6">
+                                <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Certifications</h3>
+                                {cvData.certifications.map((category) => (
+                                    <div key={category.category} className="space-y-3">
+                                        <h4 className="text-[10px] font-bold text-slate-500 uppercase">{category.category}</h4>
+                                        <div className="space-y-3">
+                                            {category.items.map((cert) => (
+                                                <div key={cert.title} className="space-y-1">
+                                                    <h5 className="text-xs font-bold text-slate-800 leading-tight">{cert.title}</h5>
+                                                    <p className="text-[10px] text-slate-500">{cert.issuer}</p>
+                                                    <p className="text-[10px] font-mono text-blue-600">{cert.date}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </aside>
 
                     {/* Main Content */}

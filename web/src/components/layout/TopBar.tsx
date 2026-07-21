@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Command, Github, Linkedin, Menu, X, LayoutDashboard, Briefcase, Code2, Layers, Mail, Terminal, Cpu } from "lucide-react";
+import { Command, Github, Linkedin, Menu, X, LayoutDashboard, Briefcase, Code2, Layers, Mail, Terminal, Cpu, Award } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 import { CommandPalette } from "@/components/CommandPalette";
 import Link from "next/link";
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 const mobileNavItems = [
   { href: "/", icon: <LayoutDashboard size={18} />, label: "Overview" },
   { href: "/experience", icon: <Briefcase size={18} />, label: "Experience" },
+  { href: "/certifications", icon: <Award size={18} />, label: "Certifications" },
   { href: "/projects", icon: <Code2 size={18} />, label: "Projects" },
   { href: "/stack", icon: <Cpu size={18} />, label: "Stack" },
   { href: "/services", icon: <Layers size={18} />, label: "Services" },

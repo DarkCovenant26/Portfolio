@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Briefcase, Code2, Layers, Mail, Terminal, Cpu } from "lucide-react";
+import { LayoutDashboard, Briefcase, Code2, Layers, Mail, Terminal, Cpu, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Sidebar() {
@@ -23,6 +23,7 @@ export function Sidebar() {
       <nav className="sidebar-nav">
         <SidebarLink href="/" icon={<LayoutDashboard size={18} />} label="Overview" pathname={pathname} />
         <SidebarLink href="/experience" icon={<Briefcase size={18} />} label="Experience" pathname={pathname} />
+        <SidebarLink href="/certifications" icon={<Award size={18} />} label="Certifications" pathname={pathname} />
         <SidebarLink href="/projects" icon={<Code2 size={18} />} label="Projects" pathname={pathname} />
         <SidebarLink href="/stack" icon={<Cpu size={18} />} label="Stack" pathname={pathname} />
         <SidebarLink href="/services" icon={<Layers size={18} />} label="Services" pathname={pathname} />

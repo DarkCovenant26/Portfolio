@@ -34,6 +34,15 @@ export interface CVData {
         technologies: string[];
         impact?: string;
     }[];
+    certifications?: {
+        category: string;
+        items: {
+            title: string;
+            issuer: string;
+            date: string;
+            details?: string;
+        }[];
+    }[];
 }
 
 // Team Lead CV - Emphasizes leadership + technical balance
@@ -215,6 +224,117 @@ export const cvData: CVData = {
             impact: "Eliminated repetitive onboarding bottlenecks; enabled consistent deployment workflows across teams",
         },
     ],
+    certifications: [
+        {
+            category: "Security & Auditing",
+            items: [
+                {
+                    title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
+                    issuer: "SIS CERT.",
+                    date: "December 2025",
+                    details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
+                },
+                {
+                    title: "Introduction to Cybersecurity",
+                    issuer: "Cisco Networking Academy",
+                    date: "October 2020",
+                    details: "Foundational knowledge in cybersecurity principles and practices",
+                },
+            ]
+        },
+        {
+            category: "Database & Information Management",
+            items: [
+                {
+                    title: "Faculty Certification - Information Management",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "Certified to deliver courses in information management, database design, data modeling, SQL, and relational databases",
+                },
+                {
+                    title: "Faculty Certification - Computer Programming 6",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "SQL / Intro to ASP.NET, database design, administration, and hands-on training",
+                },
+            ]
+        },
+        {
+            category: "Mobile Systems & Platforms",
+            items: [
+                {
+                    title: "Faculty Certification - Mobile App Programming 2",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "Android OS and .NET Framework, cross-platform app development using Visual Studio with Xamarin",
+                },
+                {
+                    title: "Faculty Certification - Mobile Systems and Technologies",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Foundational programming technologies, design, and development for mobile applications",
+                },
+            ]
+        },
+        {
+            category: "Programming & Application Development",
+            items: [
+                {
+                    title: "Faculty Certification - Computer/Web Programming 4",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Object-oriented applications for Web and Windows utilizing C#.NET programming, including user interfaces, arrays, and exception handling",
+                },
+                {
+                    title: "Faculty Certification - Integrative Programming",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Design, implementation, testing, and debugging of programs using fundamental constructs in C#",
+                },
+                {
+                    title: "Faculty Certification - Event-Driven Programming",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Exception/file handling, concurrency, and database connectivity",
+                },
+            ]
+        },
+        {
+            category: "Systems, Technology, & Core Tools",
+            items: [
+                {
+                    title: "Faculty Certification - Empowerment Technologies",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "Curate, contextualize, collaborate, and create content/experiences using ICT",
+                },
+                {
+                    title: "Faculty Certification - Computer Productivity Tools",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "March 2022",
+                    details: "MS Word, MS PowerPoint, Windows OS, and personal computer operations",
+                },
+                {
+                    title: "Faculty Certification - Professional Issues in IT",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Dominant supportive technologies alongside professional, ethical, legal, security, and social responsibilities",
+                },
+                {
+                    title: "NDG Linux Unhatched",
+                    issuer: "Cisco Networking Academy & Partner NDG",
+                    date: "November 2020",
+                    details: "Foundational Linux system administration and command-line skills",
+                },
+                {
+                    title: "Introduction to IoT",
+                    issuer: "Cisco Networking Academy",
+                    date: "November 2020",
+                    details: "Fundamentals of the Internet of Things and digital transformation",
+                },
+            ]
+        }
+    ],
 };
 
 // Developer-focused CV variant (for Mid-Level to Senior IC roles)
@@ -381,5 +501,116 @@ export const cvDataDeveloper: CVData = {
             technologies: ["Jenkins", "Docker", "Infisical", "Python"],
             impact: "Ensured 100% go-live success for white-labeled client instances under aggressive deadlines; reduced developer environment setup from 2 weeks to 1-3 days.",
         },
+    ],
+    certifications: [
+        {
+            category: "Security & Auditing",
+            items: [
+                {
+                    title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
+                    issuer: "SIS CERT.",
+                    date: "December 2025",
+                    details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
+                },
+                {
+                    title: "Introduction to Cybersecurity",
+                    issuer: "Cisco Networking Academy",
+                    date: "October 2020",
+                    details: "Foundational knowledge in cybersecurity principles and practices",
+                },
+            ]
+        },
+        {
+            category: "Database & Information Management",
+            items: [
+                {
+                    title: "Faculty Certification - Information Management",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "Certified to deliver courses in information management, database design, data modeling, SQL, and relational databases",
+                },
+                {
+                    title: "Faculty Certification - Computer Programming 6",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "SQL / Intro to ASP.NET, database design, administration, and hands-on training",
+                },
+            ]
+        },
+        {
+            category: "Mobile Systems & Platforms",
+            items: [
+                {
+                    title: "Faculty Certification - Mobile App Programming 2",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "Android OS and .NET Framework, cross-platform app development using Visual Studio with Xamarin",
+                },
+                {
+                    title: "Faculty Certification - Mobile Systems and Technologies",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Foundational programming technologies, design, and development for mobile applications",
+                },
+            ]
+        },
+        {
+            category: "Programming & Application Development",
+            items: [
+                {
+                    title: "Faculty Certification - Computer/Web Programming 4",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Object-oriented applications for Web and Windows utilizing C#.NET programming, including user interfaces, arrays, and exception handling",
+                },
+                {
+                    title: "Faculty Certification - Integrative Programming",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Design, implementation, testing, and debugging of programs using fundamental constructs in C#",
+                },
+                {
+                    title: "Faculty Certification - Event-Driven Programming",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Exception/file handling, concurrency, and database connectivity",
+                },
+            ]
+        },
+        {
+            category: "Systems, Technology, & Core Tools",
+            items: [
+                {
+                    title: "Faculty Certification - Empowerment Technologies",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "July 2022",
+                    details: "Curate, contextualize, collaborate, and create content/experiences using ICT",
+                },
+                {
+                    title: "Faculty Certification - Computer Productivity Tools",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "March 2022",
+                    details: "MS Word, MS PowerPoint, Windows OS, and personal computer operations",
+                },
+                {
+                    title: "Faculty Certification - Professional Issues in IT",
+                    issuer: "STI College Cagayan De Oro",
+                    date: "2022",
+                    details: "Dominant supportive technologies alongside professional, ethical, legal, security, and social responsibilities",
+                },
+                {
+                    title: "NDG Linux Unhatched",
+                    issuer: "Cisco Networking Academy & Partner NDG",
+                    date: "November 2020",
+                    details: "Foundational Linux system administration and command-line skills",
+                },
+                {
+                    title: "Introduction to IoT",
+                    issuer: "Cisco Networking Academy",
+                    date: "November 2020",
+                    details: "Fundamentals of the Internet of Things and digital transformation",
+                },
+            ]
+        }
     ],
 };
