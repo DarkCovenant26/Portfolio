@@ -146,20 +146,26 @@ export default function Home() {
         </div>
 
         {/* Tech Stack Widget */}
-        <div className="lg:col-span-2 list-widget group">
+        <div className="lg:col-span-2 list-widget group flex flex-col">
           <div className="widget-title-bar">
-            <h3 className="widget-title"><Cpu size={16} /> Tech Stack & Core Capabilities</h3>
+            <h3 className="widget-title"><Cpu size={16} /> Core Tech Stack</h3>
+            <Link href="/stack" className="list-widget-link group/link">
+              View Full Stack <ArrowUpRight size={14} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+            </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            {cvData.skills.map((skillGroup, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 flex-1">
+            {cvData.skills.slice(0, 4).map((skillGroup, idx) => (
               <div key={idx} className="flex flex-col gap-3">
                 <h4 className="text-sm font-semibold text-foreground border-b border-border/40 pb-2">{skillGroup.category}</h4>
                 <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map((item, itemIdx) => (
+                  {skillGroup.items.slice(0, 5).map((item, itemIdx) => (
                     <span key={itemIdx} className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-medium ring-1 ring-inset transition-colors duration-200 ${getBadgeColor(skillGroup.category)}`}>
                       {item}
                     </span>
                   ))}
+                  {skillGroup.items.length > 5 && (
+                    <span className="text-xs text-muted-foreground font-medium flex items-center px-1">+{skillGroup.items.length - 5} more</span>
+                  )}
                 </div>
               </div>
             ))}
