@@ -614,3 +614,163 @@ export const cvDataDeveloper: CVData = {
         }
     ],
 };
+
+// DevOps-focused CV variant (for Junior/Mid-Level DevOps or Infrastructure roles)
+export const cvDataDevOps: CVData = {
+    personal: {
+        name: "Zandro E. Narvaza",
+        title: "DevOps & Infrastructure Engineer",
+        location: "Cagayan de Oro City, Philippines",
+        phone: "+639566500885",
+        email: "zandro.narvaza@gmail.com",
+        linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
+        github: "github.com/darkcovenant26",
+        photo: "/images/profile-photo.jpg",
+    },
+    summary:
+        "Infrastructure and DevOps Engineer with strong hands-on experience in building automated CI/CD pipelines, containerizing applications, and managing Linux-based server environments. Demonstrated ability to reduce developer onboarding time from weeks to days using Docker, Jenkins, and automated secret management. Passionate about 'infrastructure as code', secure-by-design deployment architectures, and maintaining high-availability systems.",
+    experience: [
+        {
+            title: "Infrastructure & Deployment Lead",
+            company: "CyTech Development and Operations, Inc.",
+            location: "Cagayan De Oro, Philippines",
+            period: "September 2025 - Present",
+            responsibilities: [
+                "Assumed full ownership of infrastructure orchestration for enterprise white-labeled SaaS solutions, ensuring zero downtime during critical deployments",
+                "Orchestrated complex Jenkins CI/CD workflows to enable automated deployment and infrastructure synchronization across multiple environments",
+                "Managed Kubernetes-based deployment pipelines using Lens IDE to monitor cluster health, troubleshoot pods, and ensure optimal resource allocation",
+                "Designed and maintained event-driven architectures leveraging MinIO for object storage and Keycloak for centralized authentication",
+            ],
+        },
+        {
+            title: "DevOps & Backend Engineer",
+            company: "CyTech Development and Operations, Inc.",
+            location: "Cagayan De Oro, Philippines",
+            period: "December 2023 - September 2025",
+            responsibilities: [
+                "Architected reusable backend deployment patterns and white-label environment provisioning systems, standardizing client rollouts",
+                "Managed physically isolated PostgreSQL database instances for high-security, multi-tenant architectures",
+                "Implemented Celery and asynchronous Redis workers to handle heavy computational loads, improving system responsiveness",
+                "Scaled engineering velocity by mentoring a team of 10 developers on deployment best practices, Docker containerization, and Git workflows",
+            ],
+        },
+        {
+            title: "Full-Stack Developer",
+            company: "CyTech Development and Operations, Inc.",
+            location: "Cagayan De Oro, Philippines",
+            period: "January 2023 - December 2023",
+            responsibilities: [
+                "Transitioned compliance applications into containerized Django/React environments to meet aggressive delivery windows",
+                "Conducted performance optimization and cross-browser testing for initial platform rollouts under pioneer user loads",
+                "Maintained strict version control practices and participated in infrastructure code reviews",
+            ],
+        },
+    ],
+    skills: [
+        {
+            category: "DevOps & Infrastructure",
+            items: [
+                "Docker, Docker Compose",
+                "Jenkins (CI/CD Pipeline Orchestration)",
+                "Kubernetes monitoring (Lens IDE)",
+                "Linux Server Administration",
+                "NGINX (Reverse Proxy & Load Balancing)",
+                "Proxmox (Virtual Environment)",
+                "Infisical (Secret Management)",
+                "Git Version Control (GitHub, GitLab)",
+            ],
+        },
+        {
+            category: "Cloud & Storage",
+            items: [
+                "AWS ECR",
+                "S3-compatible storage (MinIO)",
+                "PostgreSQL Database Administration",
+                "Redis (Caching & Queues)",
+            ],
+        },
+        {
+            category: "Backend & Scripting",
+            items: [
+                "Python (Django, FastAPI)",
+                "Bash Scripting",
+                "Celery (Task Queues)",
+                "REST API Integration",
+            ],
+        },
+        {
+            category: "Security & Monitoring",
+            items: [
+                "Keycloak (IAM)",
+                "Secure-by-Design Architecture",
+                "Multi-tenant data isolation",
+            ],
+        },
+    ],
+    education: [
+        {
+            degree: "Bachelor of Science: Information Technology",
+            institution: "STI College Cagayan De Oro",
+            location: "Cagayan de Oro City",
+            year: "2020",
+        },
+        {
+            degree: "Diploma: Computer and Electronics Technology",
+            institution: "STI College Cagayan De Oro",
+            location: "Cagayan de Oro City",
+            year: "2010",
+        },
+    ],
+    projects: [
+        {
+            title: "DevOps Pipeline Automation Ecosystem",
+            description:
+                "Standardized company-wide CI/CD pipelines using Jenkins and Docker. Integrated Infisical for secure secret management and created automated cookiecutter project templates.",
+            technologies: ["Jenkins", "Docker", "Infisical", "Bash", "Python"],
+            impact: "Ensured 100% go-live success for client instances and reduced developer environment setup time from 2 weeks to 1-3 days.",
+        },
+        {
+            title: "Multi-Tenant Infrastructure Provisioning",
+            description:
+                "Designed the physical database isolation layer for an Enterprise GRC platform, setting up automated routing to dedicated PostgreSQL instances for high-security clients.",
+            technologies: ["PostgreSQL", "NGINX", "Django", "Redis"],
+            impact: "Successfully isolated tenant data while maintaining a unified application layer, passing rigorous security audits.",
+        },
+    ],
+    certifications: [
+        {
+            category: "Security & Auditing",
+            items: [
+                {
+                    title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
+                    issuer: "SIS CERT.",
+                    date: "December 2025",
+                    details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
+                },
+                {
+                    title: "Introduction to Cybersecurity",
+                    issuer: "Cisco Networking Academy",
+                    date: "October 2020",
+                    details: "Foundational knowledge in cybersecurity principles and practices",
+                },
+            ]
+        },
+        {
+            category: "Systems, Technology, & Core Tools",
+            items: [
+                {
+                    title: "NDG Linux Unhatched",
+                    issuer: "Cisco Networking Academy & Partner NDG",
+                    date: "November 2020",
+                    details: "Foundational Linux system administration and command-line skills",
+                },
+                {
+                    title: "Introduction to IoT",
+                    issuer: "Cisco Networking Academy",
+                    date: "November 2020",
+                    details: "Fundamentals of the Internet of Things and digital transformation",
+                },
+            ]
+        }
+    ],
+};
