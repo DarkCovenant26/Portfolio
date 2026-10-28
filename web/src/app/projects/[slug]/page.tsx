@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudyData } from "@/data/case-studies";
+import { pageMetadata } from "@/lib/site";
 import { CaseStudyHeader } from "@/components/work/CaseStudyHeader";
 import { CaseStudyContent } from "@/components/work/CaseStudyContent";
 import { TechnicalDeepDive } from "@/components/work/TechnicalDeepDive";
@@ -14,10 +15,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const study = getCaseStudyData(slug);
     if (!study) return { title: "Not Found" };
 
-    return {
-        title: `${study.title} | Case Study | Zandro`,
+    return pageMetadata({
+        title: study.title,
         description: study.description,
-    };
+        path: `/projects/${study.slug}`,
+        type: "article",
+        image: `/projects/${study.slug}/opengraph-image`,
+    });
 }
 
 export function generateStaticParams() {

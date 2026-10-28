@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { TopBar } from "@/components/layout/TopBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { cvData } from "@/data/cv-data";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrainsMono = JetBrains_Mono({
@@ -12,27 +14,22 @@ const jetbrainsMono = JetBrains_Mono({
     variable: "--font-jetbrains-mono",
 });
 
-const BASE_URL = 'https://portfolio-j24wgc3sa-zandro-narvazas-projects.vercel.app';
-
+// Pages set their own title, canonical URL and share card through pageMetadata();
+// the canonical is deliberately not set here, or every page would inherit "/"
 export const metadata: Metadata = {
-    metadataBase: new URL(BASE_URL),
+    metadataBase: new URL(SITE_URL),
     title: {
-        default: "Zandro E. Narvaza | Lead Software Engineer & Systems Architect",
-        template: "%s | Zandro E. Narvaza"
+        default: SITE_TITLE,
+        template: `%s | ${SITE_NAME}`
     },
-    description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
+    description: SITE_DESCRIPTION,
     openGraph: {
-        title: "Zandro E. Narvaza | Lead Software Engineer & Systems Architect",
-        description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
-        url: BASE_URL,
-        siteName: "Zandro E. Narvaza Portfolio",
+        siteName: SITE_NAME,
         locale: "en_US",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Zandro E. Narvaza | Lead Software Engineer",
-        description: "Lead Software Engineer and Systems Architect specializing in secure-by-design orchestrations for enterprise platforms.",
     },
     robots: {
         index: true,
@@ -45,17 +42,45 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const { personal, experience, education } = cvData;
     const personSchema = {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Zandro E. Narvaza",
-        "jobTitle": "Director of Cyber Development | Lead Full-Stack Architect",
-        "url": BASE_URL,
-        "sameAs": [
-            "https://linkedin.com/in/zandro-narvaza-3a2863198/",
-            "https://github.com/darkcovenant26",
-            "https://gitlab.cytechint.io/zandron"
-        ]
+        "name": personal.name,
+        "jobTitle": experience[0].title,
+        "url": SITE_URL,
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cagayan de Oro City",
+            "addressCountry": "PH"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": experience[0].company
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": education[0].institution
+        },
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Lead Auditor - ISO/IEC 27001:2022 (ISMS)",
+            "recognizedBy": { "@type": "Organization", "name": "SIS CERT." }
+        },
+        "knowsAbout": [
+            "Cyber Security",
+            "Governance, Risk and Compliance (GRC)",
+            "Attack Surface Management",
+            "Event-Driven Architecture",
+            "Multi-Tenant SaaS",
+            "Django",
+            "FastAPI",
+            "Next.js",
+            "Kubernetes"
+        ],
+        "sameAs": [personal.linkedin, personal.github, personal.gitlab]
+            .filter(Boolean)
+            .map((profile) => `https://${profile}`)
     };
 
     return (

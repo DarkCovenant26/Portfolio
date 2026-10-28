@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
-
-const BASE_URL = 'https://portfolio-j24wgc3sa-zandro-narvazas-projects.vercel.app';
+import { SITE_URL } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

@@ -1,4 +1,12 @@
 import { Server, Workflow, Zap, ShieldCheck } from "lucide-react";
+import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Services",
+  description: "Consulting and leadership services from Zandro E. Narvaza: architecture and systems design, GRC and security governance, team leadership and workflow optimization.",
+  path: "/services",
+});
 
 const services = [
   {

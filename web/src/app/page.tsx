@@ -2,6 +2,15 @@ import { cvData } from "@/data/cv-data";
 import { caseStudies } from "@/data/case-studies";
 import { ArrowUpRight, Activity, FolderGit2, Calendar, MapPin, Mail, Sparkles, Cpu, Download } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
+import { pageMetadata, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   const featuredProjects = caseStudies.filter((p) => p.featured !== false).slice(0, 4);

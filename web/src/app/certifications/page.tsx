@@ -1,11 +1,13 @@
 import { cvData } from "@/data/cv-data";
 import { Award, Calendar, Building2, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Certifications",
-    description: "Professional credentials and formal training of Zandro E. Narvaza.",
-};
+    description: "Professional credentials of Zandro E. Narvaza, including ISO/IEC 27001:2022 Lead Auditor, Cisco Networking Academy and STI faculty certifications.",
+    path: "/certifications",
+});
 
 export default function CertificationsPage() {
   return (

@@ -2,11 +2,13 @@ import { cvData } from "@/data/cv-data";
 import { renderResponsibilityText } from "@/lib/rich-text";
 import { Calendar, MapPin, Building2, Briefcase } from "lucide-react";
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Experience",
-    description: "Professional journey and leadership roles of Zandro E. Narvaza.",
-};
+    description: "Career of Zandro E. Narvaza, from web developer to Director of Cyber R&D, leading GRC, attack surface management and platform interoperability work.",
+    path: "/experience",
+});
 
 const EXPERIENCE_TECHS: Record<string, string[]> = {
   "Director of Cyber R&D": ["Django", "Django-Ninja", "django-tenants", "FastAPI", "Keycloak", "React", "Next.js", "MinIO", "Claude Code", "Docker", "Kubernetes", "Lens", "Redis Streams", "SSE", "Event-Driven", "CI/CD", "GitLab CI", "Jenkins", "nuclei", "JSONField", "PostgreSQL"],

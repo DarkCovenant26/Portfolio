@@ -1,12 +1,14 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Terminal } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "About Me",
     description: "Learn more about Zandro E. Narvaza's background as a Director of Cyber R&D and Lead Architect.",
-};
+    path: "/about",
+});
 
 export default function AboutPage() {
     return (

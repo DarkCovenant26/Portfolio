@@ -1,11 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Architectural Philosophy",
     description: "Learn about the core architectural principles that guide Zandro E. Narvaza's software engineering.",
-};
+    path: "/philosophy",
+});
 
 export default function PhilosophyPage() {
     return (

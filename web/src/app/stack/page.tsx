@@ -1,11 +1,13 @@
 import { cvData } from "@/data/cv-data";
 import { Cpu, Server, Code, Database, Braces, Sparkles, Network, Terminal, Users, Shield } from "lucide-react";
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Tech Stack",
-    description: "A comprehensive breakdown of Zandro E. Narvaza's engineering arsenal.",
-};
+    description: "The languages, frameworks and infrastructure Zandro E. Narvaza works with: Python, Django, FastAPI, Next.js, PostgreSQL, Redis, Kubernetes and more.",
+    path: "/stack",
+});
 
 export default function StackPage() {
   const getIconForCategory = (category: string) => {

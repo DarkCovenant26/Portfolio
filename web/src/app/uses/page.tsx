@@ -1,10 +1,12 @@
 import { Monitor, Cpu, Terminal, Keyboard, Mouse, Speaker, Code, Server, Laptop, Briefcase } from "lucide-react";
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: "Workspace & Setup",
     description: "The hardware and software setup relied on by Zandro E. Narvaza to build scalable enterprise architecture.",
-};
+    path: "/uses",
+});
 
 export default function UsesPage() {
   const software = [
