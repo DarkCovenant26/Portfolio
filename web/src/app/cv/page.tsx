@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cvData, cvDataDeveloper, cvDataDevOps } from "@/data/cv-data";
+import { renderResponsibilityText } from "@/lib/rich-text";
 import { Mail, Phone, MapPin, Github, Gitlab, Linkedin, Printer, Briefcase, Code2, Server } from "lucide-react";
 import { CVDownloader } from "@/components/CVDownloader";
 import { motion } from "framer-motion";
@@ -208,7 +209,7 @@ export default function CVPage() {
                                             {exp.responsibilities.map((resp, i) => (
                                                 <li key={i} className="text-sm text-slate-600 leading-relaxed flex items-start gap-2">
                                                     <span className="text-blue-600 mt-1.5 min-w-[4px] h-[4px] bg-blue-600 rounded-full" />
-                                                    {resp}
+                                                    <span>{renderResponsibilityText(resp, "font-semibold text-slate-900")}</span>
                                                 </li>
                                             ))}
                                         </ul>

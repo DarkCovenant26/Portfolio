@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CVData } from "@/data/cv-data";
+import { renderResponsibilityText } from "@/lib/rich-text";
 
 interface CVDocumentProps {
     data: CVData;
@@ -119,7 +120,7 @@ export const CVDocument = React.forwardRef<HTMLDivElement, CVDocumentProps>(
                                 <ul className="list-disc ml-5 space-y-2 text-sm text-gray-800 leading-relaxed">
                                     {job.responsibilities.map((resp, idx) => (
                                         <li key={idx}>
-                                            {resp}
+                                            {renderResponsibilityText(resp, "font-semibold text-gray-900")}
                                         </li>
                                     ))}
                                 </ul>
@@ -223,6 +224,36 @@ export const CVDocument = React.forwardRef<HTMLDivElement, CVDocumentProps>(
                         ))}
                     </div>
                 </section>
+
+                {/* Certifications - only the highlighted ones; the full list lives on /certifications */}
+                {(() => {
+                    const highlighted = data.certifications?.flatMap((group) => group.items.filter((item) => item.highlight)) ?? [];
+                    if (highlighted.length === 0) return null;
+                    return (
+                        <section className="mt-8">
+                            <h3 className="text-lg font-bold mb-4 pb-2 border-b-2 uppercase tracking-wide" style={{ color: '#0f766e', borderColor: '#e5e7eb' }}>
+                                Certifications
+                            </h3>
+                            <div className="space-y-3">
+                                {highlighted.map((cert, index) => (
+                                    <div key={index}>
+                                        <div className="flex justify-between items-start mb-1">
+                                            <h4 className="text-base font-bold" style={{ color: '#111827' }}>
+                                                {cert.title}
+                                            </h4>
+                                            <span className="text-sm font-medium text-gray-600 ml-4 whitespace-nowrap">
+                                                {cert.date}
+                                            </span>
+                                        </div>
+                                        <div className="text-sm font-medium" style={{ color: '#0f766e' }}>
+                                            {cert.issuer}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    );
+                })()}
             </div>
         );
     }

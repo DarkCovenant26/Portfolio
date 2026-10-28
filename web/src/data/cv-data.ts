@@ -42,25 +42,240 @@ export interface CVData {
             issuer: string;
             date: string;
             details?: string;
+            // Shown on the downloadable CV; the certifications page lists everything
+            highlight?: boolean;
         }[];
     }[];
 }
 
+type CertificationGroup = NonNullable<CVData["certifications"]>[number];
+
+// ── Shared across every CV variant ────────────────────────────
+
+const contact = {
+    name: "Zandro E. Narvaza",
+    location: "Cagayan de Oro City, Philippines",
+    phone: "+639566500885",
+    email: "zandro.narvaza@gmail.com",
+    linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
+    github: "github.com/darkcovenant26",
+    gitlab: "gitlab.cytechint.io/zandron",
+    photo: "/images/profile-photo.jpg",
+};
+
+const education: CVData["education"] = [
+    {
+        degree: "Bachelor of Science: Information Technology",
+        institution: "STI College Cagayan De Oro",
+        location: "Cagayan de Oro City",
+        year: "2020",
+    },
+    {
+        degree: "Diploma: Computer and Electronics Technology",
+        institution: "STI College Cagayan De Oro",
+        location: "Cagayan de Oro City",
+        year: "2010",
+    },
+];
+
+const securityCertifications: CertificationGroup = {
+    category: "Security & Auditing",
+    items: [
+        {
+            title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
+            issuer: "SIS CERT.",
+            date: "December 2025",
+            details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
+            highlight: true,
+        },
+        {
+            title: "Introduction to Cybersecurity",
+            issuer: "Cisco Networking Academy",
+            date: "October 2020",
+            details: "Foundational knowledge in cybersecurity principles and practices",
+        },
+    ],
+};
+
+const ciscoFoundationCertifications: CertificationGroup["items"] = [
+    {
+        title: "NDG Linux Unhatched",
+        issuer: "Cisco Networking Academy & Partner NDG",
+        date: "November 2020",
+        details: "Foundational Linux system administration and command-line skills",
+    },
+    {
+        title: "Introduction to IoT",
+        issuer: "Cisco Networking Academy",
+        date: "November 2020",
+        details: "Fundamentals of the Internet of Things and digital transformation",
+    },
+];
+
+const certifications: CertificationGroup[] = [
+    securityCertifications,
+    {
+        category: "Database & Information Management",
+        items: [
+            {
+                title: "Faculty Certification - Information Management",
+                issuer: "STI College Cagayan De Oro",
+                date: "July 2022",
+                details: "Certified to deliver courses in information management, database design, data modeling, SQL, and relational databases",
+            },
+            {
+                title: "Faculty Certification - Computer Programming 6",
+                issuer: "STI College Cagayan De Oro",
+                date: "July 2022",
+                details: "SQL / Intro to ASP.NET, database design, administration, and hands-on training",
+            },
+        ],
+    },
+    {
+        category: "Mobile Systems & Platforms",
+        items: [
+            {
+                title: "Faculty Certification - Mobile App Programming 2",
+                issuer: "STI College Cagayan De Oro",
+                date: "July 2022",
+                details: "Android OS and .NET Framework, cross-platform app development using Visual Studio with Xamarin",
+            },
+            {
+                title: "Faculty Certification - Mobile Systems and Technologies",
+                issuer: "STI College Cagayan De Oro",
+                date: "2022",
+                details: "Foundational programming technologies, design, and development for mobile applications",
+            },
+        ],
+    },
+    {
+        category: "Programming & Application Development",
+        items: [
+            {
+                title: "Faculty Certification - Computer/Web Programming 4",
+                issuer: "STI College Cagayan De Oro",
+                date: "2022",
+                details: "Object-oriented applications for Web and Windows utilizing C#.NET programming, including user interfaces, arrays, and exception handling",
+            },
+            {
+                title: "Faculty Certification - Integrative Programming",
+                issuer: "STI College Cagayan De Oro",
+                date: "2022",
+                details: "Design, implementation, testing, and debugging of programs using fundamental constructs in C#",
+            },
+            {
+                title: "Faculty Certification - Event-Driven Programming",
+                issuer: "STI College Cagayan De Oro",
+                date: "2022",
+                details: "Exception/file handling, concurrency, and database connectivity",
+            },
+        ],
+    },
+    {
+        category: "Systems, Technology, & Core Tools",
+        items: [
+            {
+                title: "Faculty Certification - Empowerment Technologies",
+                issuer: "STI College Cagayan De Oro",
+                date: "July 2022",
+                details: "Curate, contextualize, collaborate, and create content/experiences using ICT",
+            },
+            {
+                title: "Faculty Certification - Computer Productivity Tools",
+                issuer: "STI College Cagayan De Oro",
+                date: "March 2022",
+                details: "MS Word, MS PowerPoint, Windows OS, and personal computer operations",
+            },
+            {
+                title: "Faculty Certification - Professional Issues in IT",
+                issuer: "STI College Cagayan De Oro",
+                date: "2022",
+                details: "Dominant supportive technologies alongside professional, ethical, legal, security, and social responsibilities",
+            },
+            ...ciscoFoundationCertifications,
+        ],
+    },
+];
+
+// Skill groups shared by the executive and developer variants
+const coreSkills: CVData["skills"] = [
+    {
+        category: "Backend Development",
+        items: [
+            "Python (Django, Django REST Framework, Django-Ninja, FastAPI)",
+            "Celery (task queues, scheduled jobs)",
+            "PostgreSQL, DynamoDB",
+            "Redis",
+            "Keycloak (Identity and Access Management)",
+            "django-tenants (schema-per-tenant multi-tenancy)",
+            "Event-driven messaging (Redis Streams, transactional outbox, Server-Sent Events)",
+            "REST API design and integration",
+            "Microservices / modular backend architecture",
+        ],
+    },
+    {
+        category: "Frontend Development",
+        items: [
+            "React, Next.js (13 through 16, pnpm monorepo)",
+            "Vite, TanStack Query",
+            "TypeScript",
+            "Component libraries: MUI, ShadCN",
+            "State management (Zustand, Redux)",
+            "Testing: Vitest, Playwright",
+        ],
+    },
+    {
+        category: "AI & Development Tools",
+        items: [
+            "Gemini Pro",
+            "Claude Code",
+        ],
+    },
+    {
+        category: "DevOps & Infrastructure",
+        items: [
+            "Docker, Docker Compose",
+            "Kubernetes (manifests, ingress, CloudNativePG, Lens IDE)",
+            "NGINX",
+            "Jenkins (CI/CD Pipeline Orchestration)",
+            "Infisical (Secret Management)",
+            "Proxmox (Virtual Environment)",
+            "Git Version Control (GitHub, GitLab)",
+            "AWS ECR, S3-compatible storage (MinIO)",
+            "Basic Linux server management",
+        ],
+    },
+    {
+        category: "Architecture & Systems Design",
+        items: [
+            "Multi-tenant SaaS architecture",
+            "Cross-service event fabrics (outbox, idempotent consumers, replayable event log)",
+            "Rules-based correlation with explainable provenance",
+            "Module federation (microfrontend)",
+            "API gateway patterns",
+            "Background processing and distributed workloads",
+            "Data models and ERD design",
+            "Performance optimization and troubleshooting",
+        ],
+    },
+    {
+        category: "Security Engineering",
+        items: [
+            "Attack surface scanning (nuclei, naabu, nmap)",
+            "MITRE ATT&CK coverage mapping, CISA KEV",
+            "Certification workflows: ISO 27001, ISO 9001, SOC 2, C5",
+        ],
+    },
+];
+
 // Team Lead CV - Emphasizes leadership + technical balance
 export const cvData: CVData = {
     personal: {
-        name: "Zandro E. Narvaza",
+        ...contact,
         title: "Director of Cyber Development | Lead Full-Stack Architect",
-        location: "Cagayan de Oro City, Philippines",
-        phone: "+639566500885",
-        email: "zandro.narvaza@gmail.com",
-        linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
-        github: "github.com/darkcovenant26",
-        gitlab: "gitlab.cytechint.io/zandron",
-        photo: "/images/profile-photo.jpg",
     },
     summary:
-        "Lead Software Engineer and Systems Architect with a deep focus on building secure, enterprise-grade platforms. Expert in hands-on full-stack development (Python/Django, React, Next.js) and distributed service orchestration. Proven track record of leading high-performance engineering teams through complex technical replications and ground-up builds. Combines 'Secure by Design' principles with a pragmatic, delivery-focused mindset to build scalable, mission-critical software ecosystems.",
+        "Lead Software Engineer and Systems Architect with a deep focus on building secure, enterprise-grade platforms. Expert in hands-on full-stack development (Python/Django, FastAPI, React, Next.js) and event-driven service orchestration. Proven track record of leading high-performance engineering teams through complex technical replications and ground-up builds, and an early adopter of AI-assisted engineering (Gemini Pro, now Claude Code). Combines 'Secure by Design' principles with a pragmatic, delivery-focused mindset to build scalable, mission-critical software ecosystems.",
     experience: [
         {
             title: "Director of Cyber R&D",
@@ -68,14 +283,12 @@ export const cvData: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "September 2025 - Present",
             responsibilities: [
-                "Lead the technical architecture and hands-on delivery of cyber security platforms, prioritizing 'Secure by Design' principles in a hands-on capacity",
-                "Architected and implemented the ground-up rebuild (V2) of **Project Sentinel** (Dynamic Risk Quantification Engine); utilized **Django Service Patterns** to orchestrate real-time risk telemetry based on live task implementation status",
-                "Optimized high-performance SMA benchmarking tool using JSONField and AI logic to map 35k+ industry data points; reverse-engineered complex hierarchical schemas",
-                "Assumed full-stack ownership of infrastructure orchestration for enterprise SaaS instances, shipping mission-critical systems during crisis transitions",
-                "Designed and implemented scalable ERD schemas in a high-velocity environment, ensuring relational integrity during rapid feature expansion",
-                "Orchestrated automated CI/CD workflows using Jenkins to maintain environment parity across partner VPCs",
-                "Driving architectural modernization for the next-generation platform, leveraging Django-Ninja for high-performance APIs, Keycloak for centralized IAM, and MinIO for scalable object storage within an event-driven architecture",
-                "Accelerating development cycles via AI-assisted coding (Claude Code) and utilizing Lens to monitor and troubleshoot Kubernetes-based deployment pipelines",
+                "Lead the technical architecture and hands-on delivery of **AQUILA v5**, a multi-tenant cyber security platform spanning GRC, Monitor, Sentinel, Resilience, EPA and C4I editions, built on Django-Ninja, Keycloak, MinIO and Kubernetes",
+                "Designed and built the **AQUILA Interop Kernel**, the event fabric that lets editions share events without knowing about each other; 41 of 50 catalogued event types shipped within three weeks of the first commit",
+                "Took the **AQUILA Sentinel** offensive-security edition from design mock to working product on open-source scanners (naabu, nuclei, nmap), with SLA-based remediation tracking and MITRE ATT&CK coverage derived from real detection logs",
+                "Shipped certification renewal and an end-to-end external-auditor workflow to the production GRC edition, and built **CRAM** business-impact risk mapping in the C4I edition",
+                "Own infrastructure delivery for new editions (Kubernetes manifests, Jenkins staging/production pipelines, Infisical secrets); took over a stalled white-label SaaS rollout during a critical staff transition and met the client's go-live date",
+                "Rebuilt **Risk Management V2** as a service-layer engine that scores residual risk from live task completion, and built the SMA benchmarking engine mapping 35k+ industry data points",
             ],
         },
         {
@@ -85,13 +298,10 @@ export const cvData: CVData = {
             period: "December 2023 - September 2025",
             responsibilities: [
                 "Scaled and mentored a high-performance engineering team of 10 junior developers, accelerating their progression from HTML/CSS to production-ready Full-Stack capability within 6 months",
-                "Architected 'Enterprise GRC Core', utilizing AI-augmented analysis and high-performance Pandas pipelines to reverse-engineer 8MB+ legacy SCF datasets into a scalable, multi-tenant ecosystem",
+                "Architected 'Enterprise GRC Core', utilizing AI-augmented analysis and Pandas pipelines to reverse-engineer 8MB+ legacy SCF datasets, with an automated parser that synchronizes 1000+ controls from regulatory updates into a multi-tenant DB with zero downtime",
                 "Led the architectural transition of 8 standalone modules to a unified Multi-Tenant ecosystem, implementing physically isolated database instances via a custom Ref-ID header routing middleware",
-                "Engineered reusable backend patterns (async email workers, Redis caching, audit log triggers) that standardized development workflows and eliminated repetitive technical debt",
-                "Developed an automated SCF (Secure Controls Framework) parser and updater, synchronizing 1000+ controls from regulatory updates into a multi-tenant DB with zero downtime",
                 "Designed a 'Readiness Analytics Engine' providing snapshot-based trend analysis and maturity scoring across 20+ cybersecurity frameworks",
-                "Proactively invested in and integrated Gemini Pro into daily workflows to accelerate full-stack development and complex problem-solving, pre-dating company-wide AI adoption",
-                "Transitioned backend services to an event-driven architecture, implementing Celery and asynchronous workers to handle heavy computational loads and improve overall system responsiveness",
+                "Engineered reusable backend patterns (async email workers, Redis caching, audit log triggers) and moved heavy workloads onto Celery workers, standardizing development workflows and improving system responsiveness",
             ],
         },
         {
@@ -124,67 +334,13 @@ export const cvData: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "September 2021 - January 2023",
             responsibilities: [
-                "Facilitated hands-on training sessions using industry-standard software and tools",
-                "Assessed student performance and provided constructive feedback to enhance learning outcomes",
-                "Mentored new IT instructors, sharing best practices",
-                "Evaluated student progress regularly through assessments and feedback",
+                "Facilitated hands-on training sessions using industry-standard software and tools, assessing student progress with regular, constructive feedback",
+                "Mentored new IT instructors as Program Head, sharing teaching best practices",
             ],
         },
     ],
     skills: [
-        {
-            category: "Backend Development",
-            items: [
-                "Python (Django, Django REST Framework, Django-Ninja, FastAPI)",
-                "Celery (task queues, scheduled jobs)",
-                "PostgreSQL, DynamoDB",
-                "Redis",
-                "Keycloak (Identity and Access Management)",
-                "REST API design and integration",
-                "Microservices / modular backend architecture",
-            ],
-        },
-        {
-            category: "Frontend Development",
-            items: [
-                "React, Next.js (including Next.js 13+)",
-                "TypeScript",
-                "Component libraries: MUI, ShadCN",
-                "State management (Zustand, Redux)",
-            ],
-        },
-        {
-            category: "AI & Development Tools",
-            items: [
-                "Gemini Pro",
-                "Claude Code",
-            ],
-        },
-        {
-            category: "DevOps & Infrastructure",
-            items: [
-                "Docker, Docker Compose",
-                "Kubernetes visibility (Lens IDE)",
-                "NGINX",
-                "Jenkins (CI/CD Pipeline Orchestration)",
-                "Infisical (Secret Management)",
-                "Proxmox (Virtual Environment)",
-                "Git Version Control (GitHub, GitLab)",
-                "AWS ECR, S3-compatible storage (MinIO)",
-                "Basic Linux server management",
-            ],
-        },
-        {
-            category: "Architecture & Systems Design",
-            items: [
-                "Multi-tenant SaaS architecture",
-                "Module federation (microfrontend)",
-                "API gateway patterns",
-                "Background processing and distributed workloads",
-                "Data models and ERD design",
-                "Performance optimization and troubleshooting",
-            ],
-        },
+        ...coreSkills,
         {
             category: "Leadership & Management",
             items: [
@@ -196,21 +352,22 @@ export const cvData: CVData = {
             ],
         },
     ],
-    education: [
-        {
-            degree: "Bachelor of Science: Information Technology",
-            institution: "STI College Cagayan De Oro",
-            location: "Cagayan de Oro City",
-            year: "2020",
-        },
-        {
-            degree: "Diploma: Computer and Electronics Technology",
-            institution: "STI College Cagayan De Oro",
-            location: "Cagayan de Oro City",
-            year: "2010",
-        },
-    ],
+    education,
     projects: [
+        {
+            title: "AQUILA Interop Kernel (Cross-Edition Event Fabric)",
+            description:
+                "Designed the interoperability layer for a six-edition cyber security platform and built it from the first commit: an event fabric on Redis Streams and a kernel that stores every event, correlates events with explainable rules and streams a live operating picture.",
+            technologies: ["Django-Ninja", "Redis Streams", "PostgreSQL", "Kubernetes"],
+            impact: "41 of 50 catalogued event types built across six editions within three weeks; first cross-edition route confirmed working in production",
+        },
+        {
+            title: "AQUILA Sentinel (Attack Surface Management)",
+            description:
+                "Took an offensive-security edition from design mock to working product on open-source scanners, with findings, remediation tracking, engagement authorisation checks and ATT&CK coverage derived from detection logs.",
+            technologies: ["Django-Ninja", "Celery", "nuclei", "naabu", "React"],
+            impact: "Dashboards and KPIs now compute from each tenant's real findings instead of seeded demo data",
+        },
         {
             title: "Enterprise GRC Ecosystem",
             description:
@@ -226,134 +383,17 @@ export const cvData: CVData = {
             impact: "Eliminated repetitive onboarding bottlenecks; enabled consistent deployment workflows across teams",
         },
     ],
-    certifications: [
-        {
-            category: "Security & Auditing",
-            items: [
-                {
-                    title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
-                    issuer: "SIS CERT.",
-                    date: "December 2025",
-                    details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
-                },
-                {
-                    title: "Introduction to Cybersecurity",
-                    issuer: "Cisco Networking Academy",
-                    date: "October 2020",
-                    details: "Foundational knowledge in cybersecurity principles and practices",
-                },
-            ]
-        },
-        {
-            category: "Database & Information Management",
-            items: [
-                {
-                    title: "Faculty Certification - Information Management",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "Certified to deliver courses in information management, database design, data modeling, SQL, and relational databases",
-                },
-                {
-                    title: "Faculty Certification - Computer Programming 6",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "SQL / Intro to ASP.NET, database design, administration, and hands-on training",
-                },
-            ]
-        },
-        {
-            category: "Mobile Systems & Platforms",
-            items: [
-                {
-                    title: "Faculty Certification - Mobile App Programming 2",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "Android OS and .NET Framework, cross-platform app development using Visual Studio with Xamarin",
-                },
-                {
-                    title: "Faculty Certification - Mobile Systems and Technologies",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Foundational programming technologies, design, and development for mobile applications",
-                },
-            ]
-        },
-        {
-            category: "Programming & Application Development",
-            items: [
-                {
-                    title: "Faculty Certification - Computer/Web Programming 4",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Object-oriented applications for Web and Windows utilizing C#.NET programming, including user interfaces, arrays, and exception handling",
-                },
-                {
-                    title: "Faculty Certification - Integrative Programming",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Design, implementation, testing, and debugging of programs using fundamental constructs in C#",
-                },
-                {
-                    title: "Faculty Certification - Event-Driven Programming",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Exception/file handling, concurrency, and database connectivity",
-                },
-            ]
-        },
-        {
-            category: "Systems, Technology, & Core Tools",
-            items: [
-                {
-                    title: "Faculty Certification - Empowerment Technologies",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "Curate, contextualize, collaborate, and create content/experiences using ICT",
-                },
-                {
-                    title: "Faculty Certification - Computer Productivity Tools",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "March 2022",
-                    details: "MS Word, MS PowerPoint, Windows OS, and personal computer operations",
-                },
-                {
-                    title: "Faculty Certification - Professional Issues in IT",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Dominant supportive technologies alongside professional, ethical, legal, security, and social responsibilities",
-                },
-                {
-                    title: "NDG Linux Unhatched",
-                    issuer: "Cisco Networking Academy & Partner NDG",
-                    date: "November 2020",
-                    details: "Foundational Linux system administration and command-line skills",
-                },
-                {
-                    title: "Introduction to IoT",
-                    issuer: "Cisco Networking Academy",
-                    date: "November 2020",
-                    details: "Fundamentals of the Internet of Things and digital transformation",
-                },
-            ]
-        }
-    ],
+    certifications,
 };
 
 // Developer-focused CV variant (for Mid-Level to Senior IC roles)
 export const cvDataDeveloper: CVData = {
     personal: {
-        name: "Zandro E. Narvaza",
+        ...contact,
         title: "Director of Cyber Development | Lead Full-Stack Architect",
-        location: "Cagayan de Oro City, Philippines",
-        phone: "+639566500885",
-        email: "zandro.narvaza@gmail.com",
-        linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
-        github: "github.com/darkcovenant26",
-        gitlab: "gitlab.cytechint.io/zandron",
-        photo: "/images/profile-photo.jpg",
     },
     summary:
-        "Senior Lead Software Engineer & Full-Stack Architect with 4+ years of production experience building high-performance Python systems (Django, FastAPI) and resilient frontend architectures. Expert in multi-tenant SaaS logic, DevOps automation, and secure-by-design principles. A hands-on leader who bridges the gap between complex system design and industrial-grade delivery. Experienced in technical rescue operations and white-label scaling for global enterprise partners.",
+        "Senior Lead Software Engineer & Full-Stack Architect with 4+ years of production experience building high-performance Python systems (Django, FastAPI) and resilient frontend architectures. Expert in multi-tenant SaaS logic, event-driven integration, DevOps automation, and secure-by-design principles. A hands-on leader who bridges the gap between complex system design and industrial-grade delivery, and an early adopter of AI-assisted engineering (Gemini Pro, now Claude Code). Experienced in technical rescue operations and white-label scaling for global enterprise partners.",
     experience: [
         {
             title: "Director of Cyber R&D",
@@ -361,13 +401,12 @@ export const cvDataDeveloper: CVData = {
             location: "Cagayan De Oro, Philippines",
             period: "September 2025 - Present",
             responsibilities: [
-                "Direct the strategic vision and technical roadmap for cyber security product development, focusing on 'Secure by Design' principles for GRC platforms",
-                "Architected and led the ground-up rebuild (V2) of **Project Sentinel**; pivoted from monolithic legacy views to a decoupled **Service-Layer architecture**, enabling real-time risk quantification through automated task-lifecycle orchestration",
-                "Architected the Security Management Assessment (SMA) engine via JSONField optimizations to map 35k+ industry data points, restructuring legacy assets into a clean, hierarchical API logic",
-                "Assumed full-stack ownership of infrastructure orchestration for enterprise white-labeled SaaS solutions, ensuring immediate system availability during critical resource shifts",
-                "Orchestrated complex Jenkins workflows to enable automated deployment and infrastructure synchronization for strategic enterprise partners",
-                "Driving architectural modernization for the next-generation platform, leveraging Django-Ninja for high-performance APIs, Keycloak for centralized IAM, and MinIO for scalable object storage within an event-driven architecture",
-                "Accelerating development cycles via AI-assisted coding (Claude Code) and utilizing Lens to monitor and troubleshoot Kubernetes-based deployment pipelines",
+                "Built the **AQUILA Interop Kernel** (Django-Ninja, django-tenants, Redis Streams) from the first commit: transactional outbox and relay, ULID-idempotent consumers, append-only schema-per-tenant event store, graph projection, versioned rule packs and an SSE API; shipped the shared SDK as an internal Python package into six edition backends, backed by 400+ tests",
+                "Built the **AQUILA Sentinel** edition end to end: Celery scanner workers on naabu and nuclei, a Behavioural Discovery engine for non-CVE templates, findings and SLA-based remediation services, scan authorisation checks, and MITRE ATT&CK coverage derived from detection logs",
+                "Delivered certification renewal (env-driven validity rules, Celery beat reminders, certificate PDFs) and an external-auditor workflow to the production GRC edition across Django-Ninja and a Next.js 16 monorepo; fixed a production crash by replacing per-row round trips with a bulk upsert",
+                "Built **CRAM** business-impact risk mapping in the C4I edition (FastAPI, psycopg 3, React) with Keycloak JWT authentication and trusted service-to-service reads",
+                "Rebuilt **Risk Management V2** on a decoupled service layer that scores residual risk from live task status, and engineered the SMA benchmarking engine with JSONField answer keys over 35k+ industry data points",
+                "Took full ownership of Jenkins CI/CD and Kubernetes delivery for white-labeled SaaS instances and new editions, keeping deployments running through a critical staff transition",
             ],
         },
         {
@@ -380,9 +419,7 @@ export const cvDataDeveloper: CVData = {
                 "Architected 'Enterprise GRC Core', leveraging AI-driven data analysis and Pandas pipelines to reverse-engineer 8MB+ legacy SCF datasets into a scalable, multi-tenant architecture",
                 "Spearheaded the implementation of a high-security Multi-Tenant architecture across 8 modules, utilizing physically isolated PostgreSQL instances and custom middleware for header-based tenant routing",
                 "Implemented frontend monolith-to-module-federation migration using React, reducing build times and enabling independent deployment cycles across 4 feature teams",
-                "Designed reusable backend patterns and white-label environment provisioning systems that reduced repetitive engineering effort and standardized client deployments",
-                "Proactively invested in and integrated Gemini Pro into daily workflows to accelerate full-stack development and complex problem-solving, pre-dating company-wide AI adoption",
-                "Transitioned backend services to an event-driven architecture, implementing Celery and asynchronous workers to handle heavy computational loads and improve overall system responsiveness",
+                "Designed reusable backend patterns and white-label environment provisioning systems, and moved heavy computational loads onto Celery workers in an event-driven architecture, standardizing client deployments and improving responsiveness",
             ],
         },
         {
@@ -411,59 +448,7 @@ export const cvDataDeveloper: CVData = {
         },
     ],
     skills: [
-        {
-            category: "Backend Development",
-            items: [
-                "Python (Django, Django REST Framework, Django-Ninja, FastAPI)",
-                "Celery (task queues, scheduled jobs)",
-                "PostgreSQL, DynamoDB",
-                "Redis",
-                "Keycloak (Identity and Access Management)",
-                "REST API design and integration",
-                "Microservices / modular backend architecture",
-            ],
-        },
-        {
-            category: "Frontend Development",
-            items: [
-                "React, Next.js (including Next.js 13+)",
-                "TypeScript",
-                "Component libraries: MUI, ShadCN",
-                "State management (Zustand, Redux)",
-            ],
-        },
-        {
-            category: "AI & Development Tools",
-            items: [
-                "Gemini Pro",
-                "Claude Code",
-            ],
-        },
-        {
-            category: "DevOps & Infrastructure",
-            items: [
-                "Docker, Docker Compose",
-                "Kubernetes visibility (Lens IDE)",
-                "NGINX",
-                "Jenkins (CI/CD Pipeline Orchestration)",
-                "Infisical (Secret Management)",
-                "Proxmox (Virtual Environment)",
-                "Git Version Control (GitHub, GitLab)",
-                "AWS ECR, S3-compatible storage (MinIO)",
-                "Basic Linux server management",
-            ],
-        },
-        {
-            category: "Architecture & Systems Design",
-            items: [
-                "Multi-tenant SaaS architecture",
-                "Module federation (microfrontend)",
-                "API gateway patterns",
-                "Background processing and distributed workloads",
-                "Data models and ERD design",
-                "Performance optimization and troubleshooting",
-            ],
-        },
+        ...coreSkills,
         {
             category: "Team Collaboration",
             items: [
@@ -475,21 +460,22 @@ export const cvDataDeveloper: CVData = {
             ],
         },
     ],
-    education: [
-        {
-            degree: "Bachelor of Science: Information Technology",
-            institution: "STI College Cagayan De Oro",
-            location: "Cagayan de Oro City",
-            year: "2020",
-        },
-        {
-            degree: "Diploma: Computer and Electronics Technology",
-            institution: "STI College Cagayan De Oro",
-            location: "Cagayan de Oro City",
-            year: "2010",
-        },
-    ],
+    education,
     projects: [
+        {
+            title: "AQUILA Interop Kernel (Cross-Edition Event Fabric)",
+            description:
+                "Built a Django-Ninja + django-tenants kernel that consumes every edition's events off Redis Streams, deduplicates on ULID, stores them append-only per tenant, projects an entity graph in arrival order, evaluates versioned rule packs and streams the result over SSE. Packaged the outbox, relay, consumer and manifest validation as an internal SDK published from Jenkins.",
+            technologies: ["Django-Ninja", "django-tenants", "Redis Streams", "PostgreSQL", "SSE", "Kubernetes"],
+            impact: "Six edition backends integrated through one SDK; 400+ kernel tests; first cross-edition route confirmed working in production",
+        },
+        {
+            title: "AQUILA Sentinel (Attack Surface Management)",
+            description:
+                "Built tenant-aware Celery scanner workers (naabu port discovery feeding nuclei), a Behavioural Discovery engine for non-CVE templates, findings and remediation services with SLAs, and a React UI ported from a 28-surface design mock.",
+            technologies: ["Django-Ninja", "Celery", "nuclei", "naabu", "nmap", "React", "TypeScript"],
+            impact: "Replaced seeded demo data with live per-tenant findings; 700+ backend tests",
+        },
         {
             title: "Enterprise GRC Compliance Platform",
             description:
@@ -505,134 +491,17 @@ export const cvDataDeveloper: CVData = {
             impact: "Ensured 100% go-live success for white-labeled client instances under aggressive deadlines; reduced developer environment setup from 2 weeks to 1-3 days.",
         },
     ],
-    certifications: [
-        {
-            category: "Security & Auditing",
-            items: [
-                {
-                    title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
-                    issuer: "SIS CERT.",
-                    date: "December 2025",
-                    details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
-                },
-                {
-                    title: "Introduction to Cybersecurity",
-                    issuer: "Cisco Networking Academy",
-                    date: "October 2020",
-                    details: "Foundational knowledge in cybersecurity principles and practices",
-                },
-            ]
-        },
-        {
-            category: "Database & Information Management",
-            items: [
-                {
-                    title: "Faculty Certification - Information Management",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "Certified to deliver courses in information management, database design, data modeling, SQL, and relational databases",
-                },
-                {
-                    title: "Faculty Certification - Computer Programming 6",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "SQL / Intro to ASP.NET, database design, administration, and hands-on training",
-                },
-            ]
-        },
-        {
-            category: "Mobile Systems & Platforms",
-            items: [
-                {
-                    title: "Faculty Certification - Mobile App Programming 2",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "Android OS and .NET Framework, cross-platform app development using Visual Studio with Xamarin",
-                },
-                {
-                    title: "Faculty Certification - Mobile Systems and Technologies",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Foundational programming technologies, design, and development for mobile applications",
-                },
-            ]
-        },
-        {
-            category: "Programming & Application Development",
-            items: [
-                {
-                    title: "Faculty Certification - Computer/Web Programming 4",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Object-oriented applications for Web and Windows utilizing C#.NET programming, including user interfaces, arrays, and exception handling",
-                },
-                {
-                    title: "Faculty Certification - Integrative Programming",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Design, implementation, testing, and debugging of programs using fundamental constructs in C#",
-                },
-                {
-                    title: "Faculty Certification - Event-Driven Programming",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Exception/file handling, concurrency, and database connectivity",
-                },
-            ]
-        },
-        {
-            category: "Systems, Technology, & Core Tools",
-            items: [
-                {
-                    title: "Faculty Certification - Empowerment Technologies",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "July 2022",
-                    details: "Curate, contextualize, collaborate, and create content/experiences using ICT",
-                },
-                {
-                    title: "Faculty Certification - Computer Productivity Tools",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "March 2022",
-                    details: "MS Word, MS PowerPoint, Windows OS, and personal computer operations",
-                },
-                {
-                    title: "Faculty Certification - Professional Issues in IT",
-                    issuer: "STI College Cagayan De Oro",
-                    date: "2022",
-                    details: "Dominant supportive technologies alongside professional, ethical, legal, security, and social responsibilities",
-                },
-                {
-                    title: "NDG Linux Unhatched",
-                    issuer: "Cisco Networking Academy & Partner NDG",
-                    date: "November 2020",
-                    details: "Foundational Linux system administration and command-line skills",
-                },
-                {
-                    title: "Introduction to IoT",
-                    issuer: "Cisco Networking Academy",
-                    date: "November 2020",
-                    details: "Fundamentals of the Internet of Things and digital transformation",
-                },
-            ]
-        }
-    ],
+    certifications,
 };
 
 // DevOps-focused CV variant (for Junior/Mid-Level DevOps or Infrastructure roles)
 export const cvDataDevOps: CVData = {
     personal: {
-        name: "Zandro E. Narvaza",
+        ...contact,
         title: "DevOps & Infrastructure Engineer",
-        location: "Cagayan de Oro City, Philippines",
-        phone: "+639566500885",
-        email: "zandro.narvaza@gmail.com",
-        linkedin: "linkedin.com/in/zandro-narvaza-3a2863198/",
-        github: "github.com/darkcovenant26",
-        gitlab: "gitlab.cytechint.io/zandron",
-        photo: "/images/profile-photo.jpg",
     },
     summary:
-        "Infrastructure and DevOps Engineer with strong hands-on experience in building automated CI/CD pipelines, containerizing applications, and managing Linux-based server environments. Demonstrated ability to reduce developer onboarding time from weeks to days using Docker, Jenkins, and automated secret management. Passionate about 'infrastructure as code', secure-by-design deployment architectures, and maintaining high-availability systems.",
+        "Infrastructure and DevOps Engineer with strong hands-on experience in building automated CI/CD pipelines, containerizing applications, writing Kubernetes manifests, and managing Linux-based server environments. Demonstrated ability to reduce developer onboarding time from weeks to days using Docker, Jenkins, and automated secret management. Passionate about 'infrastructure as code', secure-by-design deployment architectures, and maintaining high-availability systems.",
     experience: [
         {
             title: "Infrastructure & Deployment Lead",
@@ -641,9 +510,11 @@ export const cvDataDevOps: CVData = {
             period: "September 2025 - Present",
             responsibilities: [
                 "Assumed full ownership of infrastructure orchestration for enterprise white-labeled SaaS solutions, ensuring zero downtime during critical deployments",
-                "Orchestrated complex Jenkins CI/CD workflows to enable automated deployment and infrastructure synchronization across multiple environments",
-                "Managed Kubernetes-based deployment pipelines using Lens IDE to monitor cluster health, troubleshoot pods, and ensure optimal resource allocation",
-                "Designed and maintained event-driven architectures leveraging MinIO for object storage and Keycloak for centralized authentication",
+                "Wrote the Kubernetes manifests for a new cross-edition event fabric: dedicated Redis with persistent TopoLVM storage, CloudNativePG Postgres, kernel, relay and consumer workloads, and ingress for staging and production",
+                "Built Jenkins pipelines that publish an internal Python SDK and deploy services to staging and production, with pre-flight checks that stop a deploy when a required secret, database cluster or Redis is missing",
+                "Rolled out the Sentinel and Resilience editions to Kubernetes (backends, scanner workers, frontends) following shared namespace, ConfigMap and Infisical conventions",
+                "Containerised open-source security scanners (naabu, nuclei) with background template refresh, tuned concurrency and resource limits",
+                "Monitor cluster health and troubleshoot workloads with Lens IDE across services that rely on Keycloak authentication and MinIO object storage",
             ],
         },
         {
@@ -676,7 +547,7 @@ export const cvDataDevOps: CVData = {
             items: [
                 "Docker, Docker Compose",
                 "Jenkins (CI/CD Pipeline Orchestration)",
-                "Kubernetes monitoring (Lens IDE)",
+                "Kubernetes (manifests, ingress, CloudNativePG, Lens IDE)",
                 "Linux Server Administration",
                 "NGINX (Reverse Proxy & Load Balancing)",
                 "Proxmox (Virtual Environment)",
@@ -690,7 +561,7 @@ export const cvDataDevOps: CVData = {
                 "AWS ECR",
                 "S3-compatible storage (MinIO)",
                 "PostgreSQL Database Administration",
-                "Redis (Caching & Queues)",
+                "Redis (Caching, Queues & Streams)",
             ],
         },
         {
@@ -708,24 +579,19 @@ export const cvDataDevOps: CVData = {
                 "Keycloak (IAM)",
                 "Secure-by-Design Architecture",
                 "Multi-tenant data isolation",
+                "Open-source security scanners (nuclei, naabu)",
             ],
         },
     ],
-    education: [
-        {
-            degree: "Bachelor of Science: Information Technology",
-            institution: "STI College Cagayan De Oro",
-            location: "Cagayan de Oro City",
-            year: "2020",
-        },
-        {
-            degree: "Diploma: Computer and Electronics Technology",
-            institution: "STI College Cagayan De Oro",
-            location: "Cagayan de Oro City",
-            year: "2010",
-        },
-    ],
+    education,
     projects: [
+        {
+            title: "Event Fabric Infrastructure on Kubernetes",
+            description:
+                "Deployed a cross-edition event fabric to staging and production: a dedicated Redis for the event streams, CloudNativePG Postgres for the kernel, separate kernel, relay and consumer workloads, ingress for the live operating-picture stream, and Jenkins pipelines with pre-flight dependency checks.",
+            technologies: ["Kubernetes", "CloudNativePG", "Redis", "Jenkins", "Infisical"],
+            impact: "Moved the production kernel off a staging-pinned local volume onto the same managed Postgres setup as every other production database",
+        },
         {
             title: "DevOps Pipeline Automation Ecosystem",
             description:
@@ -742,39 +608,10 @@ export const cvDataDevOps: CVData = {
         },
     ],
     certifications: [
-        {
-            category: "Security & Auditing",
-            items: [
-                {
-                    title: "Lead Auditor Certificate - ISO/IEC 27001:2022 (ISMS)",
-                    issuer: "SIS CERT.",
-                    date: "December 2025",
-                    details: "Information Security Management System, Management System Auditing, Leading Management System Audit Teams",
-                },
-                {
-                    title: "Introduction to Cybersecurity",
-                    issuer: "Cisco Networking Academy",
-                    date: "October 2020",
-                    details: "Foundational knowledge in cybersecurity principles and practices",
-                },
-            ]
-        },
+        securityCertifications,
         {
             category: "Systems, Technology, & Core Tools",
-            items: [
-                {
-                    title: "NDG Linux Unhatched",
-                    issuer: "Cisco Networking Academy & Partner NDG",
-                    date: "November 2020",
-                    details: "Foundational Linux system administration and command-line skills",
-                },
-                {
-                    title: "Introduction to IoT",
-                    issuer: "Cisco Networking Academy",
-                    date: "November 2020",
-                    details: "Fundamentals of the Internet of Things and digital transformation",
-                },
-            ]
-        }
+            items: ciscoFoundationCertifications,
+        },
     ],
 };

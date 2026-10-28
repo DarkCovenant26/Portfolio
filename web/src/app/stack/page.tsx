@@ -1,5 +1,5 @@
 import { cvData } from "@/data/cv-data";
-import { Cpu, Server, Code, Database, Braces, Sparkles, Network, Terminal, Users } from "lucide-react";
+import { Cpu, Server, Code, Database, Braces, Sparkles, Network, Terminal, Users, Shield } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,6 +20,8 @@ export default function StackPage() {
         return <Terminal className="w-5 h-5 text-emerald-500" />;
       case "Architecture & Systems Design":
         return <Network className="w-5 h-5 text-rose-500" />;
+      case "Security Engineering":
+        return <Shield className="w-5 h-5 text-cyan-500" />;
       case "Team Collaboration":
         return <Users className="w-5 h-5 text-indigo-500" />;
       default:
@@ -39,6 +41,8 @@ export default function StackPage() {
         return "bg-emerald-500/10 text-emerald-600 ring-emerald-500/20 hover:bg-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.05)]";
       case "Architecture & Systems Design":
         return "bg-rose-500/10 text-rose-600 ring-rose-500/20 hover:bg-rose-500/20 shadow-[0_0_10px_rgba(244,63,94,0.05)]";
+      case "Security Engineering":
+        return "bg-cyan-500/10 text-cyan-600 ring-cyan-500/20 hover:bg-cyan-500/20 shadow-[0_0_10px_rgba(6,182,212,0.05)]";
       case "Team Collaboration":
         return "bg-indigo-500/10 text-indigo-600 ring-indigo-500/20 hover:bg-indigo-500/20 shadow-[0_0_10px_rgba(99,102,241,0.05)]";
       default:
@@ -53,8 +57,9 @@ export default function StackPage() {
       "md:col-span-1 lg:col-span-1", // Frontend (tall/square)
       "md:col-span-1 lg:col-span-1", // AI
       "md:col-span-2 lg:col-span-2", // DevOps (wide)
-      "md:col-span-3 lg:col-span-3", // Architecture (full width bottom)
-      "md:col-span-1 lg:col-span-3"  // Team Collaboration (if any)
+      "md:col-span-2 lg:col-span-2", // Architecture (wide)
+      "md:col-span-1 lg:col-span-1", // Security Engineering
+      "md:col-span-3 lg:col-span-3"  // Team Collaboration / Leadership (full width bottom)
     ];
     return layout[idx] || "md:col-span-1 lg:col-span-1";
   };

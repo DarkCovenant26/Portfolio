@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
                 permanent: true,
             },
             {
+                source: "/projects/risk-management-sentinel",
+                destination: "/projects/risk-management-v2",
+                permanent: true,
+            },
+            {
                 source: "/work/:slug",
                 destination: "/projects/:slug",
                 permanent: true,

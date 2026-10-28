@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Home, FileText, Briefcase, Mail, X } from "lucide-react";
+import { Search, Home, FileText, Briefcase, Mail, X, Award, Code2, Cpu, Layers, Terminal } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface CommandPaletteProps {
@@ -47,11 +47,17 @@ export function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProps) {
     closePalette();
   };
 
+  // Same pages as the sidebar, plus the CV
   const links = [
     { icon: <Home className="w-4 h-4" />, label: "Home / Overview", path: "/" },
+    { icon: <Briefcase className="w-4 h-4" />, label: "Experience", path: "/experience" },
+    { icon: <Award className="w-4 h-4" />, label: "Certifications", path: "/certifications" },
+    { icon: <Code2 className="w-4 h-4" />, label: "Projects", path: "/projects" },
+    { icon: <Cpu className="w-4 h-4" />, label: "Stack", path: "/stack" },
+    { icon: <Layers className="w-4 h-4" />, label: "Services", path: "/services" },
+    { icon: <Terminal className="w-4 h-4" />, label: "Setup", path: "/uses" },
     { icon: <FileText className="w-4 h-4" />, label: "Curriculum Vitae (CV)", path: "/cv" },
-    { icon: <Briefcase className="w-4 h-4" />, label: "Projects", path: "/#projects" },
-    { icon: <Mail className="w-4 h-4" />, label: "Contact", path: "/#contact" },
+    { icon: <Mail className="w-4 h-4" />, label: "Contact", path: "/contact" },
   ];
 
   const filteredLinks = links.filter((link) =>
@@ -87,13 +93,19 @@ export function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProps) {
                 className="flex-1 bg-transparent outline-none placeholder:text-muted-foreground text-foreground"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => {
+                  // Enter opens the first match, so typing "proj" + Enter works
+                  if (e.key === "Enter" && filteredLinks.length > 0) {
+                    navigateTo(filteredLinks[0].path);
+                  }
+                }}
               />
               <button onClick={closePalette} className="text-muted-foreground hover:text-foreground p-1 transition-colors">
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="max-h-[300px] overflow-y-auto p-2">
+            <div className="max-h-[60vh] overflow-y-auto p-2">
               {filteredLinks.length === 0 ? (
                 <div className="py-6 text-center text-sm text-muted-foreground">
                   No results found.

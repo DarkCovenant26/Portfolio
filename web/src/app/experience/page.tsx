@@ -1,4 +1,5 @@
 import { cvData } from "@/data/cv-data";
+import { renderResponsibilityText } from "@/lib/rich-text";
 import { Calendar, MapPin, Building2, Briefcase } from "lucide-react";
 import { Metadata } from "next";
 
@@ -8,22 +9,12 @@ export const metadata: Metadata = {
 };
 
 const EXPERIENCE_TECHS: Record<string, string[]> = {
-  "Director of Cyber R&D": ["Django", "Django-Ninja", "Keycloak", "React", "Next.js", "MinIO", "Claude Code", "Docker", "Lens", "Event-Driven", "CI/CD", "GitLab CI", "Jenkins", "JSONField", "PostgreSQL"],
+  "Director of Cyber R&D": ["Django", "Django-Ninja", "django-tenants", "FastAPI", "Keycloak", "React", "Next.js", "MinIO", "Claude Code", "Docker", "Kubernetes", "Lens", "Redis Streams", "SSE", "Event-Driven", "CI/CD", "GitLab CI", "Jenkins", "nuclei", "JSONField", "PostgreSQL"],
   "Senior Manager": ["Django", "React", "Redis", "Celery", "Workers", "Event-Driven", "Pandas", "Gemini Pro", "Multi-Tenancy", "PostgreSQL", "CI/CD"],
   "Manager": ["Django REST Framework", "React", "TypeScript", "PostgreSQL"],
   "Web Developer II": ["React", "Django REST Framework", ".NET", "HTML/CSS", "Git"],
   "IT Instructor / IT Program Head": ["Teaching", "IT Curriculum", "Mentoring", "Leadership"],
 };
-
-function renderResponsibilityText(text: string) {
-  const parts = text.split(/\*\*(.*?)\*\*/g);
-  return parts.map((part, index) => {
-    if (index % 2 === 1) {
-      return <strong key={index} className="text-foreground font-semibold">{part}</strong>;
-    }
-    return part;
-  });
-}
 
 export default function ExperiencePage() {
   return (
@@ -89,7 +80,7 @@ export default function ExperiencePage() {
                     {exp.responsibilities.map((resp, idx) => (
                       <li key={idx} className="flex gap-2.5 text-xs text-muted-foreground leading-relaxed">
                         <span className="text-primary mt-1 select-none shrink-0">•</span>
-                        <span>{renderResponsibilityText(resp)}</span>
+                        <span>{renderResponsibilityText(resp, "text-foreground font-semibold")}</span>
                       </li>
                     ))}
                   </ul>

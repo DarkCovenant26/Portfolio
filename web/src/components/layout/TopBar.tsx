@@ -133,9 +133,11 @@ export function TopBar() {
             </Link>
           </Button>
         </div>
-        
-        <CommandPalette isOpen={isCommandOpen} setIsOpen={setIsCommandOpen} />
       </header>
+
+      {/* Outside the header: its sticky + backdrop-blur creates a z-40 stacking context
+          that would trap the palette under page-level sticky bars (e.g. the CV toolbar) */}
+      <CommandPalette isOpen={isCommandOpen} setIsOpen={setIsCommandOpen} />
 
       {/* Mobile Navigation Menu */}
       <AnimatePresence>
