@@ -50,6 +50,29 @@ export interface CVData {
 
 type CertificationGroup = NonNullable<CVData["certifications"]>[number];
 
+const MONTHS: Record<string, number> = {
+    January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
+    July: 7, August: 8, September: 9, October: 10, November: 11, December: 12,
+};
+
+function parseCertDate(date: string): number {
+    const parts = date.trim().split(" ");
+    if (parts.length === 2) {
+        const month = MONTHS[parts[0]] ?? 0;
+        const year = parseInt(parts[1], 10);
+        return year * 100 + month;
+    }
+    // Year-only — treat as month 0 so it sorts after any known month in that year
+    return parseInt(parts[0], 10) * 100;
+}
+
+function sortedCertGroups(groups: CertificationGroup[]): CertificationGroup[] {
+    return groups.map(group => ({
+        ...group,
+        items: [...group.items].sort((a, b) => parseCertDate(b.date) - parseCertDate(a.date)),
+    }));
+}
+
 // ── Shared across every CV variant ────────────────────────────
 
 const contact = {
@@ -112,7 +135,7 @@ const ciscoFoundationCertifications: CertificationGroup["items"] = [
     },
 ];
 
-const certifications: CertificationGroup[] = [
+const certifications: CertificationGroup[] = sortedCertGroups([
     securityCertifications,
     {
         category: "Database & Information Management",
@@ -195,7 +218,7 @@ const certifications: CertificationGroup[] = [
             ...ciscoFoundationCertifications,
         ],
     },
-];
+]);
 
 // Skill groups shared by the executive and developer variants
 const coreSkills: CVData["skills"] = [
@@ -607,11 +630,11 @@ export const cvDataDevOps: CVData = {
             impact: "Successfully isolated tenant data while maintaining a unified application layer, passing rigorous security audits.",
         },
     ],
-    certifications: [
+    certifications: sortedCertGroups([
         securityCertifications,
         {
             category: "Systems, Technology, & Core Tools",
             items: ciscoFoundationCertifications,
         },
-    ],
+    ]),
 };
