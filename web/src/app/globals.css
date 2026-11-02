@@ -415,3 +415,10 @@ html {
   }
 
 }
+
+@media print {
+  .topbar,
+  .sidebar {
+    display: none !important;
+  }
+}
